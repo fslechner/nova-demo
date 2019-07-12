@@ -1,5 +1,13 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+# Nova Demo
+
+A Demoapp implemented with React and Redux written in TypeScript. It fetches datas from the OpenFDA-REST-Api and visualize these datas with Highcharts/Highstock as an interactive statistic.
+
+## See it in action
+
+[https://determined-mayer-fd7213.netlify.com/](https://determined-mayer-fd7213.netlify.com/)
+
 ## Available Scripts
 
 In the project directory, you can run:
