@@ -14,7 +14,7 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/"
+    "url": "https://github.com/fsl0110/nova-demo.git"
   },
   "main": "src/index.tsx",
   "private": true,
