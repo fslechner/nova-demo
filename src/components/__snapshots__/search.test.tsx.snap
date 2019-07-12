@@ -1,0 +1,49 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Search> renders with isLoading=false 1`] = `
+<div
+  className="search"
+>
+  <input
+    aria-label="Searchfield for fiiltering food products"
+    className="search__input"
+    onKeyDown={[Function]}
+    placeholder="e.g. ice cream"
+    type="text"
+  />
+  <button
+    aria-label="Searchbutton for filtering food products"
+    className="search__button"
+    disabled={false}
+    onClick={[Function]}
+  >
+    <span>
+      ⚲
+    </span>
+  </button>
+</div>
+`;
+
+exports[`<Search> renders with isLoading=true 1`] = `
+<div
+  className="search"
+>
+  <input
+    aria-label="Searchfield for fiiltering food products"
+    className="search__input"
+    onKeyDown={[Function]}
+    placeholder="e.g. ice cream"
+    type="text"
+  />
+  <button
+    aria-label="Searchbutton for filtering food products"
+    className="search__button"
+    disabled={true}
+    onClick={[Function]}
+  >
+    <span>
+      ⚲
+    </span>
+  </button>
+</div>
+`;
