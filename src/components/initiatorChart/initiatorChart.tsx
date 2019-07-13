@@ -8,7 +8,7 @@ import { fetchInitiator } from "../../actions";
 import { AppState } from "../../typings";
 require("highcharts-no-data-to-display")(Highcharts);
 
-export interface Props extends HTMLAttributes<HTMLDivElement>, DispatchProps {
+export interface StateProps {
   /** Is loading data. */
   isLoading: boolean;
   /** Has an error. */
@@ -21,6 +21,13 @@ export interface DispatchProps {
   /** Action for fetching data. **/
   fetchInitiator: () => void;
 }
+
+export interface OwnProps {}
+
+export type Props = StateProps &
+  DispatchProps &
+  OwnProps &
+  HTMLAttributes<HTMLDivElement>;
 
 export class InitiatorChart extends PureComponent<Props> {
   private chartInstance: any;
@@ -75,7 +82,7 @@ export class InitiatorChart extends PureComponent<Props> {
 }
 
 export const InitiatorChartConnected = connect(
-  (state: AppState) => ({
+  (state: AppState): StateProps => ({
     isLoading: state.initiator.isLoading,
     hasError: state.initiator.hasError,
     chartOptions: state.initiator.chartOptions

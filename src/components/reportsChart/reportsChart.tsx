@@ -9,7 +9,7 @@ import { AppState } from "../../typings";
 
 require("highcharts-no-data-to-display")(Highcharts);
 
-export interface Props extends HTMLAttributes<HTMLDivElement>, DispatchProps {
+export interface StateProps {
   /** Is loading data */
   isLoading: boolean;
   /** Has an error */
@@ -22,6 +22,13 @@ export interface DispatchProps {
   /** Action for fetching data */
   fetchReports: (term?: string) => void;
 }
+
+export interface OwnProps {}
+
+export type Props = StateProps &
+  DispatchProps &
+  OwnProps &
+  HTMLAttributes<HTMLDivElement>;
 
 export class ReportsChart extends PureComponent<Props> {
   private chartInstance: any;
@@ -78,7 +85,7 @@ export class ReportsChart extends PureComponent<Props> {
 }
 
 export const ReportsChartConnected = connect(
-  (state: AppState) => ({
+  (state: AppState): StateProps => ({
     isLoading: state.reports.isLoading,
     hasError: state.reports.hasError,
     chartOptions: state.reports.chartOptions
