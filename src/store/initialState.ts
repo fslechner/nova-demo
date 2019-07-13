@@ -1,7 +1,7 @@
 import { AppState } from "../typings";
-import { hcGlobal } from "../static/charts/hcGlobal";
-import { hcEnforcementReports } from "../static/charts/hcEnforcementReports";
-import { hcEnforcementInitiators } from "../static/charts/hcEnforcementInitiators";
+import { hcGlobal } from "../setttings/charts/hcGlobal";
+import { hcEnforcementReports } from "../setttings/charts/hcEnforcementReports";
+import { hcEnforcementInitiators } from "../setttings/charts/hcEnforcementInitiators";
 
 export const initialState: AppState = {
   reports: {

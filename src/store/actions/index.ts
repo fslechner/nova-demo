@@ -1,4 +1,4 @@
-import openFDA from "../../static/api/openFDA";
+import openFDA from "../../setttings/api/openFDA";
 import { Dispatch } from "redux";
 import {
   FETCH_REPORTS_START,

@@ -4,7 +4,7 @@ import classNames from "classnames";
 import { Text, Search, ChartHighstock } from "../../../components";
 import { AppState } from "../../../typings";
 import { fetchReports } from "../../../store/actions";
-import text from "../../../static/data/text.json";
+import text from "../../../setttings/data/text.json";
 
 export interface StateProps {
   /** Is loading data. */
