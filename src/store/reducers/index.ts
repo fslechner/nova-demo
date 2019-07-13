@@ -1,17 +1,17 @@
 import produce from "immer";
 import moment from "moment";
-import { initialState } from "../store/initialState";
+import { initialState } from "../initialState";
 import {
   AppState,
   ActionTypes,
   FETCH_REPORTS_START,
-  FETCH_REPORTS_END,
+  FETCH_REPORTS_SUCCESS,
   FETCH_REPORTS_ERROR,
   FETCH_REPORTS_RESET,
-  FETCH_INITIATOR_START,
-  FETCH_INITIATOR_END,
-  FETCH_INITIATOR_ERROR
-} from "../typings";
+  FETCH_INITIATORS_START,
+  FETCH_INITIATORS_SUCCESS,
+  FETCH_INITIATORS_ERROR
+} from "../../typings";
 
 export const reducer = produce(
   (draft: AppState = initialState, action: ActionTypes) => {
@@ -19,7 +19,7 @@ export const reducer = produce(
       case FETCH_REPORTS_START:
         draft.reports.isLoading = true;
         return draft;
-      case FETCH_REPORTS_END:
+      case FETCH_REPORTS_SUCCESS:
         draft.reports.isLoading = false;
         draft.reports.hasError = false;
         draft.reports.chartOptions.series![0].data = action.payload.map(
@@ -39,20 +39,20 @@ export const reducer = produce(
         draft.reports.isLoading = false;
         draft.reports.chartOptions.series![0].data = [null];
         return draft;
-      case FETCH_INITIATOR_START:
-        draft.initiator.isLoading = true;
+      case FETCH_INITIATORS_START:
+        draft.initiators.isLoading = true;
         return draft;
-      case FETCH_INITIATOR_END:
-        draft.initiator.isLoading = false;
-        draft.initiator.hasError = false;
-        draft.initiator.chartOptions.series![0].data = action.payload.map(
+      case FETCH_INITIATORS_SUCCESS:
+        draft.initiators.isLoading = false;
+        draft.initiators.hasError = false;
+        draft.initiators.chartOptions.series![0].data = action.payload.map(
           (i: { term: string; count: number }) => [i.term, i.count]
         );
         return draft;
-      case FETCH_INITIATOR_ERROR:
-        draft.initiator.hasError = true;
-        draft.initiator.isLoading = false;
-        draft.initiator.chartOptions.series![0].data = [null];
+      case FETCH_INITIATORS_ERROR:
+        draft.initiators.hasError = true;
+        draft.initiators.isLoading = false;
+        draft.initiators.chartOptions.series![0].data = [null];
         return draft;
       default:
         return draft;

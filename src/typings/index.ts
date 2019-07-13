@@ -3,33 +3,24 @@ export interface AppState {
     isLoading: boolean;
     hasError: boolean;
     chartOptions: Highcharts.Options;
-    /*   chartData: ChartData; */
   };
-  initiator: {
+  initiators: {
     isLoading: boolean;
     hasError: boolean;
     chartOptions: Highcharts.Options;
-    /* chartData: ChartData; */
   };
 }
 
-export type ChartData = Array<
-  | number
-  | [(number | string), (number | null)]
-  | null
-  | Highcharts.SeriesLineDataOptions
->;
-
-export type ActionTypes = ActionTypesReports | ActionTypesInitiator;
+export type ActionTypes = ActionTypesReports | ActionTypesInitiators;
 
 export const FETCH_REPORTS_START = "FETCH_REPORTS_START";
-export const FETCH_REPORTS_END = "FETCH_REPORTS_END";
+export const FETCH_REPORTS_SUCCESS = "FETCH_REPORTS_SUCCESS";
 export const FETCH_REPORTS_ERROR = "FETCH_REPORTS_ERROR";
 export const FETCH_REPORTS_RESET = "FETCH_REPORTS_RESET";
 
 export type ActionTypesReports =
   | fetchReportsStart
-  | fetchReportsEnd
+  | fetchReportsSuccess
   | fetchReportsError
   | fetchReportsReset;
 
@@ -37,8 +28,8 @@ export interface fetchReportsStart {
   type: typeof FETCH_REPORTS_START;
 }
 
-export interface fetchReportsEnd {
-  type: typeof FETCH_REPORTS_END;
+export interface fetchReportsSuccess {
+  type: typeof FETCH_REPORTS_SUCCESS;
   payload: [];
 }
 
@@ -50,24 +41,24 @@ export interface fetchReportsReset {
   type: typeof FETCH_REPORTS_RESET;
 }
 
-export const FETCH_INITIATOR_START = "FETCH_INITIATOR_START";
-export const FETCH_INITIATOR_END = "FETCH_INITIATOR_END";
-export const FETCH_INITIATOR_ERROR = "FETCH_INITIATOR_ERROR";
+export const FETCH_INITIATORS_START = "FETCH_INITIATORS_START";
+export const FETCH_INITIATORS_SUCCESS = "FETCH_INITIATORS_SUCCESS";
+export const FETCH_INITIATORS_ERROR = "FETCH_INITIATORS_ERROR";
 
-export type ActionTypesInitiator =
-  | fetchInitiatorStart
-  | fetchInitiatorEnd
-  | fetchInitiatorError;
+export type ActionTypesInitiators =
+  | fetchInitiatorsStart
+  | fetchInitiatorsSuccess
+  | fetchInitiatorsError;
 
-export interface fetchInitiatorStart {
-  type: typeof FETCH_INITIATOR_START;
+export interface fetchInitiatorsStart {
+  type: typeof FETCH_INITIATORS_START;
 }
 
-export interface fetchInitiatorEnd {
-  type: typeof FETCH_INITIATOR_END;
+export interface fetchInitiatorsSuccess {
+  type: typeof FETCH_INITIATORS_SUCCESS;
   payload: [];
 }
 
-export interface fetchInitiatorError {
-  type: typeof FETCH_INITIATOR_ERROR;
+export interface fetchInitiatorsError {
+  type: typeof FETCH_INITIATORS_ERROR;
 }

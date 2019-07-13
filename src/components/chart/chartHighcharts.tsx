@@ -2,6 +2,7 @@ import React, { HTMLAttributes, PureComponent } from "react";
 import Highcharts from "highcharts";
 import HighchartsReact from "highcharts-react-official";
 import classNames from "classnames";
+import { Error } from "..";
 require("highcharts-no-data-to-display")(Highcharts);
 
 export interface Props extends HTMLAttributes<HTMLDivElement> {
@@ -12,10 +13,10 @@ export interface Props extends HTMLAttributes<HTMLDivElement> {
   /** Options and Data of the chart */
   chartOptions: Highcharts.Options;
   /** Action for fetching data. */
-  fetchInitiator: () => void;
+  fetchHandler: () => void;
 }
 
-export class InitiatorChart extends PureComponent<Props> {
+export class ChartHighcharts extends PureComponent<Props> {
   private chartInstance: any;
 
   constructor(props: Props) {
@@ -29,11 +30,17 @@ export class InitiatorChart extends PureComponent<Props> {
   }
 
   componentDidMount() {
-    this.props.fetchInitiator();
+    this.props.fetchHandler();
   }
 
   render() {
-    const { isLoading, hasError, chartOptions, className } = this.props;
+    const {
+      isLoading,
+      hasError,
+      chartOptions,
+      fetchHandler,
+      className
+    } = this.props;
 
     if (!hasError && this.chartInstance && isLoading) {
       this.chartInstance.showLoading();
@@ -44,14 +51,18 @@ export class InitiatorChart extends PureComponent<Props> {
 
     return (
       <div className={classNames(className)}>
-        <HighchartsReact
-          highcharts={Highcharts}
-          options={chartOptions}
-          callback={this.afterChartCreated}
-        />
+        {!hasError ? (
+          <HighchartsReact
+            highcharts={Highcharts}
+            options={chartOptions}
+            callback={this.afterChartCreated}
+          />
+        ) : (
+          <Error fetchData={fetchHandler} isLoading={isLoading} />
+        )}
       </div>
     );
   }
 }
 
-export default InitiatorChart;
+export default ChartHighcharts;

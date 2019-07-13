@@ -1,7 +1,7 @@
 import { AppState } from "../typings";
-import { hcGlobal } from "../charts/hcGlobal";
-import { hcEnforcementReports } from "../charts/hcEnforcementReports";
-import { hcEnforcementInitiators } from "../charts/hcEnforcementInitiators";
+import { hcGlobal } from "../static/charts/hcGlobal";
+import { hcEnforcementReports } from "../static/charts/hcEnforcementReports";
+import { hcEnforcementInitiators } from "../static/charts/hcEnforcementInitiators";
 
 export const initialState: AppState = {
   reports: {
@@ -9,7 +9,7 @@ export const initialState: AppState = {
     isLoading: false,
     hasError: false
   },
-  initiator: {
+  initiators: {
     chartOptions: { ...hcGlobal, ...hcEnforcementInitiators },
     isLoading: false,
     hasError: false

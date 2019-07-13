@@ -1,19 +1,17 @@
-import openFDA from "../api/openFDA";
+import openFDA from "../../static/api/openFDA";
 import { Dispatch } from "redux";
 import {
   FETCH_REPORTS_START,
-  FETCH_REPORTS_END,
+  FETCH_REPORTS_SUCCESS,
   FETCH_REPORTS_ERROR,
   FETCH_REPORTS_RESET,
-  FETCH_INITIATOR_START,
-  FETCH_INITIATOR_END,
-  FETCH_INITIATOR_ERROR
-} from "../typings";
+  FETCH_INITIATORS_START,
+  FETCH_INITIATORS_SUCCESS,
+  FETCH_INITIATORS_ERROR
+} from "../../typings";
 
 // Reports Actions
-export const fetchReports = (term: string = "") => async (
-  dispatch: Dispatch
-) => {
+export const fetchReports = (term: string = "") => (dispatch: Dispatch) => {
   dispatch(fetchReportsStart());
   openFDA
     .get(
@@ -21,7 +19,7 @@ export const fetchReports = (term: string = "") => async (
     )
     .then(res => {
       dispatch(
-        dispatch({ type: FETCH_REPORTS_END, payload: res.data.results })
+        dispatch({ type: FETCH_REPORTS_SUCCESS, payload: res.data.results })
       );
     })
     .catch(err => {
@@ -53,28 +51,28 @@ export const fetchReportsReset = () => {
 
 // Initiator Actions
 
-export const fetchInitiator = () => async (dispatch: Dispatch) => {
-  dispatch(fetchInitiatorStart());
+export const fetchInitiators = () => (dispatch: Dispatch) => {
+  dispatch(fetchInitiatorsStart());
   openFDA
     .get(`food/enforcement.json?count=voluntary_mandated.exact`)
     .then(res => {
       dispatch(
-        dispatch({ type: FETCH_INITIATOR_END, payload: res.data.results })
+        dispatch({ type: FETCH_INITIATORS_SUCCESS, payload: res.data.results })
       );
     })
     .catch(err => {
-      dispatch(fetchInitiatorError());
+      dispatch(fetchInitiatorsError());
     });
 };
 
-export const fetchInitiatorStart = () => {
+export const fetchInitiatorsStart = () => {
   return {
-    type: FETCH_INITIATOR_START
+    type: FETCH_INITIATORS_START
   };
 };
 
-export const fetchInitiatorError = () => {
+export const fetchInitiatorsError = () => {
   return {
-    type: FETCH_INITIATOR_ERROR
+    type: FETCH_INITIATORS_ERROR
   };
 };

@@ -1,4 +1,4 @@
-import * as actions from "./";
+import * as actions from ".";
 import {
   FETCH_REPORTS_START,
   FETCH_REPORTS_END,
@@ -7,7 +7,7 @@ import {
   FETCH_INITIATOR_START,
   FETCH_INITIATOR_END,
   FETCH_INITIATOR_ERROR
-} from "../typings";
+} from "../../typings";
 
 describe("sync actions", () => {
   // Reports

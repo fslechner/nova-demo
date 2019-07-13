@@ -1,7 +1,7 @@
 import produce from "immer";
 import { reducer } from ".";
-import * as types from "../typings";
-import { initialState } from "../store";
+import * as types from "../../typings";
+import { initialState } from "../initialState";
 
 describe("reducer", () => {
   it("should handle FETCH_REPORTS_START", () => {
@@ -14,7 +14,7 @@ describe("reducer", () => {
     expect(reducer(initialState, action)).toEqual(nextState);
   });
 
-  /*   it("should handle FETCH_REPORTS_END", () => {
+  it("should handle FETCH_REPORTS_END", () => {
     const action: types.fetchReportsEnd = {
       type: types.FETCH_REPORTS_END,
       payload: []
@@ -22,11 +22,11 @@ describe("reducer", () => {
     const nextState: types.AppState = produce(initialState, draft => {
       draft.reports.isLoading = false;
       draft.reports.hasError = false;
-      draft.reports.data = [];
+      draft.reports.chartOptions.series![0].data;
     });
 
     expect(reducer(initialState, action)).toEqual(nextState);
-  }); */
+  });
 
   it("should handle FETCH_REPORTS_ERROR", () => {
     const action: types.fetchReportsError = {
@@ -35,7 +35,7 @@ describe("reducer", () => {
     const nextState: types.AppState = produce(initialState, draft => {
       draft.reports.hasError = true;
       draft.reports.isLoading = false;
-      draft.reports.data = [];
+      draft.reports.chartOptions.series![0].data;
     });
 
     expect(reducer(initialState, action)).toEqual(nextState);
@@ -48,7 +48,7 @@ describe("reducer", () => {
     const nextState: types.AppState = produce(initialState, draft => {
       draft.reports.hasError = false;
       draft.reports.isLoading = false;
-      draft.reports.data = [];
+      draft.reports.chartOptions.series![0].data;
     });
     expect(reducer(initialState, action)).toEqual(nextState);
   });
@@ -63,7 +63,7 @@ describe("reducer", () => {
     expect(reducer(initialState, action)).toEqual(nextState);
   });
 
-  /*   it("should handle FETCH_INITIATOR_END", () => {
+  it("should handle FETCH_INITIATOR_END", () => {
     const action: types.fetchInitiatorEnd = {
       type: types.FETCH_INITIATOR_END,
       payload: []
@@ -71,11 +71,11 @@ describe("reducer", () => {
     const nextState: types.AppState = produce(initialState, draft => {
       draft.initiator.isLoading = false;
       draft.initiator.hasError = false;
-      draft.initiator.data = [];
+      draft.reports.chartOptions.series![0].data;
     });
     expect(reducer(initialState, action)).toEqual(nextState);
   });
- */
+
   it("should handle FETCH_INITIATOR_ERROR", () => {
     const action: types.fetchInitiatorError = {
       type: types.FETCH_INITIATOR_ERROR
@@ -83,7 +83,7 @@ describe("reducer", () => {
     const nextState: types.AppState = produce(initialState, draft => {
       draft.initiator.hasError = true;
       draft.initiator.isLoading = false;
-      draft.initiator.data = [];
+      draft.reports.chartOptions.series![0].data;
     });
     expect(reducer(initialState, action)).toEqual(nextState);
   });
