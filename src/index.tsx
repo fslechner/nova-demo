@@ -1,7 +1,7 @@
 import React from "react";
 import { render } from "react-dom";
 import * as serviceWorker from "./serviceWorker";
-import { Food } from "./pages/food";
+import { Food } from "./pages/food/food";
 import store from "./store";
 import { Provider } from "react-redux";
 import "./styles/index.css";

@@ -1,15 +1,24 @@
 export interface AppState {
   reports: {
-    data: [];
     isLoading: boolean;
     hasError: boolean;
+    chartOptions: Highcharts.Options;
+    /*   chartData: ChartData; */
   };
   initiator: {
-    data: [];
     isLoading: boolean;
     hasError: boolean;
+    chartOptions: Highcharts.Options;
+    /* chartData: ChartData; */
   };
 }
+
+export type ChartData = Array<
+  | number
+  | [(number | string), (number | null)]
+  | null
+  | Highcharts.SeriesLineDataOptions
+>;
 
 export type ActionTypes = ActionTypesReports | ActionTypesInitiator;
 

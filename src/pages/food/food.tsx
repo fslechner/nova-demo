@@ -3,8 +3,8 @@ import {
   Text,
   ReportsChartConnected as ReportsChart,
   InitiatorChartConnected as InitiatorChart
-} from "../components";
-import text from "../data/text.json";
+} from "../../components";
+import text from "../../data/text.json";
 
 document.title = "Demo App: Food recall enforcement reports";
 

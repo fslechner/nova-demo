@@ -1,5 +1,6 @@
 import produce from "immer";
-import { initialState } from "../store";
+import moment from "moment";
+import { initialState } from "../store/initialState";
 import {
   AppState,
   ActionTypes,
@@ -21,17 +22,22 @@ export const reducer = produce(
       case FETCH_REPORTS_END:
         draft.reports.isLoading = false;
         draft.reports.hasError = false;
-        draft.reports.data = action.payload;
+        draft.reports.chartOptions.series![0].data = action.payload.map(
+          (i: { time: number; count: number }) => [
+            moment(i.time, "YYYY-MM-DD").valueOf(),
+            i.count
+          ]
+        );
         return draft;
       case FETCH_REPORTS_ERROR:
         draft.reports.hasError = true;
         draft.reports.isLoading = false;
-        draft.reports.data = [];
+        draft.reports.chartOptions.series![0].data = [null];
         return draft;
       case FETCH_REPORTS_RESET:
         draft.reports.hasError = false;
         draft.reports.isLoading = false;
-        draft.reports.data = [];
+        draft.reports.chartOptions.series![0].data = [null];
         return draft;
       case FETCH_INITIATOR_START:
         draft.initiator.isLoading = true;
@@ -39,12 +45,14 @@ export const reducer = produce(
       case FETCH_INITIATOR_END:
         draft.initiator.isLoading = false;
         draft.initiator.hasError = false;
-        draft.initiator.data = action.payload;
+        draft.initiator.chartOptions.series![0].data = action.payload.map(
+          (i: { term: string; count: number }) => [i.term, i.count]
+        );
         return draft;
       case FETCH_INITIATOR_ERROR:
         draft.initiator.hasError = true;
         draft.initiator.isLoading = false;
-        draft.initiator.data = [];
+        draft.initiator.chartOptions.series![0].data = [null];
         return draft;
       default:
         return draft;
