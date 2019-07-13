@@ -11,10 +11,6 @@ export interface AppState {
   };
 }
 
-export interface SharedProps {
-  className?: string;
-}
-
 export type ActionTypes = ActionTypesReports | ActionTypesInitiator;
 
 export const FETCH_REPORTS_START = "FETCH_REPORTS_START";

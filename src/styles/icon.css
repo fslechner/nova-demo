@@ -1,0 +1,56 @@
+.fs-icon {
+  display: inline-block;
+  pointer-events: none;
+  width: inherit;
+  height: inherit;
+  fill: currentColor;
+  color: inherit;
+  z-index: 1;
+}
+
+.fs-icon--spin {
+  animation: spin 0.6s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.fs-icon--90 {
+  transform: rotate(90deg);
+}
+
+.fs-icon--180 {
+  transform: rotate(90deg);
+}
+
+.fs-icon--270 {
+  transform: rotate(90deg);
+}
+
+.fs-icon--xs {
+  width: 0.8em;
+  height: 0.8em;
+}
+
+.fs-icon--s {
+  width: 1em;
+  height: 1em;
+}
+
+.fs-icon--m {
+  width: 1.4em;
+  height: 1.4em;
+}
+
+.fs-icon--l {
+  width: 2em;
+  height: 2em;
+}
+
+.fs-icon--xl {
+  width: 2.8em;
+  height: 2.8em;
+}

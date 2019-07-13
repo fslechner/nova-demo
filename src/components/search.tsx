@@ -1,18 +1,18 @@
-import React from "react";
+import React, { PureComponent, HTMLAttributes } from "react";
 import classNames from "classnames";
 import dompurify from "dompurify";
-import { SharedProps } from "../typings";
+import { Button } from "./button";
 
 const sanitizer = dompurify.sanitize;
 
-export interface Props extends SharedProps {
+export interface Props extends HTMLAttributes<HTMLDivElement> {
   /** Is loading data */
   isLoading: boolean;
   /** ClickHandler for fetching data */
   fetchData: (term: string) => void;
 }
 
-export class Search extends React.Component<Props> {
+export class Search extends PureComponent<Props> {
   private searchInputRef = React.createRef<HTMLInputElement>();
 
   handleSubmitClick = () => {
@@ -38,14 +38,14 @@ export class Search extends React.Component<Props> {
           onKeyDown={this.handleEnterClick}
           placeholder="e.g. ice cream"
         />
-        <button
-          className="search__button"
+        <Button
           aria-label="Searchbutton for filtering food products"
+          className="search__button"
+          iconName="search"
+          iconSize="l"
+          isLoading={isLoading}
           onClick={this.handleSubmitClick}
-          disabled={isLoading}
-        >
-          <span>&#9906;</span>
-        </button>
+        />
       </div>
     );
   }

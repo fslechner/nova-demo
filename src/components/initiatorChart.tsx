@@ -1,4 +1,4 @@
-import React from "react";
+import React, { HTMLAttributes } from "react";
 import { connect } from "react-redux";
 import produce from "immer";
 import Highcharts from "highcharts";
@@ -6,10 +6,10 @@ import HighchartsReact from "highcharts-react-official";
 import classNames from "classnames";
 import { Error } from "./error";
 import { fetchInitiator } from "../actions";
-import { AppState, SharedProps } from "../typings";
+import { AppState } from "../typings";
 require("highcharts-no-data-to-display")(Highcharts);
 
-export interface Props extends SharedProps {
+export interface Props extends HTMLAttributes<HTMLDivElement> {
   /** Is loading data */
   isLoading: boolean;
   /** Has an error */
@@ -89,7 +89,7 @@ class InitiatorChart extends React.PureComponent<Props, State> {
       <div className={classNames(className)}>
         <h3 className="horizontal-center">Enforcement initiators</h3>
         <div className="chart-wrapper horizontal-center">
-          {!hasError ? (
+          {hasError ? (
             <HighchartsReact
               highcharts={Highcharts}
               options={this.state.chartOptions}

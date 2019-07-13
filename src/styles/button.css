@@ -1,0 +1,20 @@
+.fs-btn {
+  outline: none;
+  background: none;
+  border: inherit;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.fs-btn:focus {
+  outline: none;
+}
+
+.fs-btn--after {
+  flex-direction: row-reverse;
+}
+
+.fs-btn--before {
+  flex-direction: row;
+}

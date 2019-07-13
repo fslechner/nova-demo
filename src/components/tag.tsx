@@ -1,8 +1,7 @@
-import React, { FC, ReactNode } from "react";
-import { SharedProps } from "../typings";
+import React, { FC, ReactNode, HTMLAttributes } from "react";
 
-export interface Props extends SharedProps {
-  /** Nodes between this component **/
+export interface Props extends HTMLAttributes<HTMLElement> {
+  /** Nodes within this component **/
   children: ReactNode | ReactNode[];
   /** Type of a HTML-Tag this component will use as root tag**/
   type: keyof JSX.IntrinsicElements;

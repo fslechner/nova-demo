@@ -1,7 +1,10 @@
 @import-normalize;
+@import "icon.css";
+@import "button.css";
 @import "food.css";
 @import "search.css";
 @import "error.css";
+
 * {
   box-sizing: border-box;
 }
@@ -14,7 +17,6 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: rgb(32, 32, 32);
-  box-sizing: border-box;
 }
 
 button,

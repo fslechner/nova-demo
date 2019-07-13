@@ -1,4 +1,4 @@
-import React from "react";
+import React, { PureComponent, HTMLAttributes } from "react";
 import { connect } from "react-redux";
 import produce from "immer";
 import Highcharts from "highcharts/highstock";
@@ -8,11 +8,11 @@ import classNames from "classnames";
 import { Search } from "./search";
 import { Error } from "./error";
 import { fetchReports } from "../actions";
-import { AppState, SharedProps } from "../typings";
+import { AppState } from "../typings";
 
 require("highcharts-no-data-to-display")(Highcharts);
 
-export interface Props extends SharedProps {
+export interface Props extends HTMLAttributes<HTMLDivElement> {
   /** Is loading data */
   isLoading: boolean;
   /** Has an error */
@@ -27,7 +27,7 @@ interface State {
   chartOptions: Highcharts.Options;
 }
 
-export class ReportsChart extends React.PureComponent<Props, State> {
+export class ReportsChart extends PureComponent<Props, State> {
   private chartInstance: any;
 
   constructor(props: Props) {
@@ -107,7 +107,7 @@ export class ReportsChart extends React.PureComponent<Props, State> {
         <div>
           <h3 className="horizontal-center">Enforcement reports over time</h3>
           <div className="chart-wrapper">
-            {!hasError ? (
+            {hasError ? (
               <HighchartsReact
                 highcharts={Highcharts}
                 options={this.state.chartOptions}
