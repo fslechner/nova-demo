@@ -1,7 +1,12 @@
-import React, { PureComponent, HTMLAttributes } from "react";
+import React, {
+  createRef,
+  PureComponent,
+  HTMLAttributes,
+  KeyboardEvent
+} from "react";
 import classNames from "classnames";
 import dompurify from "dompurify";
-import { Button } from "./button";
+import { Button } from "..";
 
 const sanitizer = dompurify.sanitize;
 
@@ -13,13 +18,13 @@ export interface Props extends HTMLAttributes<HTMLDivElement> {
 }
 
 export class Search extends PureComponent<Props> {
-  private searchInputRef = React.createRef<HTMLInputElement>();
+  private searchInputRef = createRef<HTMLInputElement>();
 
   handleSubmitClick = () => {
     this.props.fetchData(sanitizer(this.searchInputRef.current!.value));
   };
 
-  handleEnterClick = (e: any) => {
+  handleEnterClick = (e: KeyboardEvent<HTMLInputElement>) => {
     if (e.keyCode === 13 && !this.props.isLoading) {
       this.props.fetchData(sanitizer(this.searchInputRef.current!.value));
     }

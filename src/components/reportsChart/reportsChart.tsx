@@ -5,10 +5,9 @@ import Highcharts from "highcharts/highstock";
 import HighchartsReact from "highcharts-react-official";
 import moment from "moment";
 import classNames from "classnames";
-import { Search } from "./search";
-import { Error } from "./error";
-import { fetchReports } from "../actions";
-import { AppState } from "../typings";
+import { Error, Search } from "..";
+import { fetchReports } from "../../actions";
+import { AppState } from "../../typings";
 
 require("highcharts-no-data-to-display")(Highcharts);
 
@@ -107,7 +106,7 @@ export class ReportsChart extends PureComponent<Props, State> {
         <div>
           <h3 className="horizontal-center">Enforcement reports over time</h3>
           <div className="chart-wrapper">
-            {hasError ? (
+            {!hasError ? (
               <HighchartsReact
                 highcharts={Highcharts}
                 options={this.state.chartOptions}

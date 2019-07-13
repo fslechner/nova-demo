@@ -1,7 +1,9 @@
 import React from "react";
-import { Text } from "../components/text";
-import { ReportsChartConnected as ReportsChart } from "../components/reportsChart";
-import { InitiatorChartConnected as InitiatorChart } from "../components/initiatorChart";
+import {
+  Text,
+  ReportsChartConnected as ReportsChart,
+  InitiatorChartConnected as InitiatorChart
+} from "../components";
 import text from "../data/text.json";
 
 document.title = "Demo App: Food recall enforcement reports";

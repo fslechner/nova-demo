@@ -1,6 +1,7 @@
 import React, { PureComponent, ReactNode, HTMLAttributes } from "react";
 import classNames from "classnames";
-import { Icon, IconNameProps, SizeProps } from "./icon/icon";
+import { Icon } from "..";
+import { IconNameProps, IconSizeProps } from "../icon/icon";
 
 export type AlignProps = "before" | "after";
 
@@ -11,7 +12,7 @@ export interface Props extends HTMLAttributes<HTMLButtonElement> {
   /** Alignment of the icon. Default is before. */
   iconAlign?: AlignProps;
   /** Size of the icon. */
-  iconSize?: SizeProps;
+  iconSize?: IconSizeProps;
   /** While isLoading is true the button is disabled */
   isLoading?: boolean;
   /** Should the icon spinning while isLoading is active? */
@@ -51,3 +52,5 @@ export class Button extends PureComponent<Props> {
     );
   }
 }
+
+export default Button;

@@ -2,14 +2,14 @@ import React, { PureComponent, HTMLAttributes } from "react";
 import classNames from "classnames";
 import sprite from "./spritemap.svg";
 
-export type SizeProps = "xs" | "s" | "m" | "l" | "xl";
+export type IconSizeProps = "xs" | "s" | "m" | "l" | "xl";
 
-export type RotateProps = "90" | "180" | "270";
+export type IconRotateProps = "90" | "180" | "270";
 
 export type IconNameProps = "search" | "refresh";
 
 export interface Props extends HTMLAttributes<HTMLOrSVGElement> {
-  size: SizeProps;
+  size: IconSizeProps;
   /** This component does not support custom children. Use the `icon` prop. */
   children?: never;
   /** Name of the icon to show. */
@@ -17,7 +17,7 @@ export interface Props extends HTMLAttributes<HTMLOrSVGElement> {
   /** Title of the icon if you may set the `<title>` element as a tooltip. */
   title?: string;
   /** Rotation of the icon e.g. to use one Arrow-Icon for all directions. */
-  rotate?: RotateProps;
+  rotate?: IconRotateProps;
   /** Spin of the icon. If set to true the icon works as a spinner. */
   spin?: boolean;
 }

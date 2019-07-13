@@ -1,7 +1,7 @@
 import React, { FC, HTMLAttributes } from "react";
 import classNames from "classnames";
 import dompurify from "dompurify";
-import { Tag } from "./tag";
+import { Tag } from "..";
 
 const sanitizer = dompurify.sanitize;
 
