@@ -1,6 +1,6 @@
-import { hcGlobal } from "../setttings/charts/hcGlobal";
-import { hcEnforcementReports } from "../setttings/charts/hcEnforcementReports";
-import { hcEnforcementInitiators } from "../setttings/charts/hcEnforcementInitiators";
+import { hcGlobal } from "../settings/charts/hcGlobal";
+import { hcEnforcementReports } from "../settings/charts/hcEnforcementReports";
+import { hcEnforcementInitiators } from "../settings/charts/hcEnforcementInitiators";
 
 export interface AppState {
   [location: string]: {
