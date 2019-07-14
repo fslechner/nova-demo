@@ -1,0 +1,31 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Tag> renders h1 tag 1`] = `
+<h1
+  dangerouslySetInnerHTML={
+    Object {
+      "__html": "Some text",
+    }
+  }
+/>
+`;
+
+exports[`<Tag> renders h2 tag 1`] = `
+<h1
+  dangerouslySetInnerHTML={
+    Object {
+      "__html": "Some text",
+    }
+  }
+/>
+`;
+
+exports[`<Tag> renders h3 tag 1`] = `
+<h1
+  dangerouslySetInnerHTML={
+    Object {
+      "__html": "Some text",
+    }
+  }
+/>
+`;

@@ -1,38 +1,41 @@
 import produce from "immer";
 import { reducer } from ".";
-import * as types from "../../typings";
-import { initialState } from "../initialState";
+import * as types from "../actions";
+import { initialState, AppState } from "../initialState";
 
 describe("reducer", () => {
-  it("should handle FETCH_REPORTS_START", () => {
-    const action: types.fetchReportsStart = {
-      type: types.FETCH_REPORTS_START
+  it("should handle FETCH_START", () => {
+    const action: types.FetchStart = {
+      type: types.FETCH_START,
+      location: "reports"
     };
-    const nextState: types.AppState = produce(initialState, draft => {
+    const nextState: AppState = produce(initialState, draft => {
       draft.reports.isLoading = true;
     });
     expect(reducer(initialState, action)).toEqual(nextState);
   });
 
-  it("should handle FETCH_REPORTS_END", () => {
-    const action: types.fetchReportsEnd = {
-      type: types.FETCH_REPORTS_END,
-      payload: []
+  /*   it("should handle FETCH_SUCCESS", () => {
+    const action: types.FetchSuccess = {
+      type: types.FETCH_SUCCESS,
+      payload: [],
+      location: "reports"
     };
-    const nextState: types.AppState = produce(initialState, draft => {
-      draft.reports.isLoading = false;
-      draft.reports.hasError = false;
-      draft.reports.chartOptions.series![0].data;
+    const nextState: AppState = produce(initialState, draft => {
+      draft[action.location].isLoading = false;
+      draft[action.location].hasError = false;
+      draft[action.location].chartOptions.series![0].data;
     });
 
     expect(reducer(initialState, action)).toEqual(nextState);
-  });
+  }); */
 
-  it("should handle FETCH_REPORTS_ERROR", () => {
-    const action: types.fetchReportsError = {
-      type: types.FETCH_REPORTS_ERROR
+  it("should handle FETCH_ERROR", () => {
+    const action: types.FetchError = {
+      type: types.FETCH_ERROR,
+      location: "reports"
     };
-    const nextState: types.AppState = produce(initialState, draft => {
+    const nextState: AppState = produce(initialState, draft => {
       draft.reports.hasError = true;
       draft.reports.isLoading = false;
       draft.reports.chartOptions.series![0].data;
@@ -41,48 +44,14 @@ describe("reducer", () => {
     expect(reducer(initialState, action)).toEqual(nextState);
   });
 
-  it("should handle FETCH_REPORTS_RESET", () => {
-    const action: types.fetchReportsReset = {
-      type: types.FETCH_REPORTS_RESET
+  it("should handle RESET", () => {
+    const action: types.FetchReset = {
+      type: types.FETCH_RESET,
+      location: "reports"
     };
-    const nextState: types.AppState = produce(initialState, draft => {
+    const nextState: AppState = produce(initialState, draft => {
       draft.reports.hasError = false;
       draft.reports.isLoading = false;
-      draft.reports.chartOptions.series![0].data;
-    });
-    expect(reducer(initialState, action)).toEqual(nextState);
-  });
-
-  it("should handle FETCH_INITIATOR_START", () => {
-    const action: types.fetchInitiatorStart = {
-      type: types.FETCH_INITIATOR_START
-    };
-    const nextState: types.AppState = produce(initialState, draft => {
-      draft.initiator.isLoading = true;
-    });
-    expect(reducer(initialState, action)).toEqual(nextState);
-  });
-
-  it("should handle FETCH_INITIATOR_END", () => {
-    const action: types.fetchInitiatorEnd = {
-      type: types.FETCH_INITIATOR_END,
-      payload: []
-    };
-    const nextState: types.AppState = produce(initialState, draft => {
-      draft.initiator.isLoading = false;
-      draft.initiator.hasError = false;
-      draft.reports.chartOptions.series![0].data;
-    });
-    expect(reducer(initialState, action)).toEqual(nextState);
-  });
-
-  it("should handle FETCH_INITIATOR_ERROR", () => {
-    const action: types.fetchInitiatorError = {
-      type: types.FETCH_INITIATOR_ERROR
-    };
-    const nextState: types.AppState = produce(initialState, draft => {
-      draft.initiator.hasError = true;
-      draft.initiator.isLoading = false;
       draft.reports.chartOptions.series![0].data;
     });
     expect(reducer(initialState, action)).toEqual(nextState);

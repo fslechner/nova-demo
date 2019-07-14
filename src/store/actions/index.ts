@@ -67,37 +67,9 @@ export interface FetchReset {
   location: string;
 }
 
-export const fetchReset = (location: string): FetchReset => {
+export const fetchReset = (location: string) => {
   return {
     type: FETCH_RESET,
     location
   };
 };
-
-/* 
-export const fetchInitiators = () => (dispatch: Dispatch) => {
-  dispatch(fetchInitiatorsStart());
-  openFDA
-    .get(`food/enforcement.json?count=voluntary_mandated.exact`)
-    .then(res => {
-      dispatch(
-        dispatch({ type: FETCH_INITIATORS_SUCCESS, payload: res.data.results })
-      );
-    })
-    .catch(err => {
-      dispatch(fetchInitiatorsError());
-    });
-};
-
-export const fetchInitiatorsStart = () => {
-  return {
-    type: FETCH_INITIATORS_START
-  };
-};
-
-export const fetchInitiatorsError = () => {
-  return {
-    type: FETCH_INITIATORS_ERROR
-  };
-};
- */

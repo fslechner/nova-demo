@@ -1,49 +1,46 @@
 import * as actions from ".";
 import {
-  FETCH_REPORTS_START,
-  FETCH_REPORTS_END,
-  FETCH_REPORTS_ERROR,
-  FETCH_REPORTS_RESET,
-  FETCH_INITIATOR_START,
-  FETCH_INITIATOR_END,
-  FETCH_INITIATOR_ERROR
-} from "../../typings";
+  FetchStart,
+  FetchError,
+  FetchSuccess,
+  FetchReset,
+  FETCH_START,
+  FETCH_SUCCESS,
+  FETCH_ERROR,
+  FETCH_RESET
+} from "../actions";
 
 describe("sync actions", () => {
-  // Reports
   it("should create an action to set isLoading for reports fetch", () => {
-    const expectedAction = {
-      type: FETCH_REPORTS_START
+    const expectedAction: FetchStart = {
+      type: FETCH_START,
+      location: "reports"
     };
-    expect(actions.fetchReportsStart()).toEqual(expectedAction);
+    expect(actions.fetchStart("reports")).toEqual(expectedAction);
   });
 
-  it("should create an action to set hasError for reports fetch", () => {
-    const expectedAction = {
-      type: FETCH_REPORTS_ERROR
+  /*   it("should create an action to set success for reports fetch", () => {
+    const expectedAction: FetchSuccess = {
+      type: FETCH_SUCCESS,
+      payload: [],
+      location: "reports"
     };
-    expect(actions.fetchReportsError()).toEqual(expectedAction);
+    expect(actions.fetchSuccess("reports")).toEqual(expectedAction);
+  }); */
+
+  it("should create an action to set hasError for reports fetch", () => {
+    const expectedAction: FetchError = {
+      type: FETCH_ERROR,
+      location: "reports"
+    };
+    expect(actions.fetchError("reports")).toEqual(expectedAction);
   });
 
   it("should create an action to reset a fetching process for reports fetch", () => {
-    const expectedAction = {
-      type: FETCH_REPORTS_RESET
+    const expectedAction: FetchReset = {
+      type: FETCH_RESET,
+      location: "reports"
     };
-    expect(actions.fetchReportsReset()).toEqual(expectedAction);
-  });
-
-  // Initiator
-  it("should create an action to set isLoading for initiator fetch", () => {
-    const expectedAction = {
-      type: FETCH_INITIATOR_START
-    };
-    expect(actions.fetchInitiatorStart()).toEqual(expectedAction);
-  });
-
-  it("should create an action to set hasError for initiator fetch", () => {
-    const expectedAction = {
-      type: FETCH_INITIATOR_ERROR
-    };
-    expect(actions.fetchInitiatorError()).toEqual(expectedAction);
+    expect(actions.fetchReset("reports")).toEqual(expectedAction);
   });
 });

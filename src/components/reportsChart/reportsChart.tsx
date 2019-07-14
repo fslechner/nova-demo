@@ -5,7 +5,7 @@ import HighchartsReact from "highcharts-react-official";
 import classNames from "classnames";
 import { Error, Search } from "..";
 import { fetchReports } from "../../store/actions";
-import { AppState } from "../../typings";
+import { AppState } from "../../..";
 
 require("highcharts-no-data-to-display")(Highcharts);
 

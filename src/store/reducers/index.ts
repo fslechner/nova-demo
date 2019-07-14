@@ -7,7 +7,7 @@ import {
   FETCH_SUCCESS,
   FETCH_ERROR,
   FETCH_RESET
-} from "../../typings";
+} from "../actions";
 
 export const reducer = produce(
   (draft: AppState = initialState, action: ActionTypes) => {

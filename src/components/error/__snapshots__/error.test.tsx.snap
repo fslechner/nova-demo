@@ -1,0 +1,59 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Error> renders with isLoading=fasle 1`] = `
+<div
+  className="error"
+>
+  <div
+    className="text-center"
+  >
+    <h4>
+      An error occured
+    </h4>
+    <p>
+      This Chart can't be shown. Click the reload button to try again.
+    </p>
+    <Button
+      aria-label="Reloadbutton for reloading Chartdatas"
+      className="error__button"
+      iconAlign="after"
+      iconName="refresh"
+      iconSize="m"
+      isLoading={false}
+      isLoadingSpin={true}
+      onClick={[Function]}
+    >
+      Reload
+    </Button>
+  </div>
+</div>
+`;
+
+exports[`<Error> renders with isLoading=true  1`] = `
+<div
+  className="error"
+>
+  <div
+    className="text-center"
+  >
+    <h4>
+      An error occured
+    </h4>
+    <p>
+      This Chart can't be shown. Click the reload button to try again.
+    </p>
+    <Button
+      aria-label="Reloadbutton for reloading Chartdatas"
+      className="error__button"
+      iconAlign="after"
+      iconName="refresh"
+      iconSize="m"
+      isLoading={true}
+      isLoadingSpin={true}
+      onClick={[Function]}
+    >
+      Loading
+    </Button>
+  </div>
+</div>
+`;
