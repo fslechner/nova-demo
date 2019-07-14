@@ -11,24 +11,28 @@ import { Button } from "..";
 const sanitizer = dompurify.sanitize;
 
 export interface Props extends HTMLAttributes<HTMLDivElement> {
+  /** Location to fetch from Api */
+  location: string;
   /** Is loading data */
   isLoading: boolean;
   /** ClickHandler for fetching data */
-  fetchData: (term: string) => void;
+  fetchData: (location: string, term?: string) => void;
 }
 
 export class Search extends PureComponent<Props> {
   private searchInputRef = createRef<HTMLInputElement>();
 
-  handleSubmitClick = () => {
-    this.props.fetchData(sanitizer(this.searchInputRef.current!.value));
-  };
-
   handleEnterClick = (e: KeyboardEvent<HTMLInputElement>) => {
     if (e.keyCode === 13 && !this.props.isLoading) {
-      this.props.fetchData(sanitizer(this.searchInputRef.current!.value));
+      this.handleFetch();
     }
   };
+
+  handleFetch = () =>
+    this.props.fetchData(
+      this.props.location,
+      sanitizer(this.searchInputRef.current!.value)
+    );
 
   render() {
     const { isLoading, className } = this.props;
@@ -36,9 +40,9 @@ export class Search extends PureComponent<Props> {
     return (
       <div className={classNames(className, "search")}>
         <input
+          aria-label="Searchfield for fiiltering food products"
           className="search__input"
           type="text"
-          aria-label="Searchfield for fiiltering food products"
           ref={this.searchInputRef}
           onKeyDown={this.handleEnterClick}
           placeholder="e.g. ice cream"
@@ -49,7 +53,7 @@ export class Search extends PureComponent<Props> {
           iconName="search"
           iconSize="l"
           isLoading={isLoading}
-          onClick={this.handleSubmitClick}
+          onClick={this.handleFetch}
         />
       </div>
     );

@@ -8,8 +8,8 @@ export class FoodRecallEnforcement extends React.PureComponent {
   render() {
     return (
       <div className="page-wrapper">
-        <ReportsConnected />
-        <InitiatorsConnected />
+        <ReportsConnected location="reports" term="" />
+        <InitiatorsConnected location="initiators" />
       </div>
     );
   }

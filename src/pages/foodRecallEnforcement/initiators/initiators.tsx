@@ -2,8 +2,8 @@ import React, { FC, HTMLAttributes } from "react";
 import { connect } from "react-redux";
 import classNames from "classnames";
 import { Text, ChartHighcharts } from "../../../components";
-import { AppState } from "../../../typings";
-import { fetchInitiators } from "../../../store/actions";
+import { AppState } from "../../../store/initialState";
+import { fetchData } from "../../../store/actions";
 import text from "../../../setttings/data/text.json";
 
 export interface StateProps {
@@ -17,10 +17,13 @@ export interface StateProps {
 
 export interface DispatchProps {
   /** Action for fetching data. **/
-  fetchInitiators: () => void;
+  fetchData: (location: string) => void;
 }
 
-export interface OwnProps {}
+export interface OwnProps {
+  /** Location to fetch from Api */
+  location: string;
+}
 
 export type Props = StateProps &
   DispatchProps &
@@ -28,10 +31,11 @@ export type Props = StateProps &
   HTMLAttributes<HTMLDivElement>;
 
 export const Initiators: FC<Props> = ({
+  location,
   isLoading,
   hasError,
   chartOptions,
-  fetchInitiators,
+  fetchData,
   className
 }) => (
   <div className={classNames(className, "flex-two-column")}>
@@ -42,25 +46,26 @@ export const Initiators: FC<Props> = ({
       text={text.initiators.text}
     />
     <div className="item">
-      <h3 className="horizontal-center">Enforcement initiators</h3>
+      <h3 className="horizontal-center">{text.initiators.chartTitle}</h3>
       <ChartHighcharts
         className="chart-wrapper horizontal-center"
+        location="initiators"
         isLoading={isLoading}
         hasError={hasError}
         chartOptions={chartOptions}
-        fetchHandler={fetchInitiators}
+        fetchHandler={fetchData}
       />
     </div>
   </div>
 );
 
 export const InitiatorsConnected = connect(
-  (state: AppState): StateProps => ({
-    isLoading: state.initiators.isLoading,
-    hasError: state.initiators.hasError,
-    chartOptions: state.initiators.chartOptions
+  (state: AppState, ownProps: OwnProps): StateProps => ({
+    isLoading: state[ownProps.location].isLoading,
+    hasError: state[ownProps.location].hasError,
+    chartOptions: state[ownProps.location].chartOptions
   }),
   {
-    fetchInitiators
+    fetchData
   }
 )(Initiators);

@@ -6,6 +6,7 @@ import { Error } from "..";
 require("highcharts-no-data-to-display")(Highcharts);
 
 export interface Props extends HTMLAttributes<HTMLDivElement> {
+  location: string;
   /** Is loading data. */
   isLoading: boolean;
   /** Has an error. */
@@ -13,7 +14,7 @@ export interface Props extends HTMLAttributes<HTMLDivElement> {
   /** Options and Data of the chart */
   chartOptions: Highcharts.Options;
   /** Action for fetching data. */
-  fetchHandler: () => void;
+  fetchHandler: (location: string) => void;
 }
 
 export class ChartHighstock extends PureComponent<Props> {
@@ -30,11 +31,13 @@ export class ChartHighstock extends PureComponent<Props> {
   }
 
   componentDidMount() {
-    this.props.fetchHandler();
+    console.log("###", this.props.fetchHandler(this.props.location));
+    this.props.fetchHandler(this.props.location);
   }
 
   render() {
     const {
+      location,
       isLoading,
       hasError,
       chartOptions,
@@ -48,7 +51,7 @@ export class ChartHighstock extends PureComponent<Props> {
     if (!hasError && this.chartInstance && !isLoading) {
       this.chartInstance.hideLoading();
     }
-
+    console.log("ChartHighstock", this.props);
     return (
       <div className={classNames(className)}>
         {!hasError ? (
@@ -59,7 +62,11 @@ export class ChartHighstock extends PureComponent<Props> {
             callback={this.afterChartCreated}
           />
         ) : (
-          <Error fetchData={fetchHandler} isLoading={isLoading} />
+          <Error
+            location={location}
+            fetchData={fetchHandler}
+            isLoading={isLoading}
+          />
         )}
       </div>
     );

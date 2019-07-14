@@ -1,44 +1,35 @@
-export interface AppState {
-  reports: {
-    isLoading: boolean;
-    hasError: boolean;
-    chartOptions: Highcharts.Options;
-  };
-  initiators: {
-    isLoading: boolean;
-    hasError: boolean;
-    chartOptions: Highcharts.Options;
-  };
-}
-
 export type ActionTypes = ActionTypesReports | ActionTypesInitiators;
 
-export const FETCH_REPORTS_START = "FETCH_REPORTS_START";
-export const FETCH_REPORTS_SUCCESS = "FETCH_REPORTS_SUCCESS";
-export const FETCH_REPORTS_ERROR = "FETCH_REPORTS_ERROR";
-export const FETCH_REPORTS_RESET = "FETCH_REPORTS_RESET";
+export const FETCH_START = "FETCH_START";
+export const FETCH_SUCCESS = "FETCH_SUCCESS";
+export const FETCH_ERROR = "FETCH_ERROR";
+export const FETCH_RESET = "FETCH_RESET";
 
 export type ActionTypesReports =
-  | fetchReportsStart
-  | fetchReportsSuccess
-  | fetchReportsError
-  | fetchReportsReset;
+  | fetchStart
+  | fetchSuccess
+  | fetchError
+  | fetchReset;
 
-export interface fetchReportsStart {
-  type: typeof FETCH_REPORTS_START;
+export interface fetchStart {
+  type: typeof FETCH_START;
+  location: string;
 }
 
-export interface fetchReportsSuccess {
-  type: typeof FETCH_REPORTS_SUCCESS;
+export interface fetchSuccess {
+  type: typeof FETCH_SUCCESS;
   payload: [];
+  location: string;
 }
 
-export interface fetchReportsError {
-  type: typeof FETCH_REPORTS_ERROR;
+export interface fetchError {
+  type: typeof FETCH_ERROR;
+  location: string;
 }
 
-export interface fetchReportsReset {
-  type: typeof FETCH_REPORTS_RESET;
+export interface fetchReset {
+  type: typeof FETCH_RESET;
+  location: string;
 }
 
 export const FETCH_INITIATORS_START = "FETCH_INITIATORS_START";

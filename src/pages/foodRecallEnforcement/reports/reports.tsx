@@ -2,8 +2,8 @@ import React, { FC, HTMLAttributes } from "react";
 import { connect } from "react-redux";
 import classNames from "classnames";
 import { Text, Search, ChartHighstock } from "../../../components";
-import { AppState } from "../../../typings";
-import { fetchReports } from "../../../store/actions";
+import { AppState } from "../../../store/initialState";
+import { fetchData } from "../../../store/actions";
 import text from "../../../setttings/data/text.json";
 
 export interface StateProps {
@@ -17,10 +17,13 @@ export interface StateProps {
 
 export interface DispatchProps {
   /** Action for fetching data. **/
-  fetchReports: () => void;
+  fetchData: (location: string) => void;
 }
 
-export interface OwnProps {}
+export interface OwnProps {
+  term: string;
+  location: string;
+}
 
 export type Props = StateProps &
   DispatchProps &
@@ -28,35 +31,37 @@ export type Props = StateProps &
   HTMLAttributes<HTMLDivElement>;
 
 export const Reports: FC<Props> = ({
+  location,
   isLoading,
   hasError,
   chartOptions,
-  fetchReports,
+  fetchData,
   className
 }) => (
   <div className={classNames(className)}>
     <Text topicTag="h1" topic={text.reports.topic} text={text.reports.text} />
-    <Search fetchData={fetchReports} isLoading={isLoading} />
+    <Search location="reports" fetchData={fetchData} isLoading={isLoading} />
     <div>
-      <h3 className="horizontal-center">Enforcement reports over time</h3>
+      <h3 className="horizontal-center">{text.reports.ChartTitle}</h3>
       <ChartHighstock
+        location="reports"
         className="chart-wrapper"
         isLoading={isLoading}
         hasError={hasError}
         chartOptions={chartOptions}
-        fetchHandler={fetchReports}
+        fetchHandler={fetchData}
       />
     </div>
   </div>
 );
 
 export const ReportsConnected = connect(
-  (state: AppState): StateProps => ({
-    isLoading: state.reports.isLoading,
-    hasError: state.reports.hasError,
-    chartOptions: state.reports.chartOptions
+  (state: AppState, ownProps: OwnProps): StateProps => ({
+    isLoading: state[ownProps.location].isLoading,
+    hasError: state[ownProps.location].hasError,
+    chartOptions: state[ownProps.location].chartOptions
   }),
   {
-    fetchReports
+    fetchData
   }
 )(Reports);
