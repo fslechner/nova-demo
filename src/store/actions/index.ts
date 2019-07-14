@@ -12,10 +12,9 @@ export interface FetchSuccess {
   type: typeof FETCH_SUCCESS;
   payload: [];
   location: string;
-  term?: string;
 }
 
-export const fetchData = (location: string, term: string = ""): any => (
+export const fetchData = (location: string, term: string = "") => (
   dispatch: Dispatch
 ) => {
   dispatch(fetchStart(location));

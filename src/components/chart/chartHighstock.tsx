@@ -14,7 +14,7 @@ export interface Props extends HTMLAttributes<HTMLDivElement> {
   /** Options and Data of the chart */
   chartOptions: Highcharts.Options;
   /** Action for fetching data. */
-  fetchHandler: (location: string) => void;
+  fetchHandler: (location: string, term?: string) => void;
 }
 
 export class ChartHighstock extends PureComponent<Props> {
@@ -31,7 +31,6 @@ export class ChartHighstock extends PureComponent<Props> {
   }
 
   componentDidMount() {
-    console.log("###", this.props.fetchHandler(this.props.location));
     this.props.fetchHandler(this.props.location);
   }
 
@@ -51,7 +50,7 @@ export class ChartHighstock extends PureComponent<Props> {
     if (!hasError && this.chartInstance && !isLoading) {
       this.chartInstance.hideLoading();
     }
-    console.log("ChartHighstock", this.props);
+
     return (
       <div className={classNames(className)}>
         {!hasError ? (

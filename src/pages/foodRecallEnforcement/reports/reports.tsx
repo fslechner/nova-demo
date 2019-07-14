@@ -17,7 +17,7 @@ export interface StateProps {
 
 export interface DispatchProps {
   /** Action for fetching data. **/
-  fetchData: (location: string) => void;
+  fetchData: (location: string, term?: string) => void;
 }
 
 export interface OwnProps {
