@@ -41,12 +41,7 @@ export class Button extends PureComponent<Props> {
     });
 
     return (
-      <button
-        disabled={isLoading}
-        className={rootClasses}
-        data-test="Button"
-        {...rest}
-      >
+      <button disabled={isLoading} className={rootClasses} {...rest}>
         <Icon
           name={iconName}
           spin={isLoadingSpin && isLoading}

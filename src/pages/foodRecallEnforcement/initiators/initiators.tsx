@@ -47,6 +47,7 @@ export const Initiators: FC<Props> = ({
       topicTag="h2"
       topic={text.initiators.topic}
       text={text.initiators.text}
+      data-test="text"
     />
     <div className="item">
       <h3 className="horizontal-center">{text.initiators.chartTitle}</h3>
@@ -57,6 +58,7 @@ export const Initiators: FC<Props> = ({
         hasError={hasError}
         chartOptions={chartOptions}
         fetchHandler={fetchData}
+        data-test="chart"
       />
     </div>
   </div>

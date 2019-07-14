@@ -3,13 +3,14 @@
 exports[`renders toMatchSnapshot 1`] = `
 <div
   className="page-wrapper"
-  data-test="FoodRecallEnforcement"
 >
   <Connect(Reports)
+    data-test="reports"
     location="reports"
     term=""
   />
   <Connect(Initiators)
+    data-test="initiators"
     location="initiators"
   />
 </div>

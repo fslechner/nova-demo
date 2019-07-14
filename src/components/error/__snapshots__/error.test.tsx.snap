@@ -17,6 +17,7 @@ exports[`<Error> Error default 1`] = `
     <Button
       aria-label="Reloadbutton for reloading Chartdatas"
       className="error__button"
+      data-test="error-button"
       iconAlign="after"
       iconName="refresh"
       iconSize="m"
@@ -47,6 +48,7 @@ exports[`<Error> Error while loading 1`] = `
     <Button
       aria-label="Reloadbutton for reloading Chartdatas"
       className="error__button"
+      data-test="error-button"
       iconAlign="after"
       iconName="refresh"
       iconSize="m"

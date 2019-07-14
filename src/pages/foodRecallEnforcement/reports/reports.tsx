@@ -39,8 +39,18 @@ export const Reports: FC<Props> = ({
   className
 }) => (
   <div className={classNames(className)} data-test="Reports">
-    <Text topicTag="h1" topic={text.reports.topic} text={text.reports.text} />
-    <Search location="reports" fetchData={fetchData} isLoading={isLoading} />
+    <Text
+      topicTag="h1"
+      topic={text.reports.topic}
+      text={text.reports.text}
+      data-test="text"
+    />
+    <Search
+      location="reports"
+      fetchData={fetchData}
+      isLoading={isLoading}
+      data-test="search"
+    />
     <div>
       <h3 className="horizontal-center">{text.reports.ChartTitle}</h3>
       <ChartHighstock
@@ -50,6 +60,7 @@ export const Reports: FC<Props> = ({
         hasError={hasError}
         chartOptions={chartOptions}
         fetchHandler={fetchData}
+        data-test="chart"
       />
     </div>
   </div>

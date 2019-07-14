@@ -3,7 +3,6 @@
 exports[`<Button> Button disabled while loading 1`] = `
 <button
   className="fs-btn fs-btn--before"
-  data-test="Button"
   disabled={true}
 >
   <Icon
@@ -19,7 +18,6 @@ exports[`<Button> Button disabled while loading 1`] = `
 exports[`<Button> Button returns null 1`] = `
 <button
   className="fs-btn"
-  data-test="Button"
 >
   <Icon
     size="s"
@@ -33,7 +31,6 @@ exports[`<Button> Button returns null 1`] = `
 exports[`<Button> Button with only icon in size xl 1`] = `
 <button
   className="fs-btn"
-  data-test="Button"
 >
   <Icon
     name="refresh"
@@ -48,7 +45,6 @@ exports[`<Button> Button with only icon in size xl 1`] = `
 exports[`<Button> Button with spinning icon while loading 1`] = `
 <button
   className="fs-btn fs-btn--after"
-  data-test="Button"
   disabled={true}
 >
   <Icon
@@ -65,7 +61,6 @@ exports[`<Button> Button with spinning icon while loading 1`] = `
 exports[`<Button> Button with text left and icon right 1`] = `
 <button
   className="fs-btn fs-btn--after"
-  data-test="Button"
 >
   <Icon
     name="refresh"
@@ -80,7 +75,6 @@ exports[`<Button> Button with text left and icon right 1`] = `
 exports[`<Button> Button with text right and icon left 1`] = `
 <button
   className="fs-btn fs-btn--before"
-  data-test="Button"
 >
   <Icon
     name="refresh"

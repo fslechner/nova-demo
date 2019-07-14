@@ -6,7 +6,7 @@ exports[`<Search> Search default 1`] = `
   data-test="Search"
 >
   <input
-    aria-label="Searchfield for fiiltering food products"
+    aria-label="Searchfield for filtering food products"
     className="search__input"
     onKeyDown={[Function]}
     placeholder="e.g. ice cream"
@@ -15,6 +15,7 @@ exports[`<Search> Search default 1`] = `
   <Button
     aria-label="Searchbutton for filtering food products"
     className="search__button"
+    data-test="search-button"
     iconName="search"
     iconSize="l"
     isLoading={false}
@@ -29,7 +30,7 @@ exports[`<Search> Search while loading 1`] = `
   data-test="Search"
 >
   <input
-    aria-label="Searchfield for fiiltering food products"
+    aria-label="Searchfield for filtering food products"
     className="search__input"
     onKeyDown={[Function]}
     placeholder="e.g. ice cream"
@@ -38,6 +39,7 @@ exports[`<Search> Search while loading 1`] = `
   <Button
     aria-label="Searchbutton for filtering food products"
     className="search__button"
+    data-test="search-button"
     iconName="search"
     iconSize="l"
     isLoading={true}

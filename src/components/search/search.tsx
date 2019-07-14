@@ -28,11 +28,13 @@ export class Search extends PureComponent<Props> {
     }
   };
 
-  handleFetch = () =>
-    this.props.fetchData(
-      this.props.location,
-      sanitizer(this.searchInputRef.current!.value)
-    );
+  handleFetch = () => {
+    const value =
+      this.searchInputRef.current && this.searchInputRef.current.value
+        ? this.searchInputRef.current.value
+        : "";
+    this.props.fetchData(this.props.location, sanitizer(value));
+  };
 
   render() {
     const { isLoading, className } = this.props;
@@ -40,7 +42,7 @@ export class Search extends PureComponent<Props> {
     return (
       <div className={classNames(className, "search")} data-test="Search">
         <input
-          aria-label="Searchfield for fiiltering food products"
+          aria-label="Searchfield for filtering food products"
           className="search__input"
           type="text"
           ref={this.searchInputRef}
@@ -54,6 +56,7 @@ export class Search extends PureComponent<Props> {
           iconSize="l"
           isLoading={isLoading}
           onClick={this.handleFetch}
+          data-test="search-button"
         />
       </div>
     );

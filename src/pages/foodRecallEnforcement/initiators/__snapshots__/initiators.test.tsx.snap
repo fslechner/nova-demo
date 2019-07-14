@@ -7,6 +7,7 @@ exports[`renders toMatchSnapshot 1`] = `
 >
   <Text
     className="item"
+    data-test="text"
     text="Manufacturers and/or distributors may initiate a recall at any time to fulfill their responsibility to protect the public health from products that present a risk of injury or gross deception, or are otherwise defective. Firms may also initiate a recall following notification of a problem by FDA or a state agency, in response to a formal request by FDA, or as ordered by FDA."
     topic="The vast majority of food recalls are voluntary"
     topicTag="h2"
@@ -50,6 +51,7 @@ exports[`renders toMatchSnapshot 1`] = `
         }
       }
       className="chart-wrapper horizontal-center"
+      data-test="chart"
       fetchHandler={[MockFunction]}
       location="initiators"
     />

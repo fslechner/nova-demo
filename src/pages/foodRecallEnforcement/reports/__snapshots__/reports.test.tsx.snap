@@ -1,16 +1,18 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`renders toMatchSnapshot 1`] = `
+exports[`<Text> renders toMatchSnapshot 1`] = `
 <div
   className=""
   data-test="Reports"
 >
   <Text
+    data-test="text"
     text="This is the openFDA API endpoint for all food product recalls monitored by the FDA. When an FDA-regulated product is either defective or potentially harmful, recalling that product—removing it from the market or correcting the problem—is the most effective means for protecting the public."
     topic="Food recall enforcement reports since 2012"
     topicTag="h1"
   />
   <Search
+    data-test="search"
     fetchData={[MockFunction]}
     location="reports"
   />
@@ -59,6 +61,7 @@ exports[`renders toMatchSnapshot 1`] = `
         }
       }
       className="chart-wrapper"
+      data-test="chart"
       fetchHandler={[MockFunction]}
       location="reports"
     />

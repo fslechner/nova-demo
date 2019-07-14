@@ -1,10 +1,8 @@
 import React from "react";
 import { shallow } from "enzyme";
 import toJson from "enzyme-to-json";
-import configureStore from "redux-mock-store";
-import { initialState } from "../../store/initialState";
 import { Error, Props } from "./error";
-import { fetchData, fetchStart } from "../../store/actions/actions";
+import { findByTestAttr } from "../../utils/tests";
 
 const testCases: Array<[string, Props]> = [
   [
@@ -24,17 +22,12 @@ describe("<Error>", () => {
     });
   });
 
-  it("should handle the click event", () => {
-    /*     const mockStore = configureStore();
-    const store = mockStore(initialState);
-    store.dispatch(fetchStart("reports"));
-
-    const mock = shallow(
-      <Error location="reports" fetchData={fetchStart("reports")}>
-        Some text
-      </Error>
-    );
-    mock.simulate("click");
-    expect(window.alert).toHaveBeenCalledWith("clicked"); */
+  it("Button onClick", () => {
+    const mockFunc = jest.fn();
+    const wrapper = shallow(<Error location="reports" fetchData={mockFunc} />);
+    const button = findByTestAttr(wrapper, "error-button");
+    button.simulate("click");
+    const callback = mockFunc.mock.calls.length;
+    expect(callback).toBe(1);
   });
 });

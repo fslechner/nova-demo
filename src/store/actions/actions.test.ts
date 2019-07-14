@@ -1,16 +1,6 @@
-import configureMockStore from "redux-mock-store";
-import fetchMock from "fetch-mock";
-import thunk from "redux-thunk";
 import * as actions from "./actions";
 
-const middlewares = [thunk];
-const mockStore = configureMockStore(middlewares);
-
 describe("sync actions", () => {
-  afterEach(() => {
-    fetchMock.restore();
-  });
-
   /*   it("creates FETCH_TODOS_SUCCESS when fetching todos has been done", () => {
     fetchMock.getOnce("/somepath", {
       body: { todos: ["do something"] },
