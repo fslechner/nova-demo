@@ -14,8 +14,6 @@ export interface Props extends HTMLAttributes<HTMLOrSVGElement> {
   children?: never;
   /** Name of the icon to show. */
   name?: IconNameProps;
-  /** Title of the icon if you may set the `<title>` element as a tooltip. */
-  title?: string;
   /** Rotation of the icon e.g. to use one Arrow-Icon for all directions. */
   rotate?: IconRotateProps;
   /** Spin of the icon. If set to true the icon works as a spinner. */
@@ -28,7 +26,7 @@ export class Icon extends PureComponent<Props> {
   };
 
   render() {
-    const { name, rotate, size, title, spin, className, ...rest } = this.props;
+    const { name, rotate, size, spin, className, ...rest } = this.props;
 
     if (!name) {
       return null;
@@ -45,9 +43,9 @@ export class Icon extends PureComponent<Props> {
         role="presentation"
         focusable="false"
         className={rootClasses}
+        data-test="Icon"
         {...rest}
       >
-        {title && <title>{title}</title>}
         {<use xlinkHref={`${sprite}#sprite-${name}`} />}
       </svg>
     );

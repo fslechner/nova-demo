@@ -52,7 +52,7 @@ export class ChartHighstock extends PureComponent<Props> {
     }
 
     return (
-      <div className={classNames(className)}>
+      <div className={classNames(className)} data-test="ChartHighstock">
         {!hasError ? (
           <HighchartsReact
             highcharts={Highcharts}

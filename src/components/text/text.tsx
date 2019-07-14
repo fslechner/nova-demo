@@ -23,7 +23,7 @@ export const Text: FC<Props> = ({
   text,
   className
 }) => (
-  <div className={classNames("text", className)}>
+  <div className={classNames("text", className)} data-test="Text">
     {topic && <Tag type={topicTag}>{topic}</Tag>}
     {teaser && (
       <strong dangerouslySetInnerHTML={{ __html: sanitizer(teaser) }} />

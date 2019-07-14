@@ -1,6 +1,6 @@
 import produce from "immer";
-import { reducer } from ".";
-import * as types from "../actions";
+import { reducer } from "./reducers";
+import * as types from "../actions/actions";
 import { initialState, AppState } from "../initialState";
 
 describe("reducer", () => {

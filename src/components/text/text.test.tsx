@@ -5,7 +5,7 @@ import { Text, Props } from "./text";
 
 const testCases: Array<[string, Props]> = [
   [
-    "renders all tags with content",
+    "Text with h1 topic and teaser",
     {
       topicTag: "h1",
       topic: "Hello Jest",
@@ -14,7 +14,7 @@ const testCases: Array<[string, Props]> = [
     }
   ],
   [
-    "renders all but no teaser text within strong tags",
+    "Text with h2 topic",
     {
       topicTag: "h2",
       topic: "Hello Jest",
@@ -22,19 +22,19 @@ const testCases: Array<[string, Props]> = [
     }
   ],
   [
-    "renders nothing",
+    "Text null",
     {
       topicTag: "h3"
     }
   ],
   [
-    "renders only text within p tags",
+    "Text with only text",
     {
       text: "Let's write some tests"
     }
   ],
   [
-    "renders only teaser text within strong tag",
+    "Text with only teaser",
     {
       teaser: "This is a teaser text."
     }

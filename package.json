@@ -98,7 +98,9 @@
       "!<rootDir>/styleguide/",
       "!<rootDir>/src/react-app-env.d.ts",
       "!<rootDir>/src/serviceWorker.ts",
-      "!<rootDir>/src/index.tsx"
+      "!<rootDir>/src/index.tsx",
+      "!<rootDir>/src/settings/utils/index.ts",
+      "!<rootDir>/src/store/index.ts"
     ],
     "coverageThreshold": {
       "global": {

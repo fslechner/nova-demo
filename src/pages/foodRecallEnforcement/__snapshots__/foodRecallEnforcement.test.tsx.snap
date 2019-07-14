@@ -3,6 +3,7 @@
 exports[`renders toMatchSnapshot 1`] = `
 <div
   className="page-wrapper"
+  data-test="FoodRecallEnforcement"
 >
   <Connect(Reports)
     location="reports"

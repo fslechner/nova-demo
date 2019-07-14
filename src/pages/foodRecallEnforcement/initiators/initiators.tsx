@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 import classNames from "classnames";
 import { Text, ChartHighcharts } from "../../../components";
 import { AppState } from "../../../store/initialState";
-import { fetchData } from "../../../store/actions";
+import { fetchData } from "../../../store/actions/actions";
 import text from "../../../settings/data/text.json";
 
 export interface StateProps {
@@ -38,7 +38,10 @@ export const Initiators: FC<Props> = ({
   fetchData,
   className
 }) => (
-  <div className={classNames(className, "flex-two-column")}>
+  <div
+    className={classNames(className, "flex-two-column")}
+    data-test="Initiators"
+  >
     <Text
       className="item"
       topicTag="h2"

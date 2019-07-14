@@ -1,6 +1,7 @@
 import React from "react";
 import { shallow } from "enzyme";
 import toJson from "enzyme-to-json";
+
 import { Button, Props } from "./button";
 
 const testCases: Array<[string, Props]> = [
@@ -52,13 +53,13 @@ const testCases: Array<[string, Props]> = [
 describe("<Button>", () => {
   testCases.forEach(([item, options]) => {
     it(item, () => {
-      const mock = shallow(<Button {...options}>Some text</Button>);
-      expect(toJson(mock)).toMatchSnapshot();
+      expect(
+        toJson(shallow(<Button {...options}>Some text</Button>))
+      ).toMatchSnapshot();
     });
   });
 
   it("renders null", () => {
-    const mock = shallow(<Button />);
-    expect(mock).toEqual({});
+    expect(shallow(<Button />)).toEqual({});
   });
 });

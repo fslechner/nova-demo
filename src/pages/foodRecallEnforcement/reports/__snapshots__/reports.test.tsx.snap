@@ -1,0 +1,67 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders toMatchSnapshot 1`] = `
+<div
+  className=""
+  data-test="Reports"
+>
+  <Text
+    text="This is the openFDA API endpoint for all food product recalls monitored by the FDA. When an FDA-regulated product is either defective or potentially harmful, recalling that product—removing it from the market or correcting the problem—is the most effective means for protecting the public."
+    topic="Food recall enforcement reports since 2012"
+    topicTag="h1"
+  />
+  <Search
+    fetchData={[MockFunction]}
+    location="reports"
+  />
+  <div>
+    <h3
+      className="horizontal-center"
+    >
+      Enforcement reports over time
+    </h3>
+    <ChartHighstock
+      chartOptions={
+        Object {
+          "chart": Object {
+            "height": 350,
+            "style": Object {
+              "fontFamily": "-apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen",
+            },
+          },
+          "credits": Object {
+            "enabled": false,
+          },
+          "loading": Object {
+            "hideDuration": 500,
+            "showDuration": 300,
+          },
+          "series": Array [
+            Object {
+              "data": Array [
+                null,
+              ],
+              "type": "line",
+            },
+          ],
+          "title": Object {
+            "text": "",
+          },
+          "xAxis": Object {
+            "minTickInterval": 2592000000,
+            "type": "datetime",
+          },
+          "yAxis": Object {
+            "title": Object {
+              "text": null,
+            },
+          },
+        }
+      }
+      className="chart-wrapper"
+      fetchHandler={[MockFunction]}
+      location="reports"
+    />
+  </div>
+</div>
+`;

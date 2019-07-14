@@ -1,8 +1,9 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<Icon> icon refresh default 1`] = `
+exports[`<Icon> Icon refresh default 1`] = `
 <svg
   className="fs-icon fs-icon--s"
+  data-test="Icon"
   focusable="false"
   role="presentation"
 >
@@ -12,9 +13,10 @@ exports[`<Icon> icon refresh default 1`] = `
 </svg>
 `;
 
-exports[`<Icon> icon refresh size xl 1`] = `
+exports[`<Icon> Icon refresh size xl 1`] = `
 <svg
   className="fs-icon fs-icon--xl"
+  data-test="Icon"
   focusable="false"
   role="presentation"
 >
@@ -24,11 +26,12 @@ exports[`<Icon> icon refresh size xl 1`] = `
 </svg>
 `;
 
-exports[`<Icon> icon returns null 1`] = `""`;
+exports[`<Icon> Icon returns null 1`] = `""`;
 
-exports[`<Icon> icon search rotation 180 1`] = `
+exports[`<Icon> Icon search rotation 180 1`] = `
 <svg
   className="fs-icon fs-icon--s fs-icon--180"
+  data-test="Icon"
   focusable="false"
   role="presentation"
 >
@@ -38,9 +41,10 @@ exports[`<Icon> icon search rotation 180 1`] = `
 </svg>
 `;
 
-exports[`<Icon> icon search rotation 180 size xl 1`] = `
+exports[`<Icon> Icon search rotation 180 size xl 1`] = `
 <svg
   className="fs-icon fs-icon--xl fs-icon--180"
+  data-test="Icon"
   focusable="false"
   role="presentation"
 >

@@ -30,3 +30,21 @@
   text="Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua."
 />
 ```
+
+#### Text with only topic
+
+```jsx
+<Text topicTag="h1" topic="Hello text component." />
+```
+
+#### Text with only text
+
+```jsx
+<Text text="Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua." />
+```
+
+#### Text with only teaser
+
+```jsx
+<Text teaser="Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet." />
+```

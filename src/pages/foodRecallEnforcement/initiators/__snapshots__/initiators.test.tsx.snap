@@ -1,0 +1,58 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders toMatchSnapshot 1`] = `
+<div
+  className="flex-two-column"
+  data-test="Initiators"
+>
+  <Text
+    className="item"
+    text="Manufacturers and/or distributors may initiate a recall at any time to fulfill their responsibility to protect the public health from products that present a risk of injury or gross deception, or are otherwise defective. Firms may also initiate a recall following notification of a problem by FDA or a state agency, in response to a formal request by FDA, or as ordered by FDA."
+    topic="The vast majority of food recalls are voluntary"
+    topicTag="h2"
+  />
+  <div
+    className="item"
+  >
+    <h3
+      className="horizontal-center"
+    >
+      Enforcement initiators
+    </h3>
+    <ChartHighcharts
+      chartOptions={
+        Object {
+          "chart": Object {
+            "height": 350,
+            "style": Object {
+              "fontFamily": "-apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen",
+            },
+            "width": 350,
+          },
+          "credits": Object {
+            "enabled": false,
+          },
+          "loading": Object {
+            "hideDuration": 500,
+            "showDuration": 300,
+          },
+          "series": Array [
+            Object {
+              "data": Array [
+                null,
+              ],
+              "type": "pie",
+            },
+          ],
+          "title": Object {
+            "text": "",
+          },
+        }
+      }
+      className="chart-wrapper horizontal-center"
+      fetchHandler={[MockFunction]}
+      location="initiators"
+    />
+  </div>
+</div>
+`;

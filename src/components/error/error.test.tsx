@@ -1,34 +1,40 @@
 import React from "react";
 import { shallow } from "enzyme";
 import toJson from "enzyme-to-json";
+import configureStore from "redux-mock-store";
+import { initialState } from "../../store/initialState";
 import { Error, Props } from "./error";
-
-const testProps: Props = {
-  location: "reports",
-  isLoading: false,
-  fetchData: jest.fn()
-};
+import { fetchData, fetchStart } from "../../store/actions/actions";
 
 const testCases: Array<[string, Props]> = [
   [
-    "renders with isLoading=true ",
+    "Error while loading",
     { location: "reports", isLoading: true, fetchData: jest.fn() }
   ],
   [
-    "renders with isLoading=fasle",
+    "Error default",
     { location: "reports", isLoading: false, fetchData: jest.fn() }
   ]
 ];
 
 describe("<Error>", () => {
-  it("renders without crashing", () => {
-    shallow(<Error {...testProps} />);
-  });
-
   testCases.forEach(([item, options]) => {
     it(item, () => {
-      const mock = shallow(<Error {...options} />);
-      expect(toJson(mock)).toMatchSnapshot();
+      expect(toJson(shallow(<Error {...options} />))).toMatchSnapshot();
     });
+  });
+
+  it("should handle the click event", () => {
+    /*     const mockStore = configureStore();
+    const store = mockStore(initialState);
+    store.dispatch(fetchStart("reports"));
+
+    const mock = shallow(
+      <Error location="reports" fetchData={fetchStart("reports")}>
+        Some text
+      </Error>
+    );
+    mock.simulate("click");
+    expect(window.alert).toHaveBeenCalledWith("clicked"); */
   });
 });

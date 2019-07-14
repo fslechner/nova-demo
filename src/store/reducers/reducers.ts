@@ -7,7 +7,7 @@ import {
   FETCH_SUCCESS,
   FETCH_ERROR,
   FETCH_RESET
-} from "../actions";
+} from "../actions/actions";
 
 export const reducer = produce(
   (draft: AppState = initialState, action: ActionTypes) => {

@@ -3,14 +3,14 @@ import { connect } from "react-redux";
 import classNames from "classnames";
 import { Text, Search, ChartHighstock } from "../../../components";
 import { AppState } from "../../../store/initialState";
-import { fetchData } from "../../../store/actions";
+import { fetchData } from "../../../store/actions/actions";
 import text from "../../../settings/data/text.json";
 
 export interface StateProps {
   /** Is loading data. */
-  isLoading: boolean;
+  isLoading?: boolean;
   /** Has an error. */
-  hasError: boolean;
+  hasError?: boolean;
   /** Options and Data of the chart */
   chartOptions: Highcharts.Options;
 }
@@ -38,7 +38,7 @@ export const Reports: FC<Props> = ({
   fetchData,
   className
 }) => (
-  <div className={classNames(className)}>
+  <div className={classNames(className)} data-test="Reports">
     <Text topicTag="h1" topic={text.reports.topic} text={text.reports.text} />
     <Search location="reports" fetchData={fetchData} isLoading={isLoading} />
     <div>

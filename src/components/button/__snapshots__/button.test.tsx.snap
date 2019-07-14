@@ -1,23 +1,9 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<Button> Button disabled while isLoading 1`] = `
-<button
-  className="fs-btn fs-btn--before"
-  disabled={true}
->
-  <Icon
-    name="refresh"
-    size="s"
-  />
-  <span>
-    Some text
-  </span>
-</button>
-`;
-
 exports[`<Button> Button disabled while loading 1`] = `
 <button
   className="fs-btn fs-btn--before"
+  data-test="Button"
   disabled={true}
 >
   <Icon
@@ -33,77 +19,10 @@ exports[`<Button> Button disabled while loading 1`] = `
 exports[`<Button> Button returns null 1`] = `
 <button
   className="fs-btn"
+  data-test="Button"
 >
   <Icon
     size="s"
-  />
-  <span>
-    Some text
-  </span>
-</button>
-`;
-
-exports[`<Button> Button with a text left an icon right 1`] = `
-<button
-  className="fs-btn fs-btn--after"
->
-  <Icon
-    name="refresh"
-    size="s"
-  />
-  <span>
-    Some text
-  </span>
-</button>
-`;
-
-exports[`<Button> Button with a text right an icon left 1`] = `
-<button
-  className="fs-btn fs-btn--before"
->
-  <Icon
-    name="refresh"
-    size="s"
-  />
-  <span>
-    Some text
-  </span>
-</button>
-`;
-
-exports[`<Button> Button with null 1`] = `
-<button
-  className="fs-btn"
->
-  <Icon
-    size="s"
-  />
-  <span>
-    Some text
-  </span>
-</button>
-`;
-
-exports[`<Button> Button with only a text 1`] = `
-<button
-  className="fs-btn"
->
-  <Icon
-    size="s"
-  />
-  <span>
-    Some text
-  </span>
-</button>
-`;
-
-exports[`<Button> Button with only an icon in size xl 1`] = `
-<button
-  className="fs-btn"
->
-  <Icon
-    name="refresh"
-    size="xl"
   />
   <span>
     Some text
@@ -114,6 +33,7 @@ exports[`<Button> Button with only an icon in size xl 1`] = `
 exports[`<Button> Button with only icon in size xl 1`] = `
 <button
   className="fs-btn"
+  data-test="Button"
 >
   <Icon
     name="refresh"
@@ -125,51 +45,10 @@ exports[`<Button> Button with only icon in size xl 1`] = `
 </button>
 `;
 
-exports[`<Button> Button with only text 1`] = `
-<button
-  className="fs-btn"
->
-  <Icon
-    size="s"
-  />
-  <span>
-    Some text
-  </span>
-</button>
-`;
-
-exports[`<Button> Button with only text 2`] = `
-<button
-  className="fs-btn"
->
-  <Icon
-    size="s"
-  />
-  <span>
-    Some text
-  </span>
-</button>
-`;
-
-exports[`<Button> Button with spinning icon while isLoading 1`] = `
-<button
-  className="fs-btn fs-btn--after"
-  disabled={true}
->
-  <Icon
-    name="refresh"
-    size="s"
-    spin={true}
-  />
-  <span>
-    Some text
-  </span>
-</button>
-`;
-
 exports[`<Button> Button with spinning icon while loading 1`] = `
 <button
   className="fs-btn fs-btn--after"
+  data-test="Button"
   disabled={true}
 >
   <Icon
@@ -186,6 +65,7 @@ exports[`<Button> Button with spinning icon while loading 1`] = `
 exports[`<Button> Button with text left and icon right 1`] = `
 <button
   className="fs-btn fs-btn--after"
+  data-test="Button"
 >
   <Icon
     name="refresh"
@@ -200,6 +80,7 @@ exports[`<Button> Button with text left and icon right 1`] = `
 exports[`<Button> Button with text right and icon left 1`] = `
 <button
   className="fs-btn fs-btn--before"
+  data-test="Button"
 >
   <Icon
     name="refresh"
@@ -210,122 +91,3 @@ exports[`<Button> Button with text right and icon left 1`] = `
   </span>
 </button>
 `;
-
-exports[`<Button> renders a button disabled while isLoading 1`] = `
-<button
-  className="fs-btn fs-btn--before"
-  disabled={true}
->
-  <Icon
-    name="refresh"
-    size="s"
-  />
-  <span>
-    Some text
-  </span>
-</button>
-`;
-
-exports[`<Button> renders a button with a text left an icon right 1`] = `
-<button
-  className="fs-btn fs-btn--after"
->
-  <Icon
-    name="refresh"
-    size="s"
-  />
-  <span>
-    Some text
-  </span>
-</button>
-`;
-
-exports[`<Button> renders a button with a text right an icon left 1`] = `
-<button
-  className="fs-btn fs-btn--before"
->
-  <Icon
-    name="refresh"
-    size="s"
-  />
-  <span>
-    Some text
-  </span>
-</button>
-`;
-
-exports[`<Button> renders a button with only a text 1`] = `
-<button
-  className="fs-btn"
->
-  <Icon
-    size="s"
-  />
-  <span>
-    Some text
-  </span>
-</button>
-`;
-
-exports[`<Button> renders a button with only an icon in size xl 1`] = `
-<button
-  className="fs-btn"
->
-  <Icon
-    name="refresh"
-    size="xl"
-  />
-  <span>
-    Some text
-  </span>
-</button>
-`;
-
-exports[`<Button> renders a button with spinning icon 1`] = `
-<button
-  className="fs-btn fs-btn--after"
-  disabled={true}
->
-  <Icon
-    name="refresh"
-    size="s"
-    spin={true}
-  />
-  <span>
-    Some text
-  </span>
-</button>
-`;
-
-exports[`<Button> renders a disabled button 1`] = `
-<button
-  className="fs-btn fs-btn--before"
-  disabled={true}
->
-  <Icon
-    name="refresh"
-    size="s"
-  />
-  <span>
-    Some text
-  </span>
-</button>
-`;
-
-exports[`<Button> renders a spinning isLoading button 1`] = `
-<button
-  className="fs-btn fs-btn--after"
-  disabled={true}
->
-  <Icon
-    name="refresh"
-    size="s"
-    spin={true}
-  />
-  <span>
-    Some text
-  </span>
-</button>
-`;
-
-exports[`<Error> renders without crashing 1`] = `""`;

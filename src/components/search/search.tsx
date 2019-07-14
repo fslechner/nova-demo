@@ -14,7 +14,7 @@ export interface Props extends HTMLAttributes<HTMLDivElement> {
   /** Location to fetch from Api */
   location: string;
   /** Is loading data */
-  isLoading: boolean;
+  isLoading?: boolean;
   /** ClickHandler for fetching data */
   fetchData: (location: string, term?: string) => void;
 }
@@ -38,7 +38,7 @@ export class Search extends PureComponent<Props> {
     const { isLoading, className } = this.props;
 
     return (
-      <div className={classNames(className, "search")}>
+      <div className={classNames(className, "search")} data-test="Search">
         <input
           aria-label="Searchfield for fiiltering food products"
           className="search__input"

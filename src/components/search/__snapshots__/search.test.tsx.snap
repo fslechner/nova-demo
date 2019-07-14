@@ -1,8 +1,9 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<Search> renders with isLoading=false 1`] = `
+exports[`<Search> Search default 1`] = `
 <div
   className="search"
+  data-test="Search"
 >
   <input
     aria-label="Searchfield for fiiltering food products"
@@ -22,9 +23,10 @@ exports[`<Search> renders with isLoading=false 1`] = `
 </div>
 `;
 
-exports[`<Search> renders with isLoading=true 1`] = `
+exports[`<Search> Search while loading 1`] = `
 <div
   className="search"
+  data-test="Search"
 >
   <input
     aria-label="Searchfield for fiiltering food products"

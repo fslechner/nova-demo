@@ -5,7 +5,7 @@ import { Search, Props } from "./search";
 
 const testCases: Array<[string, Props]> = [
   [
-    "renders with isLoading=true",
+    "Search while loading",
     {
       isLoading: true,
       fetchData: jest.fn(),
@@ -13,7 +13,7 @@ const testCases: Array<[string, Props]> = [
     }
   ],
   [
-    "renders with isLoading=false",
+    "Search default",
     {
       isLoading: false,
       fetchData: jest.fn(),

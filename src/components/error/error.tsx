@@ -10,7 +10,7 @@ export interface Props extends HTMLAttributes<HTMLDivElement> {
 }
 
 export const Error: FC<Props> = ({ isLoading, fetchData, location }) => (
-  <div className="error">
+  <div className="error" data-test="Error">
     <div className="text-center">
       <h4>An error occured</h4>
       <p>This Chart can't be shown. Click the reload button to try again.</p>

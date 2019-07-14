@@ -1,8 +1,9 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<Error> renders with isLoading=fasle 1`] = `
+exports[`<Error> Error default 1`] = `
 <div
   className="error"
+  data-test="Error"
 >
   <div
     className="text-center"
@@ -29,9 +30,10 @@ exports[`<Error> renders with isLoading=fasle 1`] = `
 </div>
 `;
 
-exports[`<Error> renders with isLoading=true  1`] = `
+exports[`<Error> Error while loading 1`] = `
 <div
   className="error"
+  data-test="Error"
 >
   <div
     className="text-center"

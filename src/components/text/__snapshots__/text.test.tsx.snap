@@ -1,27 +1,16 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<Text> renders all but no teaser text within strong tags 1`] = `
+exports[`<Text> Text null 1`] = `
 <div
   className="text"
->
-  <Tag
-    type="h2"
-  >
-    Hello Jest
-  </Tag>
-  <p
-    dangerouslySetInnerHTML={
-      Object {
-        "__html": "Let's write some tests",
-      }
-    }
-  />
-</div>
+  data-test="Text"
+/>
 `;
 
-exports[`<Text> renders all tags with content 1`] = `
+exports[`<Text> Text with h1 topic and teaser 1`] = `
 <div
   className="text"
+  data-test="Text"
 >
   <Tag
     type="h1"
@@ -45,15 +34,30 @@ exports[`<Text> renders all tags with content 1`] = `
 </div>
 `;
 
-exports[`<Text> renders nothing 1`] = `
+exports[`<Text> Text with h2 topic 1`] = `
 <div
   className="text"
-/>
+  data-test="Text"
+>
+  <Tag
+    type="h2"
+  >
+    Hello Jest
+  </Tag>
+  <p
+    dangerouslySetInnerHTML={
+      Object {
+        "__html": "Let's write some tests",
+      }
+    }
+  />
+</div>
 `;
 
-exports[`<Text> renders only teaser text within strong tag 1`] = `
+exports[`<Text> Text with only teaser 1`] = `
 <div
   className="text"
+  data-test="Text"
 >
   <strong
     dangerouslySetInnerHTML={
@@ -65,9 +69,10 @@ exports[`<Text> renders only teaser text within strong tag 1`] = `
 </div>
 `;
 
-exports[`<Text> renders only text within p tags 1`] = `
+exports[`<Text> Text with only text 1`] = `
 <div
   className="text"
+  data-test="Text"
 >
   <p
     dangerouslySetInnerHTML={
