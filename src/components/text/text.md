@@ -1,6 +1,6 @@
 ### Set text blocks with optional teaser text and selectable topic tag.
 
-#### With topicTag h1
+#### Text with TopicTag h1
 
 ```jsx
 <Text
@@ -10,7 +10,7 @@
 />
 ```
 
-#### With topicTag h6
+#### Text with topicTag h6
 
 ```jsx
 <Text
@@ -20,7 +20,7 @@
 />
 ```
 
-#### With topicTag h1 and teaser
+#### Text with topicTag h1 and teaser
 
 ```jsx
 <Text

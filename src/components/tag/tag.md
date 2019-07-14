@@ -1,19 +1,19 @@
 ### Select a HTML-Tag of your joice
 
-#### With type strong
+#### Tag type strong
 
 ```jsx
-<Tag type="strong">Text in strong tags content!</Tag>
+<Tag type="strong">Text in strong tag.</Tag>
 ```
 
-#### With type h1
+#### Tag type h1
 
 ```jsx
-<Tag type="h1">Text in h1 tags content!</Tag>
+<Tag type="h1">Text in h1 tag.</Tag>
 ```
 
-#### With type em
+#### Tag type em
 
 ```jsx
-<Tag type="em">Text in em tags content!</Tag>
+<Tag type="em">Text in em tag.</Tag>
 ```

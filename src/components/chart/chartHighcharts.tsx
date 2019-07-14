@@ -8,9 +8,9 @@ require("highcharts-no-data-to-display")(Highcharts);
 export interface Props extends HTMLAttributes<HTMLDivElement> {
   location: string;
   /** Is loading data. */
-  isLoading: boolean;
+  isLoading?: boolean;
   /** Has an error. */
-  hasError: boolean;
+  hasError?: boolean;
   /** Options and Data of the chart */
   chartOptions: Highcharts.Options;
   /** Action for fetching data. */

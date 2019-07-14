@@ -1,0 +1,51 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Icon> icon refresh default 1`] = `
+<svg
+  className="fs-icon fs-icon--s"
+  focusable="false"
+  role="presentation"
+>
+  <use
+    xlinkHref="spritemap.svg#sprite-refresh"
+  />
+</svg>
+`;
+
+exports[`<Icon> icon refresh size xl 1`] = `
+<svg
+  className="fs-icon fs-icon--xl"
+  focusable="false"
+  role="presentation"
+>
+  <use
+    xlinkHref="spritemap.svg#sprite-refresh"
+  />
+</svg>
+`;
+
+exports[`<Icon> icon returns null 1`] = `""`;
+
+exports[`<Icon> icon search rotation 180 1`] = `
+<svg
+  className="fs-icon fs-icon--s fs-icon--180"
+  focusable="false"
+  role="presentation"
+>
+  <use
+    xlinkHref="spritemap.svg#sprite-search"
+  />
+</svg>
+`;
+
+exports[`<Icon> icon search rotation 180 size xl 1`] = `
+<svg
+  className="fs-icon fs-icon--xl fs-icon--180"
+  focusable="false"
+  role="presentation"
+>
+  <use
+    xlinkHref="spritemap.svg#sprite-search"
+  />
+</svg>
+`;

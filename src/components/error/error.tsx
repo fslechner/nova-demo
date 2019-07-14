@@ -4,7 +4,7 @@ import { Button } from "..";
 export interface Props extends HTMLAttributes<HTMLDivElement> {
   location: string;
   /** Is loading data */
-  isLoading: boolean;
+  isLoading?: boolean;
   /** ClickHandler for fetching data */
   fetchData: (location: string) => void;
 }

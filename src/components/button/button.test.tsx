@@ -4,12 +4,7 @@ import toJson from "enzyme-to-json";
 import { Button, Props } from "./button";
 
 const testCases: Array<[string, Props]> = [
-  [
-    "Button with only text",
-    {
-      children: "Button text"
-    }
-  ],
+  ["Button returns null", {}],
   [
     "Button with only icon in size xl",
     {
@@ -60,5 +55,10 @@ describe("<Button>", () => {
       const mock = shallow(<Button {...options}>Some text</Button>);
       expect(toJson(mock)).toMatchSnapshot();
     });
+  });
+
+  it("renders null", () => {
+    const mock = shallow(<Button />);
+    expect(mock).toEqual({});
   });
 });

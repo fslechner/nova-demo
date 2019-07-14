@@ -23,11 +23,11 @@
 }
 
 .fs-icon--180 {
-  transform: rotate(90deg);
+  transform: rotate(180deg);
 }
 
 .fs-icon--270 {
-  transform: rotate(90deg);
+  transform: rotate(270deg);
 }
 
 .fs-icon--xs {

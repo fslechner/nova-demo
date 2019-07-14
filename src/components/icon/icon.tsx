@@ -9,7 +9,7 @@ export type IconRotateProps = "90" | "180" | "270";
 export type IconNameProps = "search" | "refresh";
 
 export interface Props extends HTMLAttributes<HTMLOrSVGElement> {
-  size: IconSizeProps;
+  size?: IconSizeProps;
   /** This component does not support custom children. Use the `icon` prop. */
   children?: never;
   /** Name of the icon to show. */

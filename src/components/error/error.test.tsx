@@ -4,6 +4,7 @@ import toJson from "enzyme-to-json";
 import { Error, Props } from "./error";
 
 const testProps: Props = {
+  location: "reports",
   isLoading: false,
   fetchData: jest.fn()
 };
@@ -11,17 +12,11 @@ const testProps: Props = {
 const testCases: Array<[string, Props]> = [
   [
     "renders with isLoading=true ",
-    {
-      isLoading: true,
-      fetchData: jest.fn()
-    }
+    { location: "reports", isLoading: true, fetchData: jest.fn() }
   ],
   [
     "renders with isLoading=fasle",
-    {
-      isLoading: false,
-      fetchData: jest.fn()
-    }
+    { location: "reports", isLoading: false, fetchData: jest.fn() }
   ]
 ];
 

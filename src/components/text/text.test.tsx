@@ -3,13 +3,6 @@ import { shallow } from "enzyme";
 import toJson from "enzyme-to-json";
 import { Text, Props } from "./text";
 
-const testProps: Props = {
-  topicTag: "h1",
-  topic: "Hello Jest",
-  teaser: "This is a teaser text to test.",
-  text: "Let's write some more tests."
-};
-
 const testCases: Array<[string, Props]> = [
   [
     "renders all tags with content",
@@ -49,14 +42,9 @@ const testCases: Array<[string, Props]> = [
 ];
 
 describe("<Text>", () => {
-  it("renders without crashing", () => {
-    shallow(<Text {...testProps} />);
-  });
-
   testCases.forEach(([item, options]) => {
     it(item, () => {
-      const mock = shallow(<Text {...options} />);
-      expect(toJson(mock)).toMatchSnapshot();
+      expect(toJson(shallow(<Text {...options} />))).toMatchSnapshot();
     });
   });
 });

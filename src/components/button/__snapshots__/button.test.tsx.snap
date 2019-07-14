@@ -30,6 +30,19 @@ exports[`<Button> Button disabled while loading 1`] = `
 </button>
 `;
 
+exports[`<Button> Button returns null 1`] = `
+<button
+  className="fs-btn"
+>
+  <Icon
+    size="s"
+  />
+  <span>
+    Some text
+  </span>
+</button>
+`;
+
 exports[`<Button> Button with a text left an icon right 1`] = `
 <button
   className="fs-btn fs-btn--after"
@@ -50,6 +63,19 @@ exports[`<Button> Button with a text right an icon left 1`] = `
 >
   <Icon
     name="refresh"
+    size="s"
+  />
+  <span>
+    Some text
+  </span>
+</button>
+`;
+
+exports[`<Button> Button with null 1`] = `
+<button
+  className="fs-btn"
+>
+  <Icon
     size="s"
   />
   <span>
@@ -100,6 +126,19 @@ exports[`<Button> Button with only icon in size xl 1`] = `
 `;
 
 exports[`<Button> Button with only text 1`] = `
+<button
+  className="fs-btn"
+>
+  <Icon
+    size="s"
+  />
+  <span>
+    Some text
+  </span>
+</button>
+`;
+
+exports[`<Button> Button with only text 2`] = `
 <button
   className="fs-btn"
 >
@@ -288,3 +327,5 @@ exports[`<Button> renders a spinning isLoading button 1`] = `
   </span>
 </button>
 `;
+
+exports[`<Error> renders without crashing 1`] = `""`;
