@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 import classNames from "classnames";
 import { Text, Search, ChartHighstock } from "../../../components";
 import { AppState } from "../../../store/initialState";
-import { fetchData } from "../../../store/actions/actions";
+import { fetchReports } from "../../../store/actions/actions";
 import text from "../../../utils/data/text.json";
 
 export interface StateProps {
@@ -17,13 +17,10 @@ export interface StateProps {
 
 export interface DispatchProps {
   /** Action for fetching data. **/
-  fetchData: (location: string, term?: string) => void;
+  fetchReports: (term?: string) => void;
 }
 
-export interface OwnProps {
-  term: string;
-  location: string;
-}
+export interface OwnProps {}
 
 export type Props = StateProps &
   DispatchProps &
@@ -31,11 +28,10 @@ export type Props = StateProps &
   HTMLAttributes<HTMLDivElement>;
 
 export const Reports: FC<Props> = ({
-  location,
   isLoading,
   hasError,
   chartOptions,
-  fetchData,
+  fetchReports,
   className
 }) => (
   <div className={classNames(className)}>
@@ -47,7 +43,7 @@ export const Reports: FC<Props> = ({
     />
     <Search
       location="reports"
-      fetchData={fetchData}
+      fetchData={fetchReports}
       isLoading={isLoading}
       data-test="search"
     />
@@ -59,7 +55,7 @@ export const Reports: FC<Props> = ({
         isLoading={isLoading}
         hasError={hasError}
         chartOptions={chartOptions}
-        fetchHandler={fetchData}
+        fetchHandler={fetchReports}
         data-test="chart"
       />
     </div>
@@ -68,11 +64,11 @@ export const Reports: FC<Props> = ({
 
 export const ReportsConnected = connect(
   (state: AppState, ownProps: OwnProps): StateProps => ({
-    isLoading: state[ownProps.location].isLoading,
-    hasError: state[ownProps.location].hasError,
-    chartOptions: state[ownProps.location].chartOptions
+    isLoading: state.reports.isLoading,
+    hasError: state.reports.hasError,
+    chartOptions: state.reports.chartOptions
   }),
   {
-    fetchData
+    fetchReports
   }
 )(Reports);

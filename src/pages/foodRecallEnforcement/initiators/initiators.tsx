@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 import classNames from "classnames";
 import { Text, ChartHighcharts } from "../../../components";
 import { AppState } from "../../../store/initialState";
-import { fetchData } from "../../../store/actions/actions";
+import { fetchInitiators } from "../../../store/actions/actions";
 import text from "../../../utils/data/text.json";
 
 export interface StateProps {
@@ -17,13 +17,10 @@ export interface StateProps {
 
 export interface DispatchProps {
   /** Action for fetching data. **/
-  fetchData: (location: string) => void;
+  fetchInitiators: () => void;
 }
 
-export interface OwnProps {
-  /** Location to fetch from Api */
-  location: string;
-}
+export interface OwnProps {}
 
 export type Props = StateProps &
   DispatchProps &
@@ -31,11 +28,10 @@ export type Props = StateProps &
   HTMLAttributes<HTMLDivElement>;
 
 export const Initiators: FC<Props> = ({
-  location,
   isLoading,
   hasError,
   chartOptions,
-  fetchData,
+  fetchInitiators,
   className
 }) => (
   <div className={classNames(className, "flex-two-column")}>
@@ -54,7 +50,7 @@ export const Initiators: FC<Props> = ({
         isLoading={isLoading}
         hasError={hasError}
         chartOptions={chartOptions}
-        fetchHandler={fetchData}
+        fetchHandler={fetchInitiators}
         data-test="chart"
       />
     </div>
@@ -63,11 +59,11 @@ export const Initiators: FC<Props> = ({
 
 export const InitiatorsConnected = connect(
   (state: AppState, ownProps: OwnProps): StateProps => ({
-    isLoading: state[ownProps.location].isLoading,
-    hasError: state[ownProps.location].hasError,
-    chartOptions: state[ownProps.location].chartOptions
+    isLoading: state.initiators.isLoading,
+    hasError: state.initiators.hasError,
+    chartOptions: state.initiators.chartOptions
   }),
   {
-    fetchData
+    fetchInitiators
   }
 )(Initiators);

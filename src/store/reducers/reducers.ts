@@ -1,5 +1,4 @@
 import produce from "immer";
-import moment from "moment";
 import { initialState, AppState } from "../initialState";
 import {
   ActionTypes,
@@ -18,23 +17,7 @@ export const reducer = produce(
       case FETCH_SUCCESS:
         draft[action.location].isLoading = false;
         draft[action.location].hasError = false;
-        if (action.location === "reports") {
-          draft[
-            action.location
-          ].chartOptions.series![0].data = action.payload.map(
-            (i: { time: number; count: number }) => [
-              moment(i.time, "YYYY-MM-DD").valueOf(),
-              i.count
-            ]
-          );
-        }
-        if (action.location === "initiators") {
-          draft[
-            action.location
-          ].chartOptions.series![0].data = action.payload.map(
-            (i: { term: string; count: number }) => [i.term, i.count]
-          );
-        }
+        draft[action.location].chartOptions.series![0].data = action.payload;
         return draft;
       case FETCH_ERROR:
         draft[action.location].hasError = true;

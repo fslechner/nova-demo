@@ -1,5 +1,5 @@
 import Axios from "axios";
 
-export default Axios.create({
+export const axiosOpenFDA = Axios.create({
   baseURL: "https://api.fda.gov/"
 });
