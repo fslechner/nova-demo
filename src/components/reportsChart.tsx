@@ -107,7 +107,7 @@ export class ReportsChart extends PureComponent<Props, State> {
         <div>
           <h3 className="horizontal-center">Enforcement reports over time</h3>
           <div className="chart-wrapper">
-            {hasError ? (
+            {!hasError ? (
               <HighchartsReact
                 highcharts={Highcharts}
                 options={this.state.chartOptions}

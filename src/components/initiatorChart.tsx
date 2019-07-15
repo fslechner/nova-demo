@@ -89,7 +89,7 @@ class InitiatorChart extends React.PureComponent<Props, State> {
       <div className={classNames(className)}>
         <h3 className="horizontal-center">Enforcement initiators</h3>
         <div className="chart-wrapper horizontal-center">
-          {hasError ? (
+          {!hasError ? (
             <HighchartsReact
               highcharts={Highcharts}
               options={this.state.chartOptions}
