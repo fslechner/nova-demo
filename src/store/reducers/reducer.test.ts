@@ -28,62 +28,33 @@ describe("reducer", () => {
 
   it("should handle FETCH_SUCCESS ", () => {
     // reports
-    const mockData = [
-      {
-        time: "20120620",
-        count: 50
-      },
-      {
-        time: "20120627",
-        count: 109
-      }
-    ];
-
+    const mockData = [["20120620", 50], ["20120627", 109]];
     const action: types.FetchSuccess = {
       type: types.FETCH_SUCCESS,
       payload: mockData,
       location: "reports"
     };
-
     const nextState: AppState = produce(initialState, draft => {
       draft.reports.hasError = false;
       draft.reports.isLoading = false;
-      draft.reports.chartOptions.series![0].data = mockData.map(
-        (i: { time: any; count: number }) => [
-          moment(i.time, "YYYY-MM-DD").valueOf(),
-          i.count
-        ]
-      );
+      draft.reports.chartOptions.series![0].data = mockData;
     });
-
     expect(reducer(initialState, action)).toEqual(nextState);
-
     // initiators
     const mockData2 = [
-      {
-        term: "Voluntary: Firm Initiated",
-        count: 17690
-      },
-      {
-        term: "FDA Mandated",
-        count: 311
-      }
+      ["Voluntary: Firm Initiated", 17690],
+      ["FDA Mandated", 311]
     ];
-
     const action2: types.FetchSuccess = {
       type: types.FETCH_SUCCESS,
       payload: mockData2,
       location: "initiators"
     };
-
     const nextState2: AppState = produce(initialState, draft => {
       draft.initiators.hasError = false;
       draft.initiators.isLoading = false;
-      draft.initiators.chartOptions.series![0].data = mockData2.map(
-        (i: { term: string; count: number }) => [i.term, i.count]
-      );
+      draft.initiators.chartOptions.series![0].data = mockData2;
     });
-
     expect(reducer(initialState, action2)).toEqual(nextState2);
   });
 

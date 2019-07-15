@@ -12,7 +12,6 @@ exports[`Reports snapshots default 1`] = `
   />
   <Search
     data-test="search"
-    fetchData={[MockFunction]}
     isLoading={false}
     location="reports"
   />
@@ -63,7 +62,6 @@ exports[`Reports snapshots default 1`] = `
       }
       className="chart-wrapper"
       data-test="chart"
-      fetchHandler={[MockFunction]}
       hasError={false}
       isLoading={false}
       location="reports"
@@ -84,7 +82,6 @@ exports[`Reports snapshots is loading 1`] = `
   />
   <Search
     data-test="search"
-    fetchData={[MockFunction]}
     isLoading={true}
     location="reports"
   />
@@ -135,7 +132,6 @@ exports[`Reports snapshots is loading 1`] = `
       }
       className="chart-wrapper"
       data-test="chart"
-      fetchHandler={[MockFunction]}
       hasError={false}
       isLoading={true}
       location="reports"

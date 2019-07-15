@@ -45,7 +45,6 @@ exports[`Initiator snapshots default 1`] = `
       }
       className="chart-wrapper horizontal-center"
       data-test="chart"
-      fetchHandler={[MockFunction]}
       hasError={false}
       isLoading={false}
       location="initiators"
@@ -99,7 +98,6 @@ exports[`Initiator snapshots is loading 1`] = `
       }
       className="chart-wrapper horizontal-center"
       data-test="chart"
-      fetchHandler={[MockFunction]}
       hasError={false}
       isLoading={true}
       location="initiators"

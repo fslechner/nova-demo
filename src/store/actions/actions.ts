@@ -1,6 +1,6 @@
-import { axiosOpenFDA } from "../../utils/api/openFDA";
+import { axiosOpenFDA, openFDA } from "../../utils/api/openFDA";
 import { Dispatch } from "redux";
-import moment from "moment";
+import { AxiosResponse, AxiosError } from "axios";
 
 export const FETCH_START = "FETCH_START";
 export const FETCH_SUCCESS = "FETCH_SUCCESS";
@@ -17,26 +17,15 @@ export interface FetchSuccess {
 
 export const fetchReports = (term: string = "") => (dispatch: Dispatch) => {
   dispatch(fetchStart("reports"));
-  axiosOpenFDA({
-    method: "get",
-    responseType: "json",
-    url: `food/enforcement.json?search=reason_for_recall:"${term}"&count=report_date`,
-    transformResponse: r =>
-      r.results.map((i: { time: number; count: number }) => [
-        moment(i.time, "YYYY-MM-DD").valueOf(),
-        i.count
-      ])
-  })
-    .then(res => {
-      dispatch(
-        dispatch({
-          type: FETCH_SUCCESS,
-          payload: res.data,
-          location: "reports"
-        })
-      );
+  axiosOpenFDA(openFDA.reports(term))
+    .then((res: AxiosResponse) => {
+      dispatch({
+        type: FETCH_SUCCESS,
+        payload: res.data,
+        location: "reports"
+      });
     })
-    .catch(err => {
+    .catch((err: AxiosError) => {
       if (!err.response || err.response.status !== 404) {
         dispatch(fetchError("reports"));
       } else {
@@ -47,23 +36,15 @@ export const fetchReports = (term: string = "") => (dispatch: Dispatch) => {
 
 export const fetchInitiators = () => (dispatch: Dispatch) => {
   dispatch(fetchStart("initiators"));
-  axiosOpenFDA({
-    method: "get",
-    responseType: "json",
-    url: `food/enforcement.json?count=voluntary_mandated.exact`,
-    transformResponse: r =>
-      r.results.map((i: { term: string; count: number }) => [i.term, i.count])
-  })
-    .then(res => {
-      dispatch(
-        dispatch({
-          type: FETCH_SUCCESS,
-          payload: res.data,
-          location: "initiators"
-        })
-      );
+  axiosOpenFDA(openFDA.initiators())
+    .then((res: AxiosResponse) => {
+      dispatch({
+        type: FETCH_SUCCESS,
+        payload: res.data,
+        location: "initiators"
+      });
     })
-    .catch(err => {
+    .catch((err: AxiosError) => {
       dispatch(fetchError("initiators"));
     });
 };
