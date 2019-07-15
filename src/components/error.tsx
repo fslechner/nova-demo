@@ -1,4 +1,4 @@
-import React, { FC, Fragment, HTMLAttributes } from "react";
+import React, { FC, HTMLAttributes } from "react";
 import { Button } from "../components/button";
 
 export interface Props extends HTMLAttributes<HTMLDivElement> {
