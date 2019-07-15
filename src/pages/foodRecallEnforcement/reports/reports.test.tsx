@@ -1,90 +1,79 @@
 import React from "react";
 import { shallow } from "enzyme";
 import toJson from "enzyme-to-json";
-import moment from "moment";
-import { Reports, Props } from "./reports";
-import { findByTestAttr } from "../../../utils/tests";
+import { ReportsConnected, Reports, Props } from "./reports";
+import { findByTestAttr, testStore } from "../../../utils/tests";
+import { initialState } from "../../../store/initialState";
+import { Provider } from "react-redux";
+import { hcGlobal } from "../../../utils/charts/hcGlobal";
+import { hcEnforcementReports } from "../../../utils/charts/hcEnforcementReports";
 
-const testProps: any = {
-  fetchData: jest.fn(),
-  chartOptions: {
-    chart: {
-      height: 350,
-      style: {
-        fontFamily:
-          "-apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen"
+describe("Reports snapshots", () => {
+  const testCases: Array<[string, any]> = [
+    [
+      "default",
+      {
+        fetchData: jest.fn(),
+        isLoading: false,
+        hasError: false,
+        chartOptions: { ...hcGlobal, ...hcEnforcementReports }
       }
-    },
-    credits: {
-      enabled: false
-    },
-    loading: {
-      hideDuration: 500,
-      showDuration: 300
-    },
-    title: {
-      text: ""
-    },
-    yAxis: {
-      title: {
-        text: null
+    ],
+    [
+      "is loading",
+      {
+        fetchData: jest.fn(),
+        isLoading: true,
+        hasError: false,
+        chartOptions: { ...hcGlobal, ...hcEnforcementReports }
       }
-    },
-    xAxis: {
-      type: "datetime",
+    ]
+  ];
 
-      minTickInterval: moment.duration(1, "month").asMilliseconds()
-    },
-    series: [{ type: "line", data: [null] }]
-  }
-};
-describe("<Text>", () => {
-  it("renders toMatchSnapshot", () => {
-    expect(toJson(shallow(<Reports {...testProps} />))).toMatchSnapshot();
+  testCases.forEach(([item, options]) => {
+    it(item, () => {
+      expect(toJson(shallow(<Reports {...options} />))).toMatchSnapshot();
+    });
   });
 });
 
-describe("<Components>", () => {
+describe("<ReportsConnected>", () => {
+  let store: any;
   let wrapper: any;
-  let mockFunc: any;
+  const testProps: any = {
+    fetchData: jest.fn(),
+    isLoading: false,
+    hasError: false,
+    chartOptions: { ...hcGlobal, ...hcEnforcementReports }
+  };
 
   beforeEach(() => {
-    mockFunc = jest.fn();
-    const testProp: any = {
-      fetchData: mockFunc,
-      fetchStart: mockFunc,
-      chartOptions: {
-        chart: {
-          height: 350,
-          style: {
-            fontFamily:
-              "-apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen"
-          }
-        },
-        credits: {
-          enabled: false
-        },
-        loading: {
-          hideDuration: 500,
-          showDuration: 300
-        },
-        title: {
-          text: ""
-        },
-        yAxis: {
-          title: {
-            text: null
-          }
-        },
-        xAxis: {
-          type: "datetime",
+    store = testStore(initialState);
+    wrapper = shallow(
+      <Provider store={store}>
+        <ReportsConnected {...testProps} />
+      </Provider>
+    ).dive();
+  });
 
-          minTickInterval: moment.duration(1, "month").asMilliseconds()
-        },
-        series: [{ type: "line", data: [null] }]
-      }
-    };
-    wrapper = shallow(<Reports {...testProp} />);
+  it("Test connected props", () => {
+    expect(wrapper.props().isLoading).toBe(false);
+    expect(wrapper.props().hasError).toBe(false);
+    expect(wrapper.props().chartOptions).toBe(testProps.chartOptions);
+  });
+});
+
+describe("<Reports>", () => {
+  let wrapper: any;
+  const testProps: any = {
+    fetchData: jest.fn(),
+    isLoading: false,
+    hasError: false,
+    chartOptions: { ...hcGlobal, ...hcEnforcementReports }
+  };
+
+  beforeEach(() => {
+    wrapper = shallow(<Reports {...testProps} />);
   });
 
   it("Render Search", () => {

@@ -39,12 +39,12 @@ export const reducer = produce(
       case FETCH_ERROR:
         draft[action.location].hasError = true;
         draft[action.location].isLoading = false;
-        draft[action.location].chartOptions.series![0].data = [null];
+        draft[action.location].chartOptions.series![0].data = [];
         return draft;
       case FETCH_RESET:
         draft[action.location].hasError = false;
         draft[action.location].isLoading = false;
-        draft[action.location].chartOptions.series![0].data = [null];
+        draft[action.location].chartOptions.series![0].data = [];
         return draft;
       default:
         return draft;

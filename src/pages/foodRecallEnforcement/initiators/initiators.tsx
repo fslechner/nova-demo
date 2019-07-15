@@ -38,10 +38,7 @@ export const Initiators: FC<Props> = ({
   fetchData,
   className
 }) => (
-  <div
-    className={classNames(className, "flex-two-column")}
-    data-test="Initiators"
-  >
+  <div className={classNames(className, "flex-two-column")}>
     <Text
       className="item"
       topicTag="h2"

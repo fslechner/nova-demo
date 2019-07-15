@@ -38,7 +38,7 @@ export const Reports: FC<Props> = ({
   fetchData,
   className
 }) => (
-  <div className={classNames(className)} data-test="Reports">
+  <div className={classNames(className)}>
     <Text
       topicTag="h1"
       topic={text.reports.topic}

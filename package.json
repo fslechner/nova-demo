@@ -99,7 +99,10 @@
       "!<rootDir>/src/serviceWorker.ts",
       "!<rootDir>/src/index.tsx",
       "!<rootDir>/src/utils/tests/index.ts",
-      "!<rootDir>/src/store/index.ts"
+      "!<rootDir>/src/utils/api/index.ts",
+      "!<rootDir>/src/store/index.ts",
+      "!<rootDir>/src/pages/index.ts",
+      "!<rootDir>/src/components/index.ts"
     ],
     "coverageThreshold": {
       "global": {
@@ -110,7 +113,8 @@
       }
     },
     "coverageReporters": [
-      "html"
+      "html",
+      "text"
     ],
     "snapshotSerializers": [
       "enzyme-to-json/serializer"

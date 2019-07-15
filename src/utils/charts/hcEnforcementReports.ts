@@ -15,5 +15,5 @@ export const hcEnforcementReports: Highcharts.Options = {
     },
     minTickInterval: moment.duration(1, "month").asMilliseconds()
   },
-  series: [{ type: "line", data: [null] }]
+  series: [{ type: "line", data: [] }]
 };

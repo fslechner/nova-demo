@@ -1,9 +1,8 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`renders toMatchSnapshot 1`] = `
+exports[`Initiator snapshots default 1`] = `
 <div
   className="flex-two-column"
-  data-test="Initiators"
 >
   <Text
     className="item"
@@ -24,10 +23,6 @@ exports[`renders toMatchSnapshot 1`] = `
       chartOptions={
         Object {
           "chart": Object {
-            "height": 350,
-            "style": Object {
-              "fontFamily": "-apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen",
-            },
             "width": 350,
           },
           "credits": Object {
@@ -39,9 +34,7 @@ exports[`renders toMatchSnapshot 1`] = `
           },
           "series": Array [
             Object {
-              "data": Array [
-                null,
-              ],
+              "data": Array [],
               "type": "pie",
             },
           ],
@@ -53,6 +46,62 @@ exports[`renders toMatchSnapshot 1`] = `
       className="chart-wrapper horizontal-center"
       data-test="chart"
       fetchHandler={[MockFunction]}
+      hasError={false}
+      isLoading={false}
+      location="initiators"
+    />
+  </div>
+</div>
+`;
+
+exports[`Initiator snapshots is loading 1`] = `
+<div
+  className="flex-two-column"
+>
+  <Text
+    className="item"
+    data-test="text"
+    text="Manufacturers and/or distributors may initiate a recall at any time to fulfill their responsibility to protect the public health from products that present a risk of injury or gross deception, or are otherwise defective. Firms may also initiate a recall following notification of a problem by FDA or a state agency, in response to a formal request by FDA, or as ordered by FDA."
+    topic="The vast majority of food recalls are voluntary"
+    topicTag="h2"
+  />
+  <div
+    className="item"
+  >
+    <h3
+      className="horizontal-center"
+    >
+      Enforcement initiators
+    </h3>
+    <ChartHighcharts
+      chartOptions={
+        Object {
+          "chart": Object {
+            "width": 350,
+          },
+          "credits": Object {
+            "enabled": false,
+          },
+          "loading": Object {
+            "hideDuration": 500,
+            "showDuration": 300,
+          },
+          "series": Array [
+            Object {
+              "data": Array [],
+              "type": "pie",
+            },
+          ],
+          "title": Object {
+            "text": "",
+          },
+        }
+      }
+      className="chart-wrapper horizontal-center"
+      data-test="chart"
+      fetchHandler={[MockFunction]}
+      hasError={false}
+      isLoading={true}
       location="initiators"
     />
   </div>

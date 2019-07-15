@@ -10,7 +10,7 @@ export type ActionTypes = FetchStart | FetchSuccess | FetchError | FetchReset;
 
 export interface FetchSuccess {
   type: typeof FETCH_SUCCESS;
-  payload: [];
+  payload: any;
   location: string;
 }
 
