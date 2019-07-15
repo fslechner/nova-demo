@@ -2,22 +2,17 @@ import React, { FC, HTMLAttributes } from "react";
 import { Button } from "..";
 
 export interface Props extends HTMLAttributes<HTMLDivElement> {
-  location: string;
   /** Is loading data */
   isLoading?: boolean;
   /** ClickHandler for fetching data */
-  fetchData: (location: string) => void;
+  fetchData: () => void;
 }
 
-export const Error: FC<Props> = ({ isLoading, fetchData, location }) => (
+export const Error: FC<Props> = ({ isLoading, fetchData }) => (
   <div className="error" data-test="Error">
     <div className="text-center">
       <h4>An error occured</h4>
       <p>This Chart can't be shown. Click the reload button to try again.</p>
-      {/*       <button onClick={() => fetchData(location)} data-test="test-button">
-        Testbutton
-      </button>
-      {isLoading && <div>Is Loading</div>} */}
       <Button
         aria-label="Reloadbutton for reloading Chartdatas"
         className="error__button"
@@ -26,7 +21,7 @@ export const Error: FC<Props> = ({ isLoading, fetchData, location }) => (
         iconSize="m"
         isLoading={isLoading}
         isLoadingSpin={true}
-        onClick={() => fetchData(location)}
+        onClick={() => fetchData()}
         data-test="error-button"
       >
         {isLoading ? "Loading" : "Reload"}

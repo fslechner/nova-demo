@@ -9,12 +9,8 @@ exports[`<ChartHighcharts> renders with error 1`] = `
     fetchData={
       [MockFunction] {
         "calls": Array [
-          Array [
-            "reports",
-          ],
-          Array [
-            "reports",
-          ],
+          Array [],
+          Array [],
         ],
         "results": Array [
           Object {
@@ -28,7 +24,6 @@ exports[`<ChartHighcharts> renders with error 1`] = `
         ],
       }
     }
-    location="reports"
   />
 </div>
 `;

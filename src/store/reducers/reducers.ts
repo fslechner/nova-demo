@@ -17,7 +17,6 @@ export const reducer = produce(
       case FETCH_SUCCESS:
         draft[action.location].isLoading = false;
         draft[action.location].hasError = false;
-        console.log(action.payload);
         draft[action.location].chartOptions.series![0].data = action.payload;
         return draft;
       case FETCH_ERROR:

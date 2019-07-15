@@ -11,12 +11,10 @@ import { Button } from "..";
 const sanitizer = dompurify.sanitize;
 
 export interface Props extends HTMLAttributes<HTMLDivElement> {
-  /** Location to fetch from Api */
-  location: string;
   /** Is loading data */
   isLoading?: boolean;
   /** ClickHandler for fetching data */
-  fetchData: (location: string, term?: string) => void;
+  fetchData: (term?: string) => void;
 }
 
 export class Search extends PureComponent<Props> {
@@ -33,7 +31,7 @@ export class Search extends PureComponent<Props> {
       this.searchInputRef.current && this.searchInputRef.current.value
         ? this.searchInputRef.current.value
         : "";
-    this.props.fetchData(this.props.location, sanitizer(value));
+    this.props.fetchData(sanitizer(value));
   };
 
   render() {

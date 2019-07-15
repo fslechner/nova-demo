@@ -4,7 +4,6 @@ import toJson from "enzyme-to-json";
 import { ChartHighcharts, Props } from "./chartHighcharts";
 
 const testProps: Props = {
-  location: "reports",
   fetchHandler: jest.fn(),
   chartOptions: {
     chart: {
