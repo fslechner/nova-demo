@@ -3,7 +3,7 @@ import { initialState, AppState } from "..";
 import { ActionTypes, SET_LOADING, SET_DATA, SET_ERROR } from "../actions";
 
 export const reducer = produce(
-  (state: AppState, draft: AppState = initialState, action: ActionTypes) => {
+  (state, draft: AppState = initialState, action: ActionTypes) => {
     switch (action.type) {
       case SET_LOADING:
         draft.isLoading[action.key] = action.isLoading;
@@ -15,7 +15,7 @@ export const reducer = produce(
         draft.hasError[action.key] = action.hasError;
         return draft;
       default:
-        return state;
+        return draft;
     }
   }
 );
