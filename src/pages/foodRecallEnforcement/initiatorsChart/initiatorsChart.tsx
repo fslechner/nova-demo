@@ -55,7 +55,7 @@ export class InitiatorsChart extends React.PureComponent<Props, State> {
 
   static getDerivedStateFromProps(nextProps: Props, prevState: State) {
     if (prevState.chartOptions.series![0].data !== nextProps.data) {
-      return produce(prevState, draft => {
+      return produce(prevState, (draft: State) => {
         draft.chartOptions.series![0].data = nextProps.data;
       });
     }

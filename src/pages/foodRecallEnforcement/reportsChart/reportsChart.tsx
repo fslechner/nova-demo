@@ -55,7 +55,7 @@ export class ReportsChart extends PureComponent<Props, State> {
 
   static getDerivedStateFromProps(nextProps: Props, prevState: State) {
     if (prevState.chartOptions.series![0].data !== nextProps.data) {
-      return produce(prevState, draft => {
+      return produce(prevState, (draft: State) => {
         draft.chartOptions.series![0].data = nextProps.data;
       });
     }
@@ -75,9 +75,6 @@ export class ReportsChart extends PureComponent<Props, State> {
     if (!hasError && this.chartInstance && !isLoading) {
       this.chartInstance.hideLoading();
     }
-
-    console.log("###", this.state.chartOptions);
-    console.log("###", this.props);
 
     return (
       <div className={classNames(className)}>
