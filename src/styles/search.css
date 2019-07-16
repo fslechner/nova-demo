@@ -25,12 +25,12 @@
 }
 
 .search__button {
-  border: 3px dotted transparent;
+  border: 1px dotted transparent;
   height: 40px;
 }
 
 .search__button:focus {
-  border: 3px dotted rgb(32, 32, 32);
+  border: 1px dashed rgb(32, 32, 32);
   border-radius: 50%;
 }
 

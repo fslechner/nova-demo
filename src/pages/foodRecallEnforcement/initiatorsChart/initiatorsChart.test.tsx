@@ -1,14 +1,18 @@
 import React from "react";
 import { shallow } from "enzyme";
 import toJson from "enzyme-to-json";
-import { ReportsConnected, Reports, Props } from "./reports";
-import { findByTestAttr, testStore } from "../../../utils/tests";
-import { initialState } from "../../../store/initialState";
+import {
+  InitiatorsChartConnected,
+  InitiatorsChart,
+  Props
+} from "./initiatorsChart";
 import { Provider } from "react-redux";
+import { findByTestAttr, testStore } from "../../../utils/tests";
+import { initialState } from "../../../store";
 import { hcGlobal } from "../../../utils/charts/hcGlobal";
-import { hcEnforcementReports } from "../../../utils/charts/hcEnforcementReports";
+import { hcEnforcementInitiators } from "../../../utils/charts/hcEnforcementInitiators";
 
-describe("Reports snapshots", () => {
+describe("Initiator snapshots", () => {
   const testCases: Array<[string, any]> = [
     [
       "default",
@@ -16,7 +20,7 @@ describe("Reports snapshots", () => {
         fetchData: jest.fn(),
         isLoading: false,
         hasError: false,
-        chartOptions: { ...hcGlobal, ...hcEnforcementReports }
+        chartOptions: { ...hcGlobal, ...hcEnforcementInitiators }
       }
     ],
     [
@@ -25,33 +29,35 @@ describe("Reports snapshots", () => {
         fetchData: jest.fn(),
         isLoading: true,
         hasError: false,
-        chartOptions: { ...hcGlobal, ...hcEnforcementReports }
+        chartOptions: { ...hcGlobal, ...hcEnforcementInitiators }
       }
     ]
   ];
 
   testCases.forEach(([item, options]) => {
     it(item, () => {
-      expect(toJson(shallow(<Reports {...options} />))).toMatchSnapshot();
+      expect(
+        toJson(shallow(<InitiatorsChart {...options} />))
+      ).toMatchSnapshot();
     });
   });
 });
 
-describe("<ReportsConnected>", () => {
+describe("<InitiatorsConnected>", () => {
   let store: any;
   let wrapper: any;
   const testProps: any = {
     fetchData: jest.fn(),
     isLoading: false,
     hasError: false,
-    chartOptions: { ...hcGlobal, ...hcEnforcementReports }
+    chartOptions: { ...hcGlobal, ...hcEnforcementInitiators }
   };
 
   beforeEach(() => {
     store = testStore(initialState);
     wrapper = shallow(
       <Provider store={store}>
-        <ReportsConnected {...testProps} />
+        <InitiatorsChartConnected {...testProps} />
       </Provider>
     ).dive();
   });
@@ -63,22 +69,17 @@ describe("<ReportsConnected>", () => {
   });
 });
 
-describe("<Reports>", () => {
+describe("<Initiators>", () => {
   let wrapper: any;
   const testProps: any = {
     fetchData: jest.fn(),
     isLoading: false,
     hasError: false,
-    chartOptions: { ...hcGlobal, ...hcEnforcementReports }
+    chartOptions: { ...hcGlobal, ...hcEnforcementInitiators }
   };
 
   beforeEach(() => {
-    wrapper = shallow(<Reports {...testProps} />);
-  });
-
-  it("Render Search", () => {
-    const search = findByTestAttr(wrapper, "search");
-    expect(search.length).toBe(1);
+    wrapper = shallow(<InitiatorsChart {...testProps} />);
   });
 
   it("Render Text", () => {

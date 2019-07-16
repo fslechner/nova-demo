@@ -9,16 +9,14 @@ const testCases: Array<[string, Props]> = [
     "Search while loading",
     {
       isLoading: true,
-      fetchData: jest.fn(),
-      location: "reports"
+      fetchData: jest.fn()
     }
   ],
   [
     "Search default",
     {
       isLoading: false,
-      fetchData: jest.fn(),
-      location: "reports"
+      fetchData: jest.fn()
     }
   ]
 ];
@@ -32,20 +30,10 @@ describe("<Search>", () => {
 
   it("Button onClick", () => {
     const mockFunc = jest.fn();
-    const wrapper = shallow(<Search location="reports" fetchData={mockFunc} />);
+    const wrapper = shallow(<Search fetchData={mockFunc} />);
     const button = findByTestAttr(wrapper, "search-button");
     button.simulate("click");
     const callback = mockFunc.mock.calls.length;
     expect(callback).toBe(1);
   });
-
-  // TODO: find reason why this is not working
-  /*   it("last", () => {
-    const mockFunc = jest.fn();
-    const wrapper = shallow(<Search location="reports" fetchData={mockFunc} />);
-    const input = wrapper.find("input");
-    input.simulate("keypress", { keyCode: 13 });
-    const callback = mockFunc.mock.calls.length;
-    expect(callback).toBe(1);
-  }); */
 });

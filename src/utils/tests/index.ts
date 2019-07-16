@@ -1,7 +1,7 @@
 import { applyMiddleware, createStore } from "redux";
-import { reducer } from "../../store/reducers/reducers";
+import { reducer } from "../../store/reducers";
 import { middlewares } from "../../store";
-import { AppState } from "../../store/initialState";
+import { AppState } from "../../store";
 
 export const findByTestAttr = (component: any, attr: string) =>
   component.find(`[data-test='${attr}']`);
