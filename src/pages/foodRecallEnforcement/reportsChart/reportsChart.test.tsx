@@ -9,34 +9,44 @@ import { hcGlobal } from "../../../utils/charts/hcGlobal";
 import { hcEnforcementReports } from "../../../utils/charts/hcEnforcementReports";
 
 describe("Reports snapshots", () => {
-  const testCases: Array<[string, any]> = [
+  const testCases: Array<[string, Props]> = [
     [
       "default",
       {
-        fetchData: jest.fn(),
+        fetchReports: jest.fn(),
         isLoading: false,
         hasError: false,
-        chartOptions: { ...hcGlobal, ...hcEnforcementReports }
+        data: [["123456", 100], ["123456", 50], ["123456", 25]]
       }
     ],
     [
       "is loading",
       {
-        fetchData: jest.fn(),
+        fetchReports: jest.fn(),
         isLoading: true,
         hasError: false,
-        chartOptions: { ...hcGlobal, ...hcEnforcementReports }
+        data: [["123456", 100], ["123456", 50], ["T123456", 25]]
+      }
+    ],
+    [
+      "has error",
+      {
+        fetchReports: jest.fn(),
+        isLoading: false,
+        hasError: true,
+        data: [["123456", 100], ["123456", 50], ["T123456", 25]]
       }
     ]
   ];
 
   testCases.forEach(([item, options]) => {
     it(item, () => {
-      expect(toJson(shallow(<Reports {...options} />))).toMatchSnapshot();
+      expect(toJson(shallow(<ReportsChart {...options} />))).toMatchSnapshot();
     });
   });
 });
 
+/* 
 describe("<ReportsConnected>", () => {
   let store: any;
   let wrapper: any;
@@ -91,3 +101,4 @@ describe("<Reports>", () => {
     expect(chart.length).toBe(1);
   });
 });
+ */

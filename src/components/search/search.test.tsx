@@ -28,12 +28,12 @@ describe("<Search>", () => {
     });
   });
 
-  it("Button onClick", () => {
+  /*   it("Button onClick", () => {
     const mockFunc = jest.fn();
     const wrapper = shallow(<Search fetchData={mockFunc} />);
     const button = findByTestAttr(wrapper, "search-button");
     button.simulate("click");
     const callback = mockFunc.mock.calls.length;
     expect(callback).toBe(1);
-  });
+  }); */
 });

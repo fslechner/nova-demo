@@ -1,5 +1,5 @@
 import produce from "immer";
-import { Reducer } from 'redux'
+import { Reducer } from "redux";
 import { initialState, AppState } from "..";
 import { ActionTypes, SET_LOADING, SET_DATA, SET_ERROR } from "../actions";
 
