@@ -4,6 +4,7 @@ exports[`<Search> Search default 1`] = `
 <div
   className="search"
   data-test="Search"
+  fetchData={[MockFunction]}
 >
   <input
     aria-label="Searchfield for filtering food products"
@@ -28,6 +29,7 @@ exports[`<Search> Search while loading 1`] = `
 <div
   className="search"
   data-test="Search"
+  fetchData={[MockFunction]}
 >
   <input
     aria-label="Searchfield for filtering food products"

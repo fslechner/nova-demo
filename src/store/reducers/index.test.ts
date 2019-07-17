@@ -5,6 +5,7 @@ import { initialState, AppState } from "../initalState";
 
 describe("reducer", () => {
   it("DEFAULT", () => {
+    // @ts-ignore
     expect(reducer(undefined, {})).toEqual(initialState);
   });
 
