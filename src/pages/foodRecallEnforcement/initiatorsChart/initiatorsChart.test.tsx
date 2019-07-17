@@ -1,16 +1,17 @@
 import React from "react";
-import { shallow } from "enzyme";
+import { shallow, ShallowWrapper } from "enzyme";
+import { Store } from "redux";
 import toJson from "enzyme-to-json";
+import { Provider } from "react-redux";
 import {
   InitiatorsChartConnected,
   InitiatorsChart,
   Props
 } from "./initiatorsChart";
-import { Provider } from "react-redux";
-import { findByTestAttr, testStore } from "../../../utils/tests";
-import { initialState } from "../../../store/initalState";
-import { hcGlobal } from "../../../utils/charts/hcGlobal";
-import { hcEnforcementInitiators } from "../../../utils/charts/hcEnforcementInitiators";
+
+import { testStore, findByTestAttr } from "../../../utils/tests";
+import { initialState, AppState } from "../../../store/initalState";
+import { ActionTypes } from "../../../store/actions";
 
 describe("Initiator snapshots", () => {
   const testCases: Array<[string, Props]> = [
@@ -53,13 +54,13 @@ describe("Initiator snapshots", () => {
 });
 
 describe("<InitiatorsConnected>", () => {
-  let store: any;
-  let wrapper: any;
-  const testProps: any = {
-    fetchData: jest.fn(),
+  let store: Store<AppState, ActionTypes>;
+  let wrapper: ShallowWrapper<Props>;
+  const testProps: Props = {
+    fetchInitiators: jest.fn(),
     isLoading: false,
     hasError: false,
-    chartOptions: { ...hcGlobal, ...hcEnforcementInitiators }
+    data: []
   };
 
   beforeEach(() => {
@@ -74,25 +75,24 @@ describe("<InitiatorsConnected>", () => {
   it("Test connected props", () => {
     expect(wrapper.props().isLoading).toBe(false);
     expect(wrapper.props().hasError).toBe(false);
-    expect(wrapper.props().chartOptions).toBe(testProps.chartOptions);
+    expect(wrapper.props().data).toBe(testProps.data);
   });
 });
 
 describe("<Initiators>", () => {
-  let wrapper: any;
-  const testProps: any = {
-    fetchData: jest.fn(),
+  let wrapper: ShallowWrapper<Props>;
+  const testProps: Props = {
+    fetchInitiators: jest.fn(),
     isLoading: false,
     hasError: false,
-    chartOptions: { ...hcGlobal, ...hcEnforcementInitiators }
+    data: []
   };
-
   beforeEach(() => {
     wrapper = shallow(<InitiatorsChart {...testProps} />);
   });
 
-  /*   it("Render ChartHighstock", () => {
+  it("Render ChartHighstock", () => {
     const chart = findByTestAttr(wrapper, "chart");
     expect(chart.length).toBe(1);
-  }); */
+  });
 });

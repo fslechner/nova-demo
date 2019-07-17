@@ -1,5 +1,5 @@
 import React from "react";
-import { shallow } from "enzyme";
+import { shallow, ShallowWrapper } from "enzyme";
 import toJson from "enzyme-to-json";
 import { Search, Props } from "./search";
 import { findByTestAttr } from "../../utils/tests";
@@ -30,7 +30,9 @@ describe("<Search>", () => {
 
   it("Button onClick", () => {
     const mockFunc = jest.fn();
-    const wrapper = shallow(<Search fetchData={mockFunc} />);
+    const wrapper: ShallowWrapper<Props> = shallow(
+      <Search fetchData={mockFunc} />
+    );
     const button = findByTestAttr(wrapper, "search-button");
     button.simulate("click");
     const callback = mockFunc.mock.calls.length;

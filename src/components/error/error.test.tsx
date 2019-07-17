@@ -1,5 +1,5 @@
 import React from "react";
-import { shallow } from "enzyme";
+import { shallow, ShallowWrapper } from "enzyme";
 import toJson from "enzyme-to-json";
 import { Error, Props } from "./error";
 import { findByTestAttr } from "../../utils/tests";
@@ -18,7 +18,9 @@ describe("<Error>", () => {
 
   it("Button onClick", () => {
     const mockFunc = jest.fn();
-    const wrapper = shallow(<Error fetchData={mockFunc} />);
+    const wrapper: ShallowWrapper<Props> = shallow(
+      <Error fetchData={mockFunc} />
+    );
     const button = findByTestAttr(wrapper, "error-button");
     button.simulate("click");
     const callback = mockFunc.mock.calls.length;
