@@ -8,7 +8,7 @@ import {
 } from "./initiatorsChart";
 import { Provider } from "react-redux";
 import { findByTestAttr, testStore } from "../../../utils/tests";
-import { initialState } from "../../../store";
+import { initialState } from "../../../store/initalState";
 import { hcGlobal } from "../../../utils/charts/hcGlobal";
 import { hcEnforcementInitiators } from "../../../utils/charts/hcEnforcementInitiators";
 
@@ -52,7 +52,7 @@ describe("Initiator snapshots", () => {
   });
 });
 
-/* describe("<InitiatorsConnected>", () => {
+describe("<InitiatorsConnected>", () => {
   let store: any;
   let wrapper: any;
   const testProps: any = {
@@ -91,14 +91,8 @@ describe("<Initiators>", () => {
     wrapper = shallow(<InitiatorsChart {...testProps} />);
   });
 
-  it("Render Text", () => {
-    const text = findByTestAttr(wrapper, "text");
-    expect(text.length).toBe(1);
-  });
-
-  it("Render ChartHighstock", () => {
+  /*   it("Render ChartHighstock", () => {
     const chart = findByTestAttr(wrapper, "chart");
     expect(chart.length).toBe(1);
-  });
+  }); */
 });
- */

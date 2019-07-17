@@ -85,6 +85,7 @@ export class InitiatorsChart extends React.PureComponent<Props, State> {
               highcharts={Highcharts}
               options={this.state.chartOptions}
               callback={this.afterChartCreated}
+              data-test="chart"
             />
           ) : (
             <Error fetchData={fetchInitiators} isLoading={isLoading} />

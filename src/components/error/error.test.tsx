@@ -16,12 +16,12 @@ describe("<Error>", () => {
     });
   });
 
-  /*   it("Button onClick", () => {
+  it("Button onClick", () => {
     const mockFunc = jest.fn();
     const wrapper = shallow(<Error fetchData={mockFunc} />);
     const button = findByTestAttr(wrapper, "error-button");
     button.simulate("click");
     const callback = mockFunc.mock.calls.length;
     expect(callback).toBe(1);
-  }); */
+  });
 });

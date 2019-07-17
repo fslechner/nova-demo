@@ -30,7 +30,7 @@ export class Search extends PureComponent<Props> {
     const value =
       this.searchInputRef.current && this.searchInputRef.current.value
         ? this.searchInputRef.current.value
-        : "";
+        : ""; // this is a quickfix to avoid null error in test
     this.props.fetchData(sanitizer(value));
   };
 

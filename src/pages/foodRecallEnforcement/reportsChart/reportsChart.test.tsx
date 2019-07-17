@@ -1,9 +1,9 @@
 import React from "react";
-import { shallow } from "enzyme";
+import { shallow, render } from "enzyme";
 import toJson from "enzyme-to-json";
 import { ReportsChartConnected, ReportsChart, Props } from "./reportsChart";
 import { findByTestAttr, testStore } from "../../../utils/tests";
-import { initialState } from "../../../store";
+import { initialState } from "../../../store/initalState";
 import { Provider } from "react-redux";
 import { hcGlobal } from "../../../utils/charts/hcGlobal";
 import { hcEnforcementReports } from "../../../utils/charts/hcEnforcementReports";
@@ -46,7 +46,6 @@ describe("Reports snapshots", () => {
   });
 });
 
-/* 
 describe("<ReportsConnected>", () => {
   let store: any;
   let wrapper: any;
@@ -61,7 +60,7 @@ describe("<ReportsConnected>", () => {
     store = testStore(initialState);
     wrapper = shallow(
       <Provider store={store}>
-        <ReportsConnected {...testProps} />
+        <ReportsChartConnected {...testProps} />
       </Provider>
     ).dive();
   });
@@ -83,22 +82,16 @@ describe("<Reports>", () => {
   };
 
   beforeEach(() => {
-    wrapper = shallow(<Reports {...testProps} />);
+    wrapper = render(<ReportsChart {...testProps} />);
   });
 
-  it("Render Search", () => {
+  /*   it("Render Search", () => {
     const search = findByTestAttr(wrapper, "search");
     expect(search.length).toBe(1);
-  });
+  }); */
 
-  it("Render Text", () => {
-    const text = findByTestAttr(wrapper, "text");
-    expect(text.length).toBe(1);
-  });
-
-  it("Render ChartHighstock", () => {
+  /*   it("Render ChartHighstock", () => {
     const chart = findByTestAttr(wrapper, "chart");
     expect(chart.length).toBe(1);
-  });
+  }); */
 });
- */

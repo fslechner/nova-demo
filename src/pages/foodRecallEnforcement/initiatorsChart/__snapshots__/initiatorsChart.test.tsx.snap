@@ -14,6 +14,7 @@ exports[`Initiator snapshots default 1`] = `
   >
     <t
       callback={[Function]}
+      data-test="chart"
       highcharts={
         Object {
           "Axis": [Function],
@@ -1871,6 +1872,7 @@ exports[`Initiator snapshots is loading 1`] = `
   >
     <t
       callback={[Function]}
+      data-test="chart"
       highcharts={
         Object {
           "Axis": [Function],

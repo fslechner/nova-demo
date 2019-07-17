@@ -5,6 +5,7 @@ exports[`Reports snapshots default 1`] = `
   className=""
 >
   <Search
+    data-test="search"
     fetchData={
       [MockFunction] {
         "calls": Array [
@@ -34,6 +35,7 @@ exports[`Reports snapshots default 1`] = `
       <t
         callback={[Function]}
         constructorType="stockChart"
+        data-test="chart"
         highcharts={
           Object {
             "Axis": [Function],
@@ -2684,6 +2686,7 @@ exports[`Reports snapshots has error 1`] = `
   className=""
 >
   <Search
+    data-test="search"
     fetchData={
       [MockFunction] {
         "calls": Array [
@@ -2738,6 +2741,7 @@ exports[`Reports snapshots is loading 1`] = `
   className=""
 >
   <Search
+    data-test="search"
     fetchData={
       [MockFunction] {
         "calls": Array [
@@ -2767,6 +2771,7 @@ exports[`Reports snapshots is loading 1`] = `
       <t
         callback={[Function]}
         constructorType="stockChart"
+        data-test="chart"
         highcharts={
           Object {
             "Axis": [Function],
