@@ -55,13 +55,11 @@ export interface SetLoading {
   isLoading: boolean;
 }
 
-export const setLoading = (key: Keys, isLoading: boolean): SetLoading => {
-  return {
-    type: SET_LOADING,
-    key,
-    isLoading
-  };
-};
+export const setLoading = (key: Keys, isLoading: boolean): SetLoading => ({
+  type: SET_LOADING,
+  key,
+  isLoading
+});
 
 export interface SetData {
   type: typeof SET_DATA;
@@ -72,13 +70,11 @@ export interface SetData {
 export const setData = (
   key: Keys,
   payload: Array<(string | number)[]>
-): SetData => {
-  return {
-    type: SET_DATA,
-    key,
-    payload
-  };
-};
+): SetData => ({
+  type: SET_DATA,
+  key,
+  payload
+});
 
 export interface SetError {
   type: typeof SET_ERROR;
@@ -86,10 +82,8 @@ export interface SetError {
   hasError: boolean;
 }
 
-export const setError = (key: Keys, hasError: boolean): SetError => {
-  return {
-    type: SET_ERROR,
-    key,
-    hasError
-  };
-};
+export const setError = (key: Keys, hasError: boolean): SetError => ({
+  type: SET_ERROR,
+  key,
+  hasError
+});
