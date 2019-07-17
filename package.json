@@ -40,6 +40,8 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "build:run": "yarn build && serve ./build",
+    "analyze": "source-map-explorer 'build/static/js/*.js'",
+    "serve": "serve ./build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "styleguide": "yarn styleguidist server",
