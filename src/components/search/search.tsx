@@ -35,10 +35,14 @@ export class Search extends PureComponent<Props> {
   };
 
   render() {
-    const { isLoading, className } = this.props;
+    const { isLoading, className, ...rest } = this.props;
 
     return (
-      <div className={classNames(className, "search")} data-test="Search">
+      <div
+        className={classNames(className, "search")}
+        data-test="Search"
+        {...rest}
+      >
         <input
           aria-label="Searchfield for filtering food products"
           className="search__input"
