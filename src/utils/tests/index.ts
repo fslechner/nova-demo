@@ -1,7 +1,7 @@
 import { applyMiddleware, createStore } from "redux";
 import { reducer } from "../../store/reducers";
 import thunk from "redux-thunk";
-import { AppState } from "../../store";
+import { AppState } from "../../store/initalState";
 
 export const findByTestAttr = (component: any, attr: string) =>
   component.find(`[data-test='${attr}']`);

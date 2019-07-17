@@ -1,14 +1,14 @@
 import produce from "immer";
 import { reducer } from ".";
 import * as actions from "../actions";
-import { initialState, AppState } from "..";
+import { initialState, AppState } from "../initalState";
 
 describe("reducer", () => {
-  it("Placeholdertest", () => {
-    const x = 1;
-    expect(x).toBe(1);
+  it("DEFAULT", () => {
+    expect(reducer(undefined, {})).toEqual(initialState);
   });
-  /*  xit("SET_LOADING", () => {
+
+  it("SET_LOADING", () => {
     // reports
     const action: actions.SetLoading = {
       type: actions.SET_LOADING,
@@ -26,12 +26,12 @@ describe("reducer", () => {
       isLoading: true
     };
     const nextState2: AppState = produce(initialState, (draft: AppState) => {
-      draft.isLoading.REPORTS = true;
+      draft.isLoading.INITIATORS = true;
     });
     expect(reducer(initialState, action2)).toEqual(nextState2);
   });
 
-  xit("SET_DATA", () => {
+  it("SET_DATA", () => {
     // reports
     const action: actions.SetData = {
       type: actions.SET_DATA,
@@ -53,12 +53,12 @@ describe("reducer", () => {
       key: actions.INITIATORS
     };
     const nextState2: AppState = produce(initialState, (draft: AppState) => {
-      draft.data.REPORTS = [["20120620", 50], ["20120627", 109]];
+      draft.data.INITIATORS = mockData2;
     });
     expect(reducer(initialState, action2)).toEqual(nextState2);
   });
 
-  xit("SET_ERROR", () => {
+  it("SET_ERROR", () => {
     // reports
     const action: actions.SetError = {
       type: actions.SET_ERROR,
@@ -79,5 +79,5 @@ describe("reducer", () => {
       draft.hasError.INITIATORS = true;
     });
     expect(reducer(initialState, action2)).toEqual(nextState2);
-  }); */
+  });
 });

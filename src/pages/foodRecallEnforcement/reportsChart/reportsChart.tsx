@@ -6,7 +6,7 @@ import HighchartsReact from "highcharts-react-official";
 import classNames from "classnames";
 import { Search, Error } from "../../../components";
 import { fetchReports } from "../../../store/actions";
-import { AppState } from "../../../store";
+import { AppState } from "../../../store/initalState";
 import { hcGlobal } from "../../../utils/charts/hcGlobal";
 import { hcEnforcementReports } from "../../../utils/charts/hcEnforcementReports";
 
