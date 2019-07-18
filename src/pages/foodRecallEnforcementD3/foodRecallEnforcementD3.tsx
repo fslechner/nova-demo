@@ -9,7 +9,7 @@ document.title = "Demo App: Food recall enforcement reports with D3";
 export class FoodRecallEnforcementD3 extends React.PureComponent {
   render() {
     return (
-      <div className="">
+      <div className="page">
         <Text
           topicTag="h1"
           topic={text.reports.topic}

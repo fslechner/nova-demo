@@ -10,7 +10,7 @@ document.title = "Demo App: Food recall enforcement reports";
 export class FoodRecallEnforcement extends React.PureComponent {
   render() {
     return (
-      <div className="">
+      <div className="page">
         <Text
           topicTag="h1"
           topic={text.reports.topic}
