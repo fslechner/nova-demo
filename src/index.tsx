@@ -1,13 +1,13 @@
 import React from "react";
 import { render } from "react-dom";
-import { FoodRecallEnforcement } from "./pages";
+import { App } from "./app";
 import store from "./store";
 import { Provider } from "react-redux";
 import "./styles/index.css";
 
 render(
   <Provider store={store}>
-    <FoodRecallEnforcement />
+    <App />
   </Provider>,
   document.getElementById("root")
 );

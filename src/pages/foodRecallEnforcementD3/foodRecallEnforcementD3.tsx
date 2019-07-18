@@ -1,13 +1,12 @@
 import React from "react";
 import { Text } from "../../components";
-import { InitiatorsChartConnected as InitiatorsChart } from "./initiatorsChart/initiatorsChart";
-import { ReportsChartConnected as ReportsChart } from "./reportsChart/reportsChart";
-
+import { ReportsChartD3 } from "./reportsChartD3/reportsChartD3";
+import { InitiatorsChartD3 } from "./initiatorsChartD3/initiatorsChartD3";
 import text from "../../utils/data/text.json";
 
-document.title = "Demo App: Food recall enforcement reports";
+document.title = "Demo App: Food recall enforcement reports with D3";
 
-export class FoodRecallEnforcement extends React.PureComponent {
+export class FoodRecallEnforcementD3 extends React.PureComponent {
   render() {
     return (
       <div className="">
@@ -16,7 +15,7 @@ export class FoodRecallEnforcement extends React.PureComponent {
           topic={text.reports.topic}
           text={text.reports.text}
         />
-        <ReportsChart />
+        <ReportsChartD3 />
         <div className="flex-two-column">
           <Text
             className="item"
@@ -24,11 +23,11 @@ export class FoodRecallEnforcement extends React.PureComponent {
             topic={text.initiators.topic}
             text={text.initiators.text}
           />
-          <InitiatorsChart className="item" />
+          <InitiatorsChartD3 className="item" />
         </div>
       </div>
     );
   }
 }
 
-export default FoodRecallEnforcement;
+export default FoodRecallEnforcementD3;
