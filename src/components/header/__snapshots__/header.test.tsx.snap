@@ -1,0 +1,106 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Header> navLinks center 1`] = `
+<header
+  className="header nav--center"
+>
+  <nav>
+    <NavLink
+      activeStyle={
+        Object {
+          "color": "red",
+          "fontWeight": "bold",
+        }
+      }
+      className="link"
+      key="highcharts"
+      to="highcharts"
+    >
+      Highcharts
+    </NavLink>
+    <NavLink
+      activeStyle={
+        Object {
+          "color": "red",
+          "fontWeight": "bold",
+        }
+      }
+      className="link"
+      key="d3-js"
+      to="d3-js"
+    >
+      D3.js
+    </NavLink>
+  </nav>
+</header>
+`;
+
+exports[`<Header> navLinks default left 1`] = `
+<header
+  className="header"
+>
+  <nav>
+    <NavLink
+      activeStyle={
+        Object {
+          "color": "red",
+          "fontWeight": "bold",
+        }
+      }
+      className="link"
+      key="highcharts"
+      to="highcharts"
+    >
+      Highcharts
+    </NavLink>
+    <NavLink
+      activeStyle={
+        Object {
+          "color": "red",
+          "fontWeight": "bold",
+        }
+      }
+      className="link"
+      key="d3-js"
+      to="d3-js"
+    >
+      D3.js
+    </NavLink>
+  </nav>
+</header>
+`;
+
+exports[`<Header> navLinks right 1`] = `
+<header
+  className="header nav--right"
+>
+  <nav>
+    <NavLink
+      activeStyle={
+        Object {
+          "color": "red",
+          "fontWeight": "bold",
+        }
+      }
+      className="link"
+      key="highcharts"
+      to="highcharts"
+    >
+      Highcharts
+    </NavLink>
+    <NavLink
+      activeStyle={
+        Object {
+          "color": "red",
+          "fontWeight": "bold",
+        }
+      }
+      className="link"
+      key="d3-js"
+      to="d3-js"
+    >
+      D3.js
+    </NavLink>
+  </nav>
+</header>
+`;

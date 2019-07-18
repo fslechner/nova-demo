@@ -2,7 +2,7 @@
 
 exports[`renders toMatchSnapshot 1`] = `
 <div
-  className="page-wrapper"
+  className="page"
 >
   <Text
     text="This is the openFDA API endpoint for all food product recalls monitored by the FDA. When an FDA-regulated product is either defective or potentially harmful, recalling that product—removing it from the market or correcting the problem—is the most effective means for protecting the public."
