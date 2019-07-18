@@ -1,4 +1,48 @@
+import moxios from "moxios";
+import { initialState, AppState } from "../initalState";
 import * as actions from ".";
+import configureStore from "redux-mock-store";
+import thunk from "redux-thunk";
+
+const middlewares = [thunk];
+const mockStore = configureStore(middlewares);
+
+describe("fetchReports action", () => {
+  beforeEach(() => {
+    moxios.install();
+  });
+
+  afterEach(() => {
+    moxios.uninstall();
+  });
+
+  it("current", () => {
+    const responseData: Array<(string | number)[]> = [
+      ["20120620", 50],
+      ["20120627", 109]
+    ];
+
+    const expectedActions = [{ type: actions.SET_DATA }];
+
+    const store = mockStore(initialState);
+
+    moxios.wait(() => {
+      const request = moxios.requests.mostRecent();
+      request.respondWith({
+        status: 200,
+        response: responseData
+      });
+    });
+
+    return store.dispatch<any>(actions.fetchReports()).then(() => {
+      /* const newState: AppState = store.getState();
+      expect(newState.data.REPORTS).toBe(responseData); */
+      const actions: any = store.getActions();
+      //  expect(store.getActions()).toEqual(expectedActions);
+      expect(actions[0]).toEqual(actions.setData());
+    });
+  });
+});
 
 describe("sync actions", () => {
   it("SET LOADING", () => {

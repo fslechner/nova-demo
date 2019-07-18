@@ -13,15 +13,14 @@ export const SET_ERROR = "SET_ERROR";
 
 export type ActionTypes = SetLoading | SetData | SetError;
 
-export interface SetData {
-  type: typeof SET_DATA;
-  payload: Array<(string | number)[]>;
-  key: Keys;
+export interface FetchReports {
+  term: string;
 }
 
-export const fetchReports = (term: string = "") => (dispatch: Dispatch) => {
-  dispatch(setLoading(REPORTS, true));
-  axiosOpenFDA(openFDA.reports(term))
+export const fetchReports = (term: string = "") => async (
+  dispatch: Dispatch
+) => {
+  await axiosOpenFDA(openFDA.reports(term))
     .then((res: AxiosResponse) => {
       dispatch(setData(REPORTS, res.data));
       dispatch(setLoading(REPORTS, false));
@@ -34,6 +33,7 @@ export const fetchReports = (term: string = "") => (dispatch: Dispatch) => {
       }
       dispatch(setLoading(REPORTS, false));
     });
+  dispatch(setLoading(REPORTS, true));
 };
 
 export const fetchInitiators = () => (dispatch: Dispatch) => {
