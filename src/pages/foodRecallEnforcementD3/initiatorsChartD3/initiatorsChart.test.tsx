@@ -1,9 +1,9 @@
 import React from "react";
 import { shallow } from "enzyme";
 import toJson from "enzyme-to-json";
-import { ReportsChartD3 } from "./reportsChartD3";
+import { InitiatorsChartD3 } from "./initiatorsChartD3";
 
 it("renders toMatchSnapshot", () => {
-  const mock = shallow(<ReportsChartD3 />);
+  const mock = shallow(<InitiatorsChartD3 />);
   expect(toJson(mock)).toMatchSnapshot();
 });

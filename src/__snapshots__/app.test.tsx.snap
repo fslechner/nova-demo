@@ -1,0 +1,47 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders toMatchSnapshot 1`] = `
+<BrowserRouter>
+  <div
+    className="page-wrapper"
+  >
+    <Header
+      navLinks={
+        Array [
+          Object {
+            "name": "Highcharts",
+            "path": "highcharts",
+          },
+          Object {
+            "name": "D3.js",
+            "path": "d3-js",
+          },
+        ]
+      }
+      navLinksAlign="center"
+    />
+    <Switch>
+      <Route
+        exact={true}
+        path="/"
+        render={[Function]}
+      />
+      <withRouter(SwipeableRoutes)
+        enableMouseEvents={true}
+      >
+        <Route
+          component={[Function]}
+          path="/highcharts"
+        />
+        <Route
+          component={[Function]}
+          path="/d3-js"
+        />
+      </withRouter(SwipeableRoutes)>
+      <Route
+        component={[Function]}
+      />
+    </Switch>
+  </div>
+</BrowserRouter>
+`;
