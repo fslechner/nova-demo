@@ -26,11 +26,8 @@ export const Header: FC<Props> = ({
           <NavLink
             className="link"
             key={link.path}
-            to={`${link.path}`}
-            activeStyle={{
-              fontWeight: "bold",
-              color: "red"
-            }}
+            to={`/${link.path}`}
+            activeClassName="link--current"
           >
             {link.name}
           </NavLink>

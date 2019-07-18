@@ -1,7 +1,7 @@
 const path = require("path");
 
 module.exports = {
-  title: "Novartis Demo",
+  title: "Nova Demo",
   components: "src/components/**/*.tsx",
   propsParser: require("react-docgen-typescript").withDefaultConfig({
     propFilter: { skipPropsWithoutDoc: true }

@@ -40,6 +40,7 @@ exports[`renders toMatchSnapshot 1`] = `
       </withRouter(SwipeableRoutes)>
       <Route
         component={[Function]}
+        path="*"
       />
     </Switch>
   </div>

@@ -20,7 +20,7 @@ export const App: FC = () => (
           <Route path="/highcharts" component={FoodRecallEnforcement} />
           <Route path="/d3-js" component={FoodRecallEnforcementD3} />
         </SwipeableRoutes>
-        <Route component={NotFound} />
+        <Route path="*" component={NotFound} />
       </Switch>
     </div>
   </Router>
