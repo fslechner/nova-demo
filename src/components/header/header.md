@@ -5,7 +5,7 @@
 ```jsx
 const MemoryRouter = require("react-router").MemoryRouter;
 import { navLinks } from "../../utils/data/navLinks";
-console.log("test:", navLinks);
+
 <MemoryRouter>
   <Header navLinks={navLinks} />
 </MemoryRouter>;

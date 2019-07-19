@@ -1,34 +1,74 @@
 import React, { PureComponent, HTMLAttributes } from "react";
 import classNames from "classnames";
-import { Piechart } from "../../../components";
+import { connect } from "react-redux";
+import { AppState } from "../../../store/initalState";
+import { fetchInitiators } from "../../../store/actions";
+import { Piechart, Error } from "../../../components";
 
-export interface AppState extends HTMLAttributes<HTMLOrSVGElement> {}
+export interface StateProps {
+  /** Is loading data */
+  isLoading: boolean;
+  /** Has an error */
+  hasError: boolean;
+  /** Fetched and formatted data of the chart */
+  data: Array<(string | number)[]>;
+}
 
-export class InitiatorsChartD3 extends PureComponent<AppState> {
+export interface DispatchProps {
+  /** Action for fetching data. **/
+  fetchInitiators: () => void;
+}
+
+export interface OwnProps {
+  /** Title of the chart */
+  title: string;
+}
+
+export type Props = StateProps &
+  DispatchProps &
+  OwnProps &
+  HTMLAttributes<HTMLOrSVGElement>;
+
+export class InitiatorsChartD3 extends PureComponent<Props> {
+  constructor(props: Props) {
+    super(props);
+  }
+
+  componentDidMount() {
+    this.props.fetchInitiators();
+  }
+
   render() {
-    const { className } = this.props;
+    const { data, title, isLoading, hasError, className } = this.props;
 
-    const data = [
+    const mockData = [
       { label: "part 1", value: "75" },
       { label: "part 2", value: "50" },
       { label: "part 3", value: "25" }
     ];
 
     return (
-      <div className={classNames(className)}>
-        <Piechart
-          innerRadius={90}
-          outerRadius={100}
-          data={data}
-          x={400}
-          y={400}
-        />
+      <div className={classNames("horizontal-center", className)}>
+        <h3 className="horizontal-center">{title}</h3>
+        <div className="chart-wrapper horizontal-center">
+          {!hasError ? (
+            <Piechart
+              innerRadius={70}
+              outerRadius={100}
+              data={data}
+              width={500}
+              height={400}
+            />
+          ) : (
+            <Error fetchData={fetchInitiators} isLoading={isLoading} />
+          )}
+        </div>
       </div>
     );
   }
 }
 
-/* export const InitiatorsChartD3Connected = connect(
+export const InitiatorsChartD3Connected = connect(
   (state: AppState, ownProps: OwnProps): StateProps => ({
     isLoading: state.isLoading.INITIATORS,
     hasError: state.hasError.INITIATORS,
@@ -39,4 +79,4 @@ export class InitiatorsChartD3 extends PureComponent<AppState> {
   }
 )(InitiatorsChartD3);
 
-export default InitiatorsChartD3; */
+export default InitiatorsChartD3;

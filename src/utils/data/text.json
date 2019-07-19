@@ -3,7 +3,7 @@
     "topic": "Food recall enforcement reports since 2012",
     "teaser": "",
     "text": "This is the openFDA API endpoint for all food product recalls monitored by the FDA. When an FDA-regulated product is either defective or potentially harmful, recalling that product—removing it from the market or correcting the problem—is the most effective means for protecting the public.",
-    "ChartTitle": "Enforcement reports over time"
+    "chartTitle": "Enforcement reports over time"
   },
   "initiators": {
     "topic": "The vast majority of food recalls are voluntary",
