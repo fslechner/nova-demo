@@ -7,3 +7,4 @@ export { Text } from "./text/text";
 export { Header } from "./header/header";
 export { NotFound } from "./notFound/notFound";
 export { Piechart } from "./charts/piechart/piechart";
+export { Linechart } from "./charts/linechart/linechart";

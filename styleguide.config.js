@@ -3,9 +3,6 @@ const path = require("path");
 module.exports = {
   title: "Nova Demo",
   components: "src/components/**/*.tsx",
-  /*   propsParser: require("react-docgen-typescript").withDefaultConfig({
-    propFilter: { skipPropsWithoutDoc: true }
-  }).parse, */
   propsParser: require("react-docgen-typescript").withCustomConfig(
     "./tsconfig.json",
     {

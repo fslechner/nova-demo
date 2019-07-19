@@ -3,7 +3,7 @@ import classNames from "classnames";
 import { connect } from "react-redux";
 import { AppState } from "../../../store/initalState";
 import { fetchReports } from "../../../store/actions";
-import { Piechart, Error, Search } from "../../../components";
+import { Linechart, Error, Search } from "../../../components";
 
 export interface StateProps {
   /** Is loading data */
@@ -43,13 +43,7 @@ export class ReportsChartD3 extends PureComponent<Props> {
           <h3 className="horizontal-center">{title}</h3>
           <div className="chart-wrapper">
             {!hasError ? (
-              <Piechart
-                innerRadius={70}
-                outerRadius={100}
-                data={data}
-                width={500}
-                height={400}
-              />
+              <Linechart data={data} />
             ) : (
               <Error fetchData={fetchReports} isLoading={isLoading} />
             )}
