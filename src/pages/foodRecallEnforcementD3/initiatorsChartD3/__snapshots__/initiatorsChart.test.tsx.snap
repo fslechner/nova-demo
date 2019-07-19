@@ -4,6 +4,27 @@ exports[`renders toMatchSnapshot 1`] = `
 <div
   className=""
 >
-  InitiatorsChartD3
+  <Piechart
+    data={
+      Array [
+        Object {
+          "label": "part 1",
+          "value": "75",
+        },
+        Object {
+          "label": "part 2",
+          "value": "50",
+        },
+        Object {
+          "label": "part 3",
+          "value": "25",
+        },
+      ]
+    }
+    innerRadius={50}
+    outerRadius={100}
+    x={100}
+    y={100}
+  />
 </div>
 `;

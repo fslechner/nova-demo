@@ -4,6 +4,7 @@
 @import "search.css";
 @import "error.css";
 @import "header.css";
+@import "chart.css";
 
 * {
   box-sizing: border-box;
