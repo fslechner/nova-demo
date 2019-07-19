@@ -1,4 +1,36 @@
-svg {
+/* svg {
   -webkit-filter: drop-shadow(0px 3px 3px rgba(0, 0, 0, 0.3));
   filter: drop-shadow(0px 3px 3px rgba(0, 0, 0, 0.25));
+}
+
+ */
+
+.linegraph svg {
+  fill: #000;
+  fill-opacity: 0.3;
+}
+
+.linegraph path {
+  stroke: steelblue;
+  stroke-width: 2px;
+  fill: none;
+}
+
+.linegraph .axis {
+  stroke: #000;
+}
+
+.linegraph .axis-labels text {
+  fill: #000;
+  fill-opacity: 0.9;
+  font-size: 12px;
+  text-anchor: middle;
+}
+
+.linegraph .axis-labels line {
+  stroke: #000;
+}
+
+.linegraph .gridline {
+  opacity: 0.2;
 }

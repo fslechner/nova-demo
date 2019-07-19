@@ -43,7 +43,7 @@ export class ReportsChartD3 extends PureComponent<Props> {
           <h3 className="horizontal-center">{title}</h3>
           <div className="chart-wrapper">
             {!hasError ? (
-              <Linechart data={data} />
+              <Linechart />
             ) : (
               <Error fetchData={fetchReports} isLoading={isLoading} />
             )}
