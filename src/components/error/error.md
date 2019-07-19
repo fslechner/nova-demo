@@ -1,4 +1,4 @@
-### Display fetching errors
+Displays fetching errors
 
 #### With isLoading=false
 

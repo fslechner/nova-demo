@@ -4,6 +4,24 @@ exports[`renders toMatchSnapshot 1`] = `
 <div
   className=""
 >
-  ReportsChartD3
+  <Search
+    data-test="search"
+    fetchData={[Function]}
+  />
+  <div>
+    <h3
+      className="horizontal-center"
+    />
+    <div
+      className="chart-wrapper"
+    >
+      <Piechart
+        height={400}
+        innerRadius={70}
+        outerRadius={100}
+        width={500}
+      />
+    </div>
+  </div>
 </div>
 `;

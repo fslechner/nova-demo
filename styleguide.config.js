@@ -7,8 +7,13 @@ module.exports = {
     propFilter: { skipPropsWithoutDoc: true }
   }).parse,
   skipComponentsWithoutExample: true,
+  getExampleFilename(componentPath) {
+    return componentPath.replace(/\.tsx?$/, ".md");
+  },
   pagePerSection: true,
   usageMode: "collapse",
   exampleMode: "collapse",
-  require: [path.join(__dirname, "./src/styles/index.css")]
+  require: [path.join(__dirname, "./src/styles/index.css")],
+
+  ignore: ["**/*.test.*", "**/*.d.ts", "**/index.*"]
 };

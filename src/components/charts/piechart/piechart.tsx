@@ -11,7 +11,8 @@ export interface PiechartProps extends HTMLAttributes<HTMLOrSVGElement> {
   outerRadius: number;
   data: Data;
 }
-
+// TODO: Inner and outer radius currently unused. Enable it to change chart/label dimensions and spacings!
+// TODO: Label overlap. Fix it for readability! One TextAnchor should switch to end...
 export const Piechart: FC<PiechartProps> = ({
   width,
   height,
@@ -19,7 +20,6 @@ export const Piechart: FC<PiechartProps> = ({
   outerRadius,
   data
 }) => {
-  console.log(data);
   const pie = d3.pie().value((d: Data) => d[1])(data);
   const translate = `translate(${width / 2}, ${height / 2})`;
   const colors = d3.scaleOrdinal(d3.schemeCategory10);

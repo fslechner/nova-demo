@@ -1,6 +1,7 @@
 import React, { FC } from "react";
 import { Link } from "react-router-dom";
 
+// TODO: Router not routing to this page. Fix it!
 export const NotFound: FC = () => (
   <div className="error">
     <div className="text-center">

@@ -1,5 +1,3 @@
-### NotFound Component
-
 #### NotFound
 
 ```jsx

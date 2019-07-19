@@ -1,5 +1,3 @@
-### A Button-Component
-
 #### Button with only text
 
 ```jsx
@@ -61,7 +59,7 @@
   iconAlign="after"
   isLoading={true}
 >
-  Button Text
+  Disabled
 </Button>
 ```
 
@@ -76,6 +74,9 @@
   isLoading={true}
   isLoadingSpin={true}
 >
-  Button Text
+  Loading
 </Button>
+```
+
+```js { "file": "./button.tsx" }
 ```

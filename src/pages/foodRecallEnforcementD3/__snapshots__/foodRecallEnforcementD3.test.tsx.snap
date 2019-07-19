@@ -9,7 +9,6 @@ exports[`renders toMatchSnapshot 1`] = `
     topic="Food recall enforcement reports since 2012"
     topicTag="h1"
   />
-  <ReportsChartD3 />
   <div
     className="flex-two-column"
   >
@@ -19,8 +18,9 @@ exports[`renders toMatchSnapshot 1`] = `
       topic="The vast majority of food recalls are voluntary"
       topicTag="h2"
     />
-    <InitiatorsChartD3
+    <Connect(InitiatorsChartD3)
       className="item"
+      title="Enforcement initiators"
     />
   </div>
 </div>

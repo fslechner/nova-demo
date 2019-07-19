@@ -1,12 +1,12 @@
-### A Search-Component
+### Search for filtering data
 
-#### With isLoading={false}
+#### Search default
 
 ```jsx
 <Search isLoading={false} fetchData={() => null} />
 ```
 
-#### With isLoading={true}
+#### Search while is loading
 
 ```jsx
 <Search isLoading={true} fetchData={() => null} />
