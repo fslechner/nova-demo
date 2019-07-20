@@ -44,13 +44,13 @@ export class InitiatorsChartD3 extends PureComponent<Props> {
     return (
       <div className={classNames("horizontal-center", className)}>
         <h3 className="horizontal-center">{title}</h3>
-        <div className="chart-wrapper horizontal-center">
+        <div className="chart-wrapper">
           {!hasError ? (
             <Piechart
-              innerRadius={70}
+              innerRadius={0}
               outerRadius={100}
               data={data}
-              width={500}
+              width={400}
               height={400}
             />
           ) : (

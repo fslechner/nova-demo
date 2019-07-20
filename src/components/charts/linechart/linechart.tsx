@@ -75,8 +75,8 @@ export class Linechart extends PureComponent<LinechartProps, State> {
     const { xTicks, yTicks, xAxis, yAxis } = this.props;
     const { data, width, height } = this.state;
     const margin = 20;
-    const h = this.state.height - 2 * margin;
-    const w = this.state.width - 2 * margin;
+    const h = height - 2 * margin;
+    const w = width - 2 * (1.5 * margin);
 
     const mockData = [
       { a: 1, b: 3 },
@@ -94,7 +94,7 @@ export class Linechart extends PureComponent<LinechartProps, State> {
     const x = d3
       .scaleLinear()
       .domain([xMin, xMax])
-      .range([margin, w]);
+      .range([margin * 2, w + 1.8 * margin]);
 
     /** y scale */
     const y = d3
@@ -109,15 +109,14 @@ export class Linechart extends PureComponent<LinechartProps, State> {
       h,
       w
     };
-    console.log("xTicks", xTicks);
+
     return (
-      <svg className="linegraph" ref={this.chart}>
-        <text y="100">{this.state.width}</text>
+      <svg className="linechart" ref={this.chart}>
         <Axis direction="x" config={config} />
-        {xTicks && <AxisTicks direction="x" ticks={xTicks} config={config} />}
+        <AxisTicks direction="x" ticks={12} config={config} />
         <Axis direction="y" config={config} />
-        {yTicks && <AxisTicks direction="y" ticks={yTicks} config={config} />}
-        <Line data={this.state.data} x={x} y={y} />
+        <AxisTicks direction="y" ticks={6} config={config} />
+        <Line data={data} x={x} y={y} />
       </svg>
     );
   }
