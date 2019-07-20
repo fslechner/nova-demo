@@ -1,0 +1,3 @@
+```jsx
+<Collapse>Collapse</Collapse>
+```

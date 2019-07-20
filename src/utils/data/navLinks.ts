@@ -6,5 +6,9 @@ export const navLinks: Array<{ name: string; path: string }> = [
   {
     name: "D3.js",
     path: "d3-js"
+  },
+  {
+    name: "LinebarChart",
+    path: "linebarchart"
   }
 ];

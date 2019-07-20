@@ -9,6 +9,7 @@ import {
 import { FoodRecallEnforcement, FoodRecallEnforcementD3 } from "./pages";
 import { Header, NotFound } from "./components";
 import { navLinks } from "./utils/data/navLinks";
+import { LinebarChart } from "./components";
 
 export const App: FC = () => (
   <Router>
@@ -19,6 +20,7 @@ export const App: FC = () => (
         <SwipeableRoutes enableMouseEvents>
           <Route path="/highcharts" component={FoodRecallEnforcement} />
           <Route path="/d3-js" component={FoodRecallEnforcementD3} />
+          <Route path="/linebarchart" component={LinebarChart} />
         </SwipeableRoutes>
         <Route path="*" component={NotFound} />
       </Switch>

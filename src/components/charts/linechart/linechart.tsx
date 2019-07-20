@@ -23,7 +23,7 @@ interface State {
 
 export class Linechart extends PureComponent<LinechartProps, State> {
   chart = createRef<any>();
-  node: any;
+  node: any = this.chart.current;
   state: State = {
     width: 0,
     height: 0,
@@ -75,7 +75,7 @@ export class Linechart extends PureComponent<LinechartProps, State> {
     const { xTicks, yTicks, xAxis, yAxis } = this.props;
     const { data, width, height } = this.state;
 
-    if (!data || !this.chart) {
+    if (!data || data === [] || !this.chart) {
       return <svg className="linechart" ref={this.chart} />;
     }
 
@@ -83,11 +83,11 @@ export class Linechart extends PureComponent<LinechartProps, State> {
     const h = height - 2 * margin;
     const w = width - 2 * (1.5 * margin);
 
-    const xMin = d3.min(data.map((array: any) => d3.min(array)));
-    const xMax = d3.max(data.map((array: any) => d3.max(array)));
-    const yMax = d3.max(data.map((array: any) => d3.max(array)));
-    console.log("*** min", d3.min(data.map((array: any) => d3.min(array))));
-    console.log("*** min", d3.max(data.map((array: any) => d3.max(array))));
+    const xMin = d3.min(data, (d: any) => d.x);
+    const xMax = d3.max(data, (d: any) => d.x);
+    const yMax = d3.max(data, (d: any) => d.y);
+    console.log("*** xMin", xMin);
+    console.log("*** yMax", yMax);
     /** x scale */
     const x = d3
       .scaleTime()
