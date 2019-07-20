@@ -29,6 +29,14 @@ export type Props = StateProps &
   OwnProps &
   HTMLAttributes<HTMLDivElement>;
 
+const mockData = [
+  { a: 1, b: 3 },
+  { a: 2, b: 6 },
+  { a: 3, b: 2 },
+  { a: 4, b: 12 },
+  { a: 5, b: 8 }
+];
+
 export class ReportsChartD3 extends PureComponent<Props> {
   render() {
     const { title, data, isLoading, hasError, className } = this.props;
@@ -43,7 +51,7 @@ export class ReportsChartD3 extends PureComponent<Props> {
           <h3 className="horizontal-center">{title}</h3>
           <div className="chart-wrapper">
             {!hasError ? (
-              <Linechart />
+              <Linechart data={mockData} />
             ) : (
               <Error fetchData={fetchReports} isLoading={isLoading} />
             )}

@@ -1,113 +1,126 @@
-import React, { FC, HTMLAttributes, PureComponent } from "react";
+import React, { FC, HTMLAttributes, PureComponent, createRef } from "react";
 import produce from "immer";
 import * as d3 from "d3";
+import { Axis } from "./axis";
+import { Line } from "./line";
+import { AxisTicks } from "./axisTicks";
 
 type Data = any;
 
-export interface Props extends HTMLAttributes<HTMLDivElement> {
-  /*   width: number;
-  height: number;*/
-  data?: Data;
+export interface LinechartProps extends HTMLAttributes<HTMLOrSVGElement> {
+  data: Data;
+  xAxis?: boolean;
+  yAxis?: boolean;
+  xTicks?: number;
+  yTicks?: number;
 }
 
 interface State {
   data: Data;
+  height: number;
+  width: number;
 }
 
-export class Linechart extends PureComponent<Props, State> {
-  n = 21;
-  width = 500;
-  height = 350;
-  margin = 20;
+export class Linechart extends PureComponent<LinechartProps, State> {
+  chart = React.createRef<any>();
+  node: any;
+  state: State = {
+    width: 0,
+    height: 0,
+    data: []
+  };
 
-  mockData = [
-    { a: 1, b: 3 },
-    { a: 2, b: 6 },
-    { a: 3, b: 2 },
-    { a: 4, b: 12 },
-    { a: 5, b: 8 }
-  ];
+  static defaultProps = {
+    xAxis: true,
+    yAxis: true,
+    xTicks: true,
+    yTicks: true
+  };
 
-  h = this.height - 2 * this.margin;
-  w = this.width - 2 * this.margin;
+  componentDidMount() {
+    window.addEventListener("resize", this.updateDimensions);
+    this.node = this.chart.current!;
+    const dimensions: DOMRect = this.node.getBoundingClientRect();
+    if (dimensions.width !== this.state.width) {
+      this.updateDimensions();
+    }
+  }
 
-  //number formatter
-  xFormat = d3.format(".2");
-  //x scale
-  x = d3
-    .scaleLinear()
-    .domain([0, 20]) //domain: [min,max] of a
-    .range([this.margin, this.w]);
+  componentWillUnmount() {
+    window.removeEventListener("resize", this.updateDimensions);
+  }
 
-  //y scale
-  y = d3
-    .scaleLinear()
-    .domain([0, 20]) // domain [0,max] of b (start from 0)
-    .range([this.h, this.margin]);
+  updateDimensions = () => {
+    if (this.node) {
+      const dimensions: DOMRect = this.node.getBoundingClientRect();
+      this.setState(
+        produce((draft: State) => {
+          draft.width = dimensions.width;
+          draft.height = dimensions.height;
+        })
+      );
+    }
+  };
 
-  //line generator: each point is [x(d.a), y(d.b)] where d is a row in data
-  // and x, y are scales (e.g. x(10) returns pixel value of 10 scaled by x)
-  line = d3
-    .line()
-    .x((d: any) => this.x(d.a))
-    .y((d: any) => this.y(d.b))
-    .curve(d3.curveCatmullRom.alpha(0.5)); //curve line
-
-  xTicks = this.x.ticks(6).map(d =>
-    this.x(d) > this.margin && this.x(d) < this.w ? (
-      <g transform={`translate(${this.x(d)},${this.h + this.margin})`}>
-        <text>{this.xFormat(d)}</text>
-        <line x1="0" x2="0" y1="0" y2="5" transform="translate(0,-20)" />
-      </g>
-    ) : null
-  );
-
-  yTicks = this.y.ticks(5).map((d: any) =>
-    this.y(d) > 10 && this.y(d) < this.h ? (
-      <g transform={`translate(${this.margin},${this.y(d)})`}>
-        <text x="-12" y="5">
-          {this.xFormat(d)}
-        </text>
-        <line x1="0" x2="5" y1="0" y2="0" transform="translate(-5,0)" />
-        <line
-          className="gridline"
-          x1="0"
-          x2={this.w - this.margin}
-          y1="0"
-          y2="0"
-          transform="translate(-5,0)"
-        />
-      </g>
-    ) : null
-  );
+  static getDerivedStateFromProps(nextProps: LinechartProps, prevState: State) {
+    if (prevState.data !== nextProps.data) {
+      return produce(prevState, (draft: State) => {
+        draft.data = nextProps.data;
+      });
+    }
+    return null;
+  }
 
   render() {
+    const { xTicks, yTicks, xAxis, yAxis } = this.props;
+    const { data, width, height } = this.state;
+    const margin = 20;
+    const h = this.state.height - 2 * margin;
+    const w = this.state.width - 2 * margin;
+
+    const mockData = [
+      { a: 1, b: 3 },
+      { a: 2, b: 6 },
+      { a: 3, b: 2 },
+      { a: 4, b: 12 },
+      { a: 5, b: 8 }
+    ];
+
+    const xMin = d3.min(mockData, (d: any) => d.a);
+    const xMax = d3.max(mockData, (d: any) => d.a);
+    const yMax = d3.max(mockData, (d: any) => d.b);
+
+    /** x scale */
+    const x = d3
+      .scaleLinear()
+      .domain([xMin, xMax])
+      .range([margin, w]);
+
+    /** y scale */
+    const y = d3
+      .scaleLinear()
+      .domain([0, yMax])
+      .range([h, margin]);
+
+    const config = {
+      x,
+      y,
+      margin,
+      h,
+      w
+    };
+    console.log("xTicks", xTicks);
     return (
-      <svg className="linegraph" width={this.width} height={this.height}>
-        <line
-          className="axis"
-          x1={this.margin}
-          x2={this.w}
-          y1={this.h}
-          y2={this.h}
-        />
-        <line
-          className="axis"
-          x1={this.margin}
-          x2={this.margin}
-          y1={this.margin}
-          y2={this.h}
-        />
-        // @ts-ignore
-        <path d={this.line(this.mockData)} />
-        <g className="axis-labels">{this.xTicks}</g>
-        <g className="axis-labels">{this.yTicks}</g>
+      <svg className="linegraph" ref={this.chart}>
+        <text y="100">{this.state.width}</text>
+        <Axis direction="x" config={config} />
+        {xTicks && <AxisTicks direction="x" ticks={xTicks} config={config} />}
+        <Axis direction="y" config={config} />
+        {yTicks && <AxisTicks direction="y" ticks={yTicks} config={config} />}
+        <Line data={this.state.data} x={x} y={y} />
       </svg>
     );
   }
 }
-
-/* 
-ReactDOM.render(<LineChart data={data} width={width} height={height} />, document.getElementById('app')) */
 
 export default Linechart;
