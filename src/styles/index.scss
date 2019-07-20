@@ -1,10 +1,11 @@
 @import-normalize;
-@import "icon.css";
-@import "button.css";
-@import "search.css";
-@import "error.css";
-@import "header.css";
-@import "chart.css";
+@import "icon";
+@import "button";
+@import "search";
+@import "error";
+@import "header";
+@import "chart";
+@import "collapse";
 
 * {
   box-sizing: border-box;

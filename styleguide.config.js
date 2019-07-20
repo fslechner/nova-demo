@@ -22,6 +22,6 @@ module.exports = {
   pagePerSection: true,
   usageMode: "collapse",
   exampleMode: "collapse",
-  require: [path.join(__dirname, "./src/styles/index.css")],
+  require: [path.join(__dirname, "./src/styles/index.scss")],
   ignore: ["**/*.test.*", "**/*.d.ts", "**/index.*"]
 };

@@ -1,10 +1,14 @@
 ### Icon name
 
 ```jsx
-  <h5>search</h5>
+<h5>search</h5>
 <Icon name="search" size="xl"/>
 <h5>refresh</h5>
 <Icon name="refresh" size="xl"/>
+<h5>arrow</h5>
+<Icon name="arrow" size="xl"/>
+<h5>close</h5>
+<Icon name="close" size="xl"/>
 ```
 
 ### Icon size

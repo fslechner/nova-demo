@@ -9,3 +9,4 @@ export { NotFound } from "./notFound/notFound";
 export { Piechart } from "./charts/piechart/piechart";
 export { Linechart } from "./charts/linechart/linechart";
 export { Charts as LinebarChart } from "./charts/linebarchart/charts";
+export { Collapse } from "./collapse/collapse";

@@ -1,0 +1,24 @@
+.collapse {
+}
+
+.collapse__label {
+  height: 50px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.collpase {
+  padding-top: 20px;
+}
+
+.collapse__content--closed {
+  overflow: hidden;
+  max-height: 0;
+  transition: max-height 0.4s ease-in;
+}
+
+.collapse__content--open {
+  max-height: 2000px; // bigger than the biggest possible content
+  transition: max-height 0.25s ease-out;
+}

@@ -4,9 +4,9 @@ import sprite from "./spritemap.svg";
 
 export type IconSizeProps = "xs" | "s" | "m" | "l" | "xl";
 
-export type IconRotateProps = "90" | "180" | "270";
+export type IconRotateProps = null | "90" | "180" | "270";
 
-export type IconNameProps = "search" | "refresh";
+export type IconNameProps = "search" | "refresh" | "arrow" | "close";
 
 export interface Props extends HTMLAttributes<HTMLOrSVGElement> {
   size?: IconSizeProps;

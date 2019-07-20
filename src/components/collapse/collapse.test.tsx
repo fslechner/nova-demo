@@ -2,10 +2,9 @@ import React from "react";
 import { shallow } from "enzyme";
 import toJson from "enzyme-to-json";
 import { Collapse, Props } from "./collapse";
-import { findByTestAttr } from "../../utils/tests";
 
 const testCases: Array<[string, Props]> = [
-  ["Default", { isLoading: true, children: "Collapse Example" }]
+  ["Default", { text: "Collapse Label", children: "Collapse Content" }]
 ];
 
 describe("<Collapse>", () => {
