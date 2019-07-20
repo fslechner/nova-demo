@@ -26,9 +26,9 @@ export const AxisTicks: FC<Props> = ({ direction, ticks, config }) => {
     ) : null
   );
 
-  const yTicks = y.ticks(ticks).map((d: any) =>
+  const yTicks = y.ticks(ticks).map((d: any, i: number) =>
     y(d) > 10 && y(d) < h ? (
-      <g transform={`translate(${margin},${y(d)})`}>
+      <g key="i" transform={`translate(${margin},${y(d)})`}>
         <text x={margin - 20} y="5">
           {format(d)}
         </text>

@@ -22,7 +22,7 @@ interface State {
 }
 
 export class Linechart extends PureComponent<LinechartProps, State> {
-  chart = React.createRef<any>();
+  chart = createRef<any>();
   node: any;
   state: State = {
     width: 0,
@@ -90,9 +90,11 @@ export class Linechart extends PureComponent<LinechartProps, State> {
     const xMax = d3.max(mockData, (d: any) => d.a);
     const yMax = d3.max(mockData, (d: any) => d.b);
 
+    /*     this.props.data && console.log("MIN:", this.props.data[0]);
+    this.props.data && console.log("MIN:", d3.min(this.props.data[0])); */
     /** x scale */
     const x = d3
-      .scaleLinear()
+      .scaleTime()
       .domain([xMin, xMax])
       .range([margin * 2, w + 1.8 * margin]);
 

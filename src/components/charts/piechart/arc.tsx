@@ -1,30 +1,30 @@
 import React, { PureComponent } from "react";
-import { PiechartProps } from "./piechart";
 import * as d3 from "d3";
 
-export class Arc extends PureComponent<PiechartProps> {
+interface Props {
+  color: any;
+  data: any;
+  radius: number;
+}
+export class Arc extends PureComponent<Props> {
   arc: any;
   outerArc: any;
 
-  constructor(props: PiechartProps) {
+  constructor(props: Props) {
     super(props);
-    const { width, height } = this.props;
+    const { radius } = this.props;
     this.arc = d3
       .arc()
-      .innerRadius(this.getRadius(width, height) * 0.8)
-      .outerRadius(this.getRadius(width, height) * 0.6);
+      .innerRadius(radius * 0.8)
+      .outerRadius(radius * 0);
     this.outerArc = d3
       .arc()
-      .innerRadius(this.getRadius(width, height) * 0.9)
-      .outerRadius(this.getRadius(width, height) * 0.9);
+      .innerRadius(radius * 0.9)
+      .outerRadius(radius * 0.9);
   }
 
   getMidAngle(d: any) {
     return d.startAngle + (d.endAngle - d.startAngle) / 2;
-  }
-
-  getRadius(width: number, height: number) {
-    return Math.min(width, height) / 2;
   }
 
   getPolylinePoints(d: any, radius: number): string {

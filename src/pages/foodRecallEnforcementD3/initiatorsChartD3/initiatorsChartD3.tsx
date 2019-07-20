@@ -40,19 +40,13 @@ export class InitiatorsChartD3 extends PureComponent<Props> {
 
   render() {
     const { data, title, isLoading, hasError, className } = this.props;
-
+    console.log("test", data);
     return (
-      <div className={classNames("horizontal-center", className)}>
+      <div className={classNames(className)}>
         <h3 className="horizontal-center">{title}</h3>
         <div className="chart-wrapper">
           {!hasError ? (
-            <Piechart
-              innerRadius={0}
-              outerRadius={100}
-              data={data}
-              width={400}
-              height={400}
-            />
+            <Piechart data={data} />
           ) : (
             <Error fetchData={fetchInitiators} isLoading={isLoading} />
           )}
