@@ -1,4 +1,4 @@
-import React, { FC, HTMLAttributes, PureComponent, createRef } from "react";
+import React, { HTMLAttributes, PureComponent, createRef } from "react";
 import produce from "immer";
 import * as d3 from "d3";
 import { Axis } from "./axis";
@@ -74,33 +74,31 @@ export class Linechart extends PureComponent<LinechartProps, State> {
   render() {
     const { xTicks, yTicks, xAxis, yAxis } = this.props;
     const { data, width, height } = this.state;
+
+    if (!data || !this.chart) {
+      return <svg className="linechart" ref={this.chart} />;
+    }
+
     const margin = 20;
     const h = height - 2 * margin;
     const w = width - 2 * (1.5 * margin);
 
-    const mockData = [
-      { a: 1, b: 3 },
-      { a: 2, b: 6 },
-      { a: 3, b: 2 },
-      { a: 4, b: 12 },
-      { a: 5, b: 8 }
-    ];
-
-    const xMin = d3.min(mockData, (d: any) => d.a);
-    const xMax = d3.max(mockData, (d: any) => d.a);
-    const yMax = d3.max(mockData, (d: any) => d.b);
-
-    /*     this.props.data && console.log("MIN:", this.props.data[0]);
-    this.props.data && console.log("MIN:", d3.min(this.props.data[0])); */
+    const xMin = d3.min(data.map((array: any) => d3.min(array)));
+    const xMax = d3.max(data.map((array: any) => d3.max(array)));
+    const yMax = d3.max(data.map((array: any) => d3.max(array)));
+    console.log("*** min", d3.min(data.map((array: any) => d3.min(array))));
+    console.log("*** min", d3.max(data.map((array: any) => d3.max(array))));
     /** x scale */
     const x = d3
       .scaleTime()
+      // @ts-ignore
       .domain([xMin, xMax])
       .range([margin * 2, w + 1.8 * margin]);
 
     /** y scale */
     const y = d3
       .scaleLinear()
+      // @ts-ignore
       .domain([0, yMax])
       .range([h, margin]);
 

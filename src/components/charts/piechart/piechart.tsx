@@ -62,14 +62,13 @@ export class Piechart extends React.Component<Props, State> {
 
   render() {
     const { data, width, height } = this.state;
-    console.log("######### 0", data);
+    if (!data || !this.chart) {
+      return <svg className="piechart" ref={this.chart} />;
+    }
     const pie = d3.pie().value((d: Data) => d[1])(data);
     const translate = `translate(${width / 2}, ${height / 2})`;
-    const radius = Math.min(this.state.width, this.state.height) / 2;
+    const radius = Math.min(width, height) / 2;
     const colors = d3.scaleOrdinal(d3.schemeCategory10);
-    console.log("######### 1", this.state.width);
-    console.log("######### 2", `translate(${width / 2}, ${height / 2})`);
-    console.log("######### 3", pie);
     return (
       <svg className="piechart" ref={this.chart}>
         <g transform={translate}>

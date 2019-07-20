@@ -11,16 +11,7 @@ export interface AppState {
 }
 
 export const initialState: AppState = {
-  isLoading: {
-    REPORTS: false,
-    INITIATORS: false
-  },
-  hasError: {
-    REPORTS: false,
-    INITIATORS: false
-  },
-  data: {
-    REPORTS: [],
-    INITIATORS: []
-  }
+  isLoading: {},
+  hasError: {},
+  data: {}
 };

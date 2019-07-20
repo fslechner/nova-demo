@@ -39,8 +39,14 @@ export class InitiatorsChartD3 extends PureComponent<Props> {
   }
 
   render() {
-    const { data, title, isLoading, hasError, className } = this.props;
-    console.log("test", data);
+    const {
+      data,
+      title,
+      isLoading,
+      hasError,
+      fetchInitiators,
+      className
+    } = this.props;
     return (
       <div className={classNames(className)}>
         <h3 className="horizontal-center">{title}</h3>

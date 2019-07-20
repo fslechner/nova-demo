@@ -7,7 +7,17 @@ export const axiosOpenFDA = Axios.create({
 
 interface OpenFDAResponse {
   meta: {};
-  results: [];
+  results: any;
+}
+
+interface FoodReportsResponse {
+  time: number;
+  count: number;
+}
+
+interface FoodInitiatorsResponse {
+  term: string;
+  count: number;
 }
 
 export const openFDA = {
@@ -16,16 +26,26 @@ export const openFDA = {
     responseType: "json",
     url: `food/enforcement.json?search=reason_for_recall:"${term}"&count=report_date`,
     transformResponse: (r: OpenFDAResponse) =>
-      r.results.map((i: { time: number; count: number }) => [
-        moment(i.time, "YYYY-MM-DD").valueOf(),
-        i.count
+      r.results.map((data: FoodReportsResponse) => [
+        moment(data.time, "YYYY-MM-DD").valueOf(),
+        data.count
       ])
+  }),
+  reportsD3: (term: string): AxiosRequestConfig => ({
+    method: "get",
+    responseType: "json",
+    url: `food/enforcement.json?search=reason_for_recall:"${term}"&count=report_date`,
+    transformResponse: (r: OpenFDAResponse) =>
+      r.results.map((data: FoodReportsResponse) => ({
+        x: data.time,
+        y: data.count
+      }))
   }),
   initiators: (): AxiosRequestConfig => ({
     method: "get",
     responseType: "json",
     url: `food/enforcement.json?count=voluntary_mandated.exact`,
     transformResponse: (r: OpenFDAResponse) =>
-      r.results.map((i: { term: string; count: number }) => [i.term, i.count])
+      r.results.map((i: FoodInitiatorsResponse) => [i.term, i.count])
   })
 };

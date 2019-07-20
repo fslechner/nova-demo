@@ -3,9 +3,10 @@ import { Dispatch } from "redux";
 import { AxiosResponse, AxiosError } from "axios";
 
 export const REPORTS = "REPORTS";
+export const REPORTS_D3 = "REPORTS_D3";
 export const INITIATORS = "INITIATORS";
 
-export type Keys = typeof REPORTS | typeof INITIATORS;
+export type Keys = typeof REPORTS | typeof INITIATORS | typeof REPORTS_D3;
 
 export const SET_LOADING = "SET_LOADING";
 export const SET_DATA = "SET_DATA";
@@ -33,6 +34,23 @@ export const fetchReports = (term: string = "") => (dispatch: Dispatch) => {
         dispatch(setData(REPORTS, []));
       }
       dispatch(setLoading(REPORTS, false));
+    });
+};
+
+export const fetchReportsD3 = (term: string = "") => (dispatch: Dispatch) => {
+  dispatch(setLoading(REPORTS_D3, true));
+  axiosOpenFDA(openFDA.reportsD3(term))
+    .then((res: AxiosResponse) => {
+      dispatch(setData(REPORTS_D3, res.data));
+      dispatch(setLoading(REPORTS_D3, false));
+    })
+    .catch((err: AxiosError) => {
+      if (!err.response || err.response.status !== 404) {
+        dispatch(setError(REPORTS_D3, true));
+      } else {
+        dispatch(setData(REPORTS_D3, []));
+      }
+      dispatch(setLoading(REPORTS_D3, false));
     });
 };
 
