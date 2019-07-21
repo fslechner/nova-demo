@@ -1,7 +1,7 @@
 import React, { PureComponent, ReactNode, HTMLAttributes } from "react";
 import classNames from "classnames";
 import { Icon } from "..";
-import { IconNameProps, IconSizeProps } from "../icon/icon";
+import { IconNameProps, IconSizeProps, IconRotateProps } from "../icon/icon";
 
 export type AlignProps = "before" | "after";
 

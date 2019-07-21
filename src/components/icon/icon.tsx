@@ -4,7 +4,7 @@ import sprite from "./spritemap.svg";
 
 export type IconSizeProps = "xs" | "s" | "m" | "l" | "xl";
 
-export type IconRotateProps = null | "90" | "180" | "270";
+export type IconRotateProps = null | "45" | "90" | "180" | "270";
 
 export type IconNameProps = "search" | "refresh" | "arrow" | "close";
 

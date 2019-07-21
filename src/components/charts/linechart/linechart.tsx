@@ -86,8 +86,7 @@ export class Linechart extends PureComponent<LinechartProps, State> {
     const xMin = d3.min(data, (d: any) => d.x);
     const xMax = d3.max(data, (d: any) => d.x);
     const yMax = d3.max(data, (d: any) => d.y);
-    console.log("*** xMin", xMin);
-    console.log("*** yMax", yMax);
+
     /** x scale */
     const x = d3
       .scaleTime()

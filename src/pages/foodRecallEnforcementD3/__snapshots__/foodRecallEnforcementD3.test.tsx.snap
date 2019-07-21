@@ -9,6 +9,9 @@ exports[`renders toMatchSnapshot 1`] = `
     topic="Food recall enforcement reports since 2012"
     topicTag="h1"
   />
+  <Connect(ReportsChartD3)
+    title="Enforcement reports over time"
+  />
   <div
     className="flex-two-column"
   >

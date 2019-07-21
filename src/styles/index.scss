@@ -6,6 +6,7 @@
 @import "header";
 @import "chart";
 @import "collapse";
+@import "text";
 
 * {
   box-sizing: border-box;
@@ -19,6 +20,17 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: rgb(32, 32, 32);
+}
+
+button {
+  padding: 0;
+  border: none;
+  font: inherit;
+  color: inherit;
+  background-color: transparent;
+  /* show a hand cursor on hover; some argue that we
+  should keep the default arrow cursor for buttons */
+  cursor: pointer;
 }
 
 button,
@@ -84,16 +96,6 @@ button {
 
 .item {
   flex: 1;
-}
-
-.text h2,
-.text h1 {
-  margin-top: 0;
-}
-
-.text p {
-  font-size: 1.3rem;
-  line-height: 1.9rem;
 }
 
 .highcharts-container {

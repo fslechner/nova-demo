@@ -5,8 +5,12 @@ import { Icon } from "..";
 import { IconRotateProps, IconNameProps, IconSizeProps } from "../icon/icon";
 
 export interface Props extends HTMLAttributes<HTMLDivElement> {
-  /** Labeltext of the collapse component. */
+  /** Labeltext of the collapse component closed. */
   text: string;
+  /** Labeltext of the collapse component open. */
+  textOpen: string;
+  /** LabelText and LabelIcon left aling e.g as show more text button. */
+  textInline: boolean;
   /** Define an icon as hide/show indicator. */
   iconName: IconNameProps;
   /** Define the size of hide/show indicator icon. */
@@ -20,7 +24,9 @@ export interface Props extends HTMLAttributes<HTMLDivElement> {
   /** Pass an component as close button. If no one is passed no close button will be shown. */
   closeItem?: ReactNode;
   /** Postion of the passed close button.  */
-  closePosition: "top-right" | "top-center" | "bottom-center";
+  closePosition: "bottom-center" | "bottom-right";
+  /** Define a label for screenreader */
+  ariaLabel?: string;
 }
 
 export interface State {
@@ -47,9 +53,19 @@ export class Collapse extends PureComponent<Props, State> {
       })
     );
 
+  disableIsOpen = () => {
+    this.setState(
+      produce((draft: State) => {
+        draft.isOpen = false;
+      })
+    );
+  };
+
   render() {
     const {
       text,
+      textOpen,
+      textInline,
       iconName,
       iconSize,
       iconRotateClosed,
@@ -58,15 +74,17 @@ export class Collapse extends PureComponent<Props, State> {
       closeItem,
       closePosition,
       className,
+      ariaLabel,
       children,
       ...rest
     } = this.props;
     const { isOpen } = this.state;
     const rotate = isOpen ? iconRotateOpen : iconRotateClosed;
     const rootClasses = classNames("collapse", className);
-    const labelClasses = classNames("collapse__label", {});
+    const labelClasses = classNames("collapse__label", {
+      [`collapse__label--text`]: textInline
+    });
     const iconClasses = classNames("collapse__label__icon", {
-      iconRotateAnimated,
       [`collapse__label__icon--animated`]: iconRotateAnimated
     });
     const contentClasses = classNames("collapse__content", {
@@ -77,21 +95,32 @@ export class Collapse extends PureComponent<Props, State> {
       [`collapse__close`]: !!closeItem,
       [`collapse__close--${closePosition}`]: closeItem && closePosition
     });
-
+    console.log("###", isOpen);
     return (
-      <div className={rootClasses} onClick={this.toggleIsOpen} {...rest}>
-        <div className={labelClasses}>
-          <span className="label__text">{text}</span>
+      <div className={rootClasses} {...rest}>
+        <button
+          onClick={this.toggleIsOpen}
+          aria-label={ariaLabel}
+          aria-expanded="false"
+          className={labelClasses}
+        >
+          <div className="label__text">
+            {isOpen && textOpen ? textOpen : text}
+          </div>
           <Icon
             className={iconClasses}
             name={iconName}
             size={iconSize}
             rotate={rotate}
           />
-        </div>
+        </button>
         <div className={contentClasses}>
           {children}
-          {closeItem && <span className={closeClasses}>{closeItem}</span>}
+          {closeItem && (
+            <span onClick={this.disableIsOpen} className={closeClasses}>
+              {closeItem}
+            </span>
+          )}
         </div>
       </div>
     );

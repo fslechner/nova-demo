@@ -16,6 +16,10 @@ exports[`renders toMatchSnapshot 1`] = `
             "name": "D3.js",
             "path": "d3-js",
           },
+          Object {
+            "name": "LinebarChart",
+            "path": "linebarchart",
+          },
         ]
       }
       navLinksAlign="center"
@@ -36,6 +40,10 @@ exports[`renders toMatchSnapshot 1`] = `
         <Route
           component={[Function]}
           path="/d3-js"
+        />
+        <Route
+          component={[Function]}
+          path="/linebarchart"
         />
       </withRouter(SwipeableRoutes)>
       <Route

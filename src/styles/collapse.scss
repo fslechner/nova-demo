@@ -1,11 +1,18 @@
 .collapse {
+  display: inline;
 }
-
+.collapseTest {
+}
 .collapse__label {
-  height: 50px;
+  height: inherit;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  width: 100%;
+}
+.collapse__label--text {
+  justify-content: flex-start;
+  width: auto;
 }
 
 .collapse__label__icon {
@@ -16,6 +23,7 @@
 }
 
 .collapse__content {
+  margin: 0.5rem 0;
 }
 
 .collapse__content--closed {
@@ -30,13 +38,13 @@
 }
 
 .collapse__close {
+  display: flex;
 }
 
-.collapse__close--top-center {
-}
-
-.collapse__close--top-right {
+.collapse__close--bottom-right {
+  justify-content: flex-end;
 }
 
 .collapse__close--bottom-center {
+  justify-content: center;
 }

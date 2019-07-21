@@ -1,0 +1,151 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Collapse> Default 1`] = `
+<div
+  className="collapse"
+>
+  <button
+    aria-expanded="false"
+    className="collapse__label"
+    onClick={[Function]}
+  >
+    <div
+      className="label__text"
+    >
+      Collapse Label
+    </div>
+    <Icon
+      className="collapse__label__icon collapse__label__icon--animated"
+      name="arrow"
+      size="m"
+    />
+  </button>
+  <div
+    className="collapse__content collapse__content--closed"
+  >
+    Collapse Content
+  </div>
+</div>
+`;
+
+exports[`<Collapse> bigger icon size and other icon 1`] = `
+<div
+  className="collapse"
+>
+  <button
+    aria-expanded="false"
+    className="collapse__label"
+    onClick={[Function]}
+  >
+    <div
+      className="label__text"
+    >
+      Collapse Label
+    </div>
+    <Icon
+      className="collapse__label__icon collapse__label__icon--animated"
+      name="close"
+      size="xl"
+    />
+  </button>
+  <div
+    className="collapse__content collapse__content--closed"
+  >
+    Collapse Content
+  </div>
+</div>
+`;
+
+exports[`<Collapse> textInline 1`] = `
+<div
+  className="collapse"
+>
+  <button
+    aria-expanded="false"
+    className="collapse__label collapse__label--text"
+    onClick={[Function]}
+  >
+    <div
+      className="label__text"
+    >
+      Collapse Label
+    </div>
+    <Icon
+      className="collapse__label__icon collapse__label__icon--animated"
+      name="arrow"
+      size="m"
+    />
+  </button>
+  <div
+    className="collapse__content collapse__content--closed"
+  >
+    Collapse Content
+  </div>
+</div>
+`;
+
+exports[`<Collapse> width bottom-center positioned close icon button within collapsed content 1`] = `
+<div
+  className="collapse"
+>
+  <button
+    aria-expanded="false"
+    className="collapse__label"
+    onClick={[Function]}
+  >
+    <div
+      className="label__text"
+    >
+      Collapse Label
+    </div>
+    <Icon
+      className="collapse__label__icon"
+      name="close"
+      rotate="45"
+      size="xl"
+    />
+  </button>
+  <div
+    className="collapse__content collapse__content--closed"
+  >
+    Collapse Content
+    <span
+      className="collapse__close collapse__close--bottom-center"
+      onClick={[Function]}
+    >
+      <Button
+        iconName="close"
+        iconSize="l"
+      />
+    </span>
+  </div>
+</div>
+`;
+
+exports[`<Collapse> without icon animation 1`] = `
+<div
+  className="collapse"
+>
+  <button
+    aria-expanded="false"
+    className="collapse__label collapse__label--text"
+    onClick={[Function]}
+  >
+    <div
+      className="label__text"
+    >
+      Collapse Label
+    </div>
+    <Icon
+      className="collapse__label__icon"
+      name="arrow"
+      size="m"
+    />
+  </button>
+  <div
+    className="collapse__content collapse__content--closed"
+  >
+    Collapse Content
+  </div>
+</div>
+`;

@@ -75,7 +75,7 @@ export class ReportsChart extends PureComponent<Props, State> {
     if (!hasError && this.chartInstance && !isLoading) {
       this.chartInstance.hideLoading();
     }
-    console.log("iiiiiiiiiiiiiiiiiii", this.props.data);
+
     return (
       <div className={classNames(className)}>
         <Search

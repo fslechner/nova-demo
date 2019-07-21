@@ -21,6 +21,14 @@ exports[`<Header> navLinks center 1`] = `
     >
       D3.js
     </NavLink>
+    <NavLink
+      activeClassName="link--current"
+      className="link"
+      key="linebarchart"
+      to="/linebarchart"
+    >
+      LinebarChart
+    </NavLink>
   </nav>
 </header>
 `;
@@ -46,6 +54,14 @@ exports[`<Header> navLinks default left 1`] = `
     >
       D3.js
     </NavLink>
+    <NavLink
+      activeClassName="link--current"
+      className="link"
+      key="linebarchart"
+      to="/linebarchart"
+    >
+      LinebarChart
+    </NavLink>
   </nav>
 </header>
 `;
@@ -70,6 +86,14 @@ exports[`<Header> navLinks right 1`] = `
       to="/d3-js"
     >
       D3.js
+    </NavLink>
+    <NavLink
+      activeClassName="link--current"
+      className="link"
+      key="linebarchart"
+      to="/linebarchart"
+    >
+      LinebarChart
     </NavLink>
   </nav>
 </header>
