@@ -1,9 +1,11 @@
 import React, { PureComponent, HTMLAttributes } from "react";
 import classNames from "classnames";
 import { connect } from "react-redux";
+import moment from "moment";
+import _ from "lodash";
 import { AppState } from "../../../store/initalState";
 import { fetchReportsD3 as fetchReportsD3Action } from "../../../store/actions";
-import { Linechart, Error, Search } from "../../../components";
+import { LinebarChart, Error, Search } from "../../../components";
 
 export interface StateProps {
   /** Is loading data */
@@ -11,7 +13,7 @@ export interface StateProps {
   /** Has an error */
   hasError: boolean;
   /** Fetched and formatted data**/
-  data: Array<(string | number)[]>;
+  data: any;
 }
 
 export interface DispatchProps {
@@ -29,14 +31,6 @@ export type Props = StateProps &
   OwnProps &
   HTMLAttributes<HTMLDivElement>;
 
-const mockData = [
-  { a: 1, b: 3 },
-  { a: 2, b: 6 },
-  { a: 3, b: 2 },
-  { a: 4, b: 12 },
-  { a: 5, b: 8 }
-];
-
 export class ReportsChartD3 extends PureComponent<Props> {
   componentDidMount() {
     this.props.fetchReportsD3("");
@@ -45,12 +39,26 @@ export class ReportsChartD3 extends PureComponent<Props> {
   render() {
     const {
       title,
-      /*      data, */
+      data,
       isLoading,
       hasError,
       fetchReportsD3,
       className
     } = this.props;
+
+    if (!data) {
+      return null;
+    }
+    // https://stackoverflow.com/questions/43715179/group-array-of-object-by-dates
+    const groupedByMonth = _.groupBy(data, (item: any) =>
+      moment(item.x, "YYYYMMDD").format("MMM")
+    );
+    const groupedByYear = _.groupBy(data, (item: any) =>
+      moment(item.x, "YYYYMMDD").format("YYYY")
+    );
+    console.log("goupedByMonth", groupedByMonth);
+    console.log("goupedByYear", groupedByYear);
+
     return (
       <div className={classNames(className)}>
         <Search
@@ -62,7 +70,10 @@ export class ReportsChartD3 extends PureComponent<Props> {
           <h3 className="horizontal-center">{title}</h3>
           <div className="chart-wrapper">
             {!hasError ? (
-              <Linechart data={mockData} />
+              <LinebarChart
+                linechartData={groupedByYear}
+                barchartData={groupedByMonth}
+              />
             ) : (
               <Error fetchData={fetchReportsD3} isLoading={isLoading} />
             )}

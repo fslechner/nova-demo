@@ -11,16 +11,12 @@ interface Props {
 
 export class Bar extends PureComponent<Props> {
   element = createRef<any>();
-  node = this.element.current;
-  colorScale: any;
+  node = this.element.current!;
 
-  constructor(props: Props) {
-    super(props);
-    this.colorScale = d3
-      .scaleLinear()
-      .domain([0, this.props.yMaxValue])
-      .range([20, 50]);
-  }
+  colorScale = d3
+    .scaleLinear()
+    .domain([0, this.props.yMaxValue])
+    .range([10, 100]);
 
   componentDidMount() {
     this.renderBar();
@@ -113,6 +109,7 @@ export class Bar extends PureComponent<Props> {
 
   render() {
     console.log("render bar", this.node);
-    return <g ref={this.element} />;
+    console.log("render bar", this.element);
+    return <g ref={el => (this.node = el)} />;
   }
 }

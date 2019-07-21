@@ -10,12 +10,12 @@ interface OpenFDAResponse {
   results: any;
 }
 
-interface FoodReportsResponse {
+export interface FoodReportsResponse {
   time: number;
   count: number;
 }
 
-interface FoodInitiatorsResponse {
+export interface FoodInitiatorsResponse {
   term: string;
   count: number;
 }
@@ -27,7 +27,7 @@ export const openFDA = {
     url: `food/enforcement.json?search=reason_for_recall:"${term}"&count=report_date`,
     transformResponse: (r: OpenFDAResponse) =>
       r.results.map((data: FoodReportsResponse) => [
-        moment(data.time, "YYYY-MM-DD").valueOf(),
+        moment(data.time, "YYYYMMDD").valueOf(),
         data.count
       ])
   }),

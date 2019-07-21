@@ -2,13 +2,17 @@ import React, { PureComponent } from "react";
 import { Linechart } from "./linechart";
 import { Barchart } from "./barchart";
 
+interface Props {
+  linechartData: any;
+  barchartData: any;
+}
 interface State {
   linechartData: { year: number; income: number }[] | undefined;
   barchartData: { month: number; income: number }[] | undefined;
 }
 
 // Charts Component
-export class Charts extends PureComponent<{}, State> {
+export class Charts extends PureComponent<Props, State> {
   state: State = {
     linechartData: [],
     barchartData: []
@@ -41,6 +45,10 @@ export class Charts extends PureComponent<{}, State> {
     });
   }
   handleChangeYear(year: string) {
+    /*     return this.setState({
+      barchartData: this.props.barchartData[year]
+    });
+ */
     let getData;
     if (year === "2012") {
       getData = [
