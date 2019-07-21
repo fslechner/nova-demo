@@ -5,10 +5,12 @@ import { Icon } from "..";
 import { IconRotateProps, IconNameProps, IconSizeProps } from "../icon/icon";
 
 export interface Props extends HTMLAttributes<HTMLDivElement> {
-  /** Labeltext of the collapse component closed. */
+  // Wether the component should be expanded as default. */
+  isOpen?: boolean;
+  /** Labeltext of the closed collapse. */
   text: string;
-  /** Labeltext of the collapse component open. */
-  textOpen: string;
+  /** Labeltext of the opened collapse. */
+  textOpen?: string;
   /** LabelText and LabelIcon left aling e.g as show more text button. */
   textInline: boolean;
   /** Define an icon as hide/show indicator. */
@@ -35,7 +37,7 @@ export interface State {
 
 export class Collapse extends PureComponent<Props, State> {
   state: State = {
-    isOpen: false
+    isOpen: this.props.isOpen || false
   };
 
   static defaultProps: Partial<Props> = {

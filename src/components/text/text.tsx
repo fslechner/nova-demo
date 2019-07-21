@@ -1,20 +1,20 @@
-import React, { FC, HTMLAttributes } from "react";
+import React, { FC, HTMLAttributes, ReactNode } from "react";
 import classNames from "classnames";
-import dompurify from "dompurify";
 import { Tag, Collapse, Button } from "..";
 
 export interface Props extends HTMLAttributes<HTMLDivElement> {
-  /** This component does not support custom children. */
-  children?: never;
+  children?: ReactNode | ReactNode[] | string;
   /** HTML-tag used around topic text**/
   topicTag?: "h1" | "h2" | "h3" | "h4" | "h5" | "h6";
   /** Heading text between the your selected topicTag. Is no topic is set, a topicTag will also not set.**/
   topic?: string;
-  /** Teaser text between strong tags **/
+  /** Teaser text between strong tags */
   teaser?: string;
-  /** Paragraph text between p tags **/
+  /** Paragraph text between p tags */
   text?: string;
-  /** Text shown within collapse **/
+  /** Wether the text should appear in colums or not */
+  textColumns?: "two-columns";
+  /** Text shown within collapse */
   textHidden?: string;
 }
 
@@ -23,26 +23,43 @@ export const Text: FC<Props> = ({
   topic,
   teaser,
   text,
+  textColumns,
   textHidden,
   className,
+  children,
   ...rest
-}) => (
-  <div className={classNames("text", className)} data-test="Text" {...rest}>
-    {topic && <Tag type={topicTag}>{topic}</Tag>}
-    {teaser && <strong dangerouslySetInnerHTML={{ __html: teaser }} />}
-    {text && <p dangerouslySetInnerHTML={{ __html: text }} />}
-    {textHidden && (
-      <Collapse
-        className="text-center"
-        text="read more" // TODO: Should also come from parent. Use this as default!
-        textOpen="read less" // TODO: Should also come from parent Use this as default!
-        textInline={true}
-        closeItem={<Button iconName="close" iconSize="l" />}
-      >
-        <p dangerouslySetInnerHTML={{ __html: textHidden }} />
-      </Collapse>
-    )}
-  </div>
-);
+}) => {
+  const rootClasses = classNames("text", className);
+  const textClasses = classNames({
+    [`text--${textColumns}`]: !!textColumns
+  });
+
+  return (
+    <div className={rootClasses} {...rest}>
+      {topic && <Tag type={topicTag}>{topic}</Tag>}
+      {teaser && <strong dangerouslySetInnerHTML={{ __html: teaser }} />}
+      {text && (
+        <p className={textClasses} dangerouslySetInnerHTML={{ __html: text }} />
+      )}
+      {textHidden && (
+        <Collapse
+          className="text-center"
+          text="read more"
+          textOpen="read less"
+          textInline={true}
+          closeItem={
+            <Button iconName="close" iconSize="m" iconAlign="after">
+              read less
+            </Button>
+          }
+        >
+          <p dangerouslySetInnerHTML={{ __html: textHidden }} />
+        </Collapse>
+      )}
+
+      {children}
+    </div>
+  );
+};
 
 export default Text;

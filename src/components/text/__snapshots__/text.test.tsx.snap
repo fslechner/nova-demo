@@ -3,14 +3,12 @@
 exports[`<Text> Text null 1`] = `
 <div
   className="text"
-  data-test="Text"
 />
 `;
 
 exports[`<Text> Text with h1 topic and teaser 1`] = `
 <div
   className="text"
-  data-test="Text"
 >
   <Tag
     type="h1"
@@ -25,6 +23,7 @@ exports[`<Text> Text with h1 topic and teaser 1`] = `
     }
   />
   <p
+    className=""
     dangerouslySetInnerHTML={
       Object {
         "__html": "Let's write some tests",
@@ -37,7 +36,6 @@ exports[`<Text> Text with h1 topic and teaser 1`] = `
 exports[`<Text> Text with h2 topic 1`] = `
 <div
   className="text"
-  data-test="Text"
 >
   <Tag
     type="h2"
@@ -45,6 +43,7 @@ exports[`<Text> Text with h2 topic 1`] = `
     Hello Jest
   </Tag>
   <p
+    className=""
     dangerouslySetInnerHTML={
       Object {
         "__html": "Let's write some tests",
@@ -57,7 +56,6 @@ exports[`<Text> Text with h2 topic 1`] = `
 exports[`<Text> Text with only teaser 1`] = `
 <div
   className="text"
-  data-test="Text"
 >
   <strong
     dangerouslySetInnerHTML={
@@ -72,9 +70,9 @@ exports[`<Text> Text with only teaser 1`] = `
 exports[`<Text> Text with only text 1`] = `
 <div
   className="text"
-  data-test="Text"
 >
   <p
+    className=""
     dangerouslySetInnerHTML={
       Object {
         "__html": "Let's write some tests",

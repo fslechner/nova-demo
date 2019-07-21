@@ -17,6 +17,7 @@ export class FoodRecallEnforcement extends PureComponent {
             topicTag="h1"
             topic={text.reports.topic}
             text={text.reports.text}
+            textColumns="two-columns"
             textHidden={text.reports.textHidden}
           />
           <ReportsChart />
