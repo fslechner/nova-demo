@@ -50,14 +50,36 @@ export class ReportsChartD3 extends PureComponent<Props> {
       return null;
     }
     // https://stackoverflow.com/questions/43715179/group-array-of-object-by-dates
-    const groupedByMonth = _.groupBy(data, (item: any) =>
-      moment(item.x, "YYYYMMDD").format("MMM")
-    );
+
     const groupedByYear = _.groupBy(data, (item: any) =>
       moment(item.x, "YYYYMMDD").format("YYYY")
     );
-    console.log("goupedByMonth", groupedByMonth);
-    console.log("goupedByYear", groupedByYear);
+
+    const countedByYears = Object.entries(groupedByYear).map((year: any) => {
+      return {
+        year: year[0],
+        value: _.sumBy(year[1], (item: any) => item.y)
+      };
+    });
+
+    const countedByMonthOfYears = Object.entries(groupedByYear).map(year => {
+      const groupByMonth = _.groupBy(year[1], (item: any) =>
+        moment(item.x, "YYYYMMDD").format("M")
+      );
+      return {
+        [year[0]]: [
+          Object.entries(groupByMonth).map((month: any) => {
+            return {
+              month: month[0],
+              value: _.sumBy(month[1], (item: any) => item.y)
+            };
+          })
+        ]
+      };
+    });
+
+    console.log("countedByYears", countedByYears);
+    console.log("countedByMonthOfYears", countedByMonthOfYears);
 
     return (
       <div className={classNames(className)}>
@@ -71,8 +93,8 @@ export class ReportsChartD3 extends PureComponent<Props> {
           <div className="chart-wrapper">
             {!hasError ? (
               <LinebarChart
-                linechartData={groupedByYear}
-                barchartData={groupedByMonth}
+                linechartData={countedByYears}
+                barchartData={countedByMonthOfYears}
               />
             ) : (
               <Error fetchData={fetchReportsD3} isLoading={isLoading} />

@@ -19,25 +19,35 @@ export const Linechart: FC<Props> = ({
   svgDimensions,
   margins
 }) => {
+  if (!data) {
+    return null;
+  }
+
+  console.log("linechart data", data);
+
   const xScaleMinValue = Math.min(...data.map((d: any) => d.year));
   const xScaleMaxValue = Math.max(...data.map((d: any) => d.year));
-  const yScaleMaxValue = Math.max(...data.map((d: any) => d.income));
+  const yScaleMaxValue = Math.max(...data.map((d: any) => d.value));
+  console.log(yScaleMaxValue);
 
   const xScale = d3
     .scaleLinear()
     .domain([xScaleMinValue, xScaleMaxValue])
     .range([margins.left, svgDimensions.width - margins.right])
     .clamp(true);
+
   const yScale = d3
     .scaleLinear()
     .domain([0, yScaleMaxValue])
     .range([svgDimensions.height - margins.top, margins.bottom])
     .clamp(true);
+
   const text = (
     <text transform="translate(60,140)rotate(-90)" fontSize="13">
       Annual Income ($)
     </text>
   );
+
   const rectOverlay = (
     <rect
       transform={`translate(${margins.left / 2},${margins.top / 2})`}
@@ -48,6 +58,7 @@ export const Linechart: FC<Props> = ({
       ry="5"
     />
   );
+
   return (
     <svg
       className="lineChartSvg"
@@ -78,4 +89,3 @@ export const Linechart: FC<Props> = ({
     </svg>
   );
 };
-/***************** LineChart End ****************/

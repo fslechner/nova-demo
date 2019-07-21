@@ -10,7 +10,11 @@ interface Props {
 }
 
 export const Barchart: FC<Props> = ({ data, margins, svgDimensions }) => {
-  const yMaxValue = Math.max(...data.map((d: any) => d.income));
+  if (!data) {
+    return null;
+  }
+
+  const yMaxValue = Math.max(...data.map((d: any) => d.value));
   const months = [
     { month: "Jan" },
     { month: "Feb" },

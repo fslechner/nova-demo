@@ -108,8 +108,6 @@ export class Bar extends PureComponent<Props> {
   }
 
   render() {
-    console.log("render bar", this.node);
-    console.log("render bar", this.element);
     return <g ref={el => (this.node = el)} />;
   }
 }

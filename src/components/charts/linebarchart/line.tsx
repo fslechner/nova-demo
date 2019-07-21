@@ -11,7 +11,7 @@ export const Line: FC<Props> = ({ scales, data }) => {
   const line = d3
     .line()
     .x((d: any) => xScale(d.year))
-    .y((d: any) => yScale(d.income))
+    .y((d: any) => yScale(d.value))
     .curve(d3.curveMonotoneX);
 
   const path = (

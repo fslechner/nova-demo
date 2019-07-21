@@ -30,7 +30,7 @@ export class Tooltip extends PureComponent<Props, State> {
     let bisectMouseValue = d3.bisector((d: any) => d.year).left;
     let mouseValue, d0, d1, i, d;
     const translateX = xScale(data[1].year),
-      translateY = yScale(data[1].income);
+      translateY = yScale(data[1].value);
     const tooltip = (
       <g
         className="lineChartTooltip"
@@ -46,7 +46,7 @@ export class Tooltip extends PureComponent<Props, State> {
         />
         <circle r="6px" stroke="#FFF056" strokeWidth="3px" fill="#333333" />
         <text x="-10" y="-10" fontSize="12px">
-          {data[1].income}
+          {data[1].value}
         </text>
       </g>
     );
@@ -65,13 +65,13 @@ export class Tooltip extends PureComponent<Props, State> {
           d = mouseValue - d0.year < d1.year - mouseValue ? d0 : d1;
           d3.select(".lineChartTooltip").attr(
             "transform",
-            "translate(" + xScale(d.year) + "," + yScale(d.income) + ")"
+            "translate(" + xScale(d.year) + "," + yScale(d.value) + ")"
           );
           d3.select(".lineChartTooltip line").attr(
             "y2",
-            svgDimensions.height - yScale(d.income) - margins.bottom
+            svgDimensions.height - yScale(d.value) - margins.bottom
           );
-          d3.select(".lineChartTooltip text").text(d.income);
+          d3.select(".lineChartTooltip text").text(d.value);
           this.setState({
             year: d.year
           });
@@ -85,7 +85,7 @@ export class Tooltip extends PureComponent<Props, State> {
             "y2",
             svgDimensions.height - translateY - margins.bottom
           );
-          d3.select(".lineChartTooltip text").text(data[2].income);
+          d3.select(".lineChartTooltip text").text(data[2].value);
           this.setState({
             year: xScale.invert(translateX)
           });
