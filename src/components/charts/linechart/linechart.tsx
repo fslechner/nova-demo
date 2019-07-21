@@ -72,7 +72,6 @@ export class Linechart extends PureComponent<LinechartProps, State> {
   }
 
   render() {
-    const { xTicks, yTicks, xAxis, yAxis } = this.props;
     const { data, width, height } = this.state;
 
     if (!data || data === [] || !this.chart) {

@@ -24,31 +24,29 @@ exports[`renders toMatchSnapshot 1`] = `
       }
       navLinksAlign="center"
     />
-    <Switch>
-      <Route
-        exact={true}
-        path="/"
-        render={[Function]}
-      />
-      <withRouter(SwipeableRoutes)>
-        <Route
-          component={[Function]}
-          path="/highcharts"
-        />
-        <Route
-          component={[Function]}
-          path="/d3-js"
-        />
-        <Route
-          component={[Function]}
-          path="/linebarchart"
-        />
-      </withRouter(SwipeableRoutes)>
+    <Route
+      exact={true}
+      path="/"
+      render={[Function]}
+    />
+    <withRouter(SwipeableRoutes)>
       <Route
         component={[Function]}
-        path="*"
+        path="/highcharts"
       />
-    </Switch>
+      <Route
+        component={[Function]}
+        path="/d3-js"
+      />
+      <Route
+        component={[Function]}
+        path="/linebarchart"
+      />
+    </withRouter(SwipeableRoutes)>
+    <Route
+      component={[Function]}
+      path="*"
+    />
   </div>
 </BrowserRouter>
 `;

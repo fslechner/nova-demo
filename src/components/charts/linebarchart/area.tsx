@@ -31,8 +31,8 @@ export const Area: FC<Props> = ({ scales, data, svgDimensions, margins }) => {
       <stop offset="100%" stopColor="#FFF056" stopOpacity="0.5" />
     </linearGradient>
   );
-  // @ts-ignore
-  const path = <path d={area(data)} className="area" />;
+
+  const path = <path d={area(data) || undefined} className="area" />;
   return (
     <g>
       {areaGradient}

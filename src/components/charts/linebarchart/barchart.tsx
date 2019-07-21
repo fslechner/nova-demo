@@ -41,11 +41,13 @@ export const Barchart: FC<Props> = ({ data, margins, svgDimensions }) => {
     .scaleLinear()
     .domain([0, yMaxValue])
     .range([svgDimensions.height - margins.bottom, margins.top]);
+
   const text = (
     <text transform="translate(60,150)rotate(-90)" fontSize="13">
       Monthly Income ($)
     </text>
   );
+
   const rectOverlay = (
     <rect
       transform={`translate(${margins.left / 2},${margins.top / 2})`}
@@ -56,6 +58,7 @@ export const Barchart: FC<Props> = ({ data, margins, svgDimensions }) => {
       ry="5"
     />
   );
+
   return (
     <svg width={svgDimensions.width} height={svgDimensions.height}>
       {rectOverlay}

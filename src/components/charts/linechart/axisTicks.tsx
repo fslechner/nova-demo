@@ -17,9 +17,9 @@ export const AxisTicks: FC<Props> = ({ direction, ticks, config }) => {
 
   const format = d3.format(".2");
 
-  const xTicks = x.ticks(ticks).map((d: any) =>
+  const xTicks = x.ticks(ticks).map((d: any, i: any) =>
     x(d) > margin && x(d) < w ? (
-      <g transform={`translate(${x(d)},${h + margin})`}>
+      <g key={i} transform={`translate(${x(d)},${h + margin})`}>
         <text>{format(d)}</text>
         <line x1="0" x2="0" y1={"0"} y2="5" transform="translate(0,-20)" />
       </g>
@@ -28,7 +28,7 @@ export const AxisTicks: FC<Props> = ({ direction, ticks, config }) => {
 
   const yTicks = y.ticks(ticks).map((d: any, i: number) =>
     y(d) > 10 && y(d) < h ? (
-      <g key="i" transform={`translate(${margin},${y(d)})`}>
+      <g key={i} transform={`translate(${margin},${y(d)})`}>
         <text x={margin - 20} y="5">
           {format(d)}
         </text>

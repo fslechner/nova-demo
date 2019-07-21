@@ -1,8 +1,7 @@
-import React, { FC } from "react";
+import React, { FC, HTMLAttributes } from "react";
 import * as d3 from "d3";
-import { Linechart } from "./linechart";
 
-export interface Props {
+export interface Props extends HTMLAttributes<SVGPathElement> {
   data: any;
   x: any;
   y: any;
@@ -16,6 +15,5 @@ export const Line: FC<Props> = ({ data, x, y }) => {
     .x((d: any) => x(d.a))
     .y((d: any) => y(d.b))
     .curve(d3.curveCatmullRom.alpha(0.5));
-  // @ts-ignore
-  return <path d={line(data)} />;
+  return <path d={line(data) || undefined} />;
 };

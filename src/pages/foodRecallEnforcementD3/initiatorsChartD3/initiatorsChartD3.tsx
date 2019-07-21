@@ -30,10 +30,6 @@ export type Props = StateProps &
   HTMLAttributes<HTMLOrSVGElement>;
 
 export class InitiatorsChartD3 extends PureComponent<Props> {
-  constructor(props: Props) {
-    super(props);
-  }
-
   componentDidMount() {
     this.props.fetchInitiators();
   }

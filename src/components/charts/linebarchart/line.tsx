@@ -15,8 +15,12 @@ export const Line: FC<Props> = ({ scales, data }) => {
     .curve(d3.curveMonotoneX);
 
   const path = (
-    // @ts-ignore
-    <path d={line(data)} stroke="#FFF056" strokeWidth="3px" fill="none" />
+    <path
+      d={line(data) || undefined}
+      stroke="#FFF056"
+      strokeWidth="3px"
+      fill="none"
+    />
   );
   return <g>{path}</g>;
 };

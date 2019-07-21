@@ -19,18 +19,19 @@ export class Bar extends PureComponent<Props> {
     this.colorScale = d3
       .scaleLinear()
       .domain([0, this.props.yMaxValue])
-      // @ts-ignore
-      .range(["#999999", "#333333"]);
+      .range([20, 50]);
   }
+
   componentDidMount() {
     this.renderBar();
   }
+
   renderBar = () => {
     const { scales, margins, svgDimensions, data } = this.props;
     const { xScale, yScale } = scales;
     const { height } = svgDimensions;
-    // @ts-ignore
-    let bar = d3.select(this.node).append("g");
+    const bar = d3.select(this.node).append("g");
+
     bar
       .attr("class", "rect-group")
       .selectAll("rect")
@@ -70,8 +71,7 @@ export class Bar extends PureComponent<Props> {
     const { scales, margins, svgDimensions, data } = nextProps;
     const { xScale, yScale } = scales;
     const { height } = svgDimensions;
-    // @ts-ignore
-    let bar = d3.select(this.node).append("g");
+    const bar = d3.select(this.node).append("g");
 
     d3.select(".rect-group").remove();
     bar
@@ -110,7 +110,9 @@ export class Bar extends PureComponent<Props> {
       .style("fill", "#333333")
       .style("font-size", "12px");
   }
+
   render() {
+    console.log("render bar", this.node);
     return <g ref={this.element} />;
   }
 }

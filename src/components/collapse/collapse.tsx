@@ -97,7 +97,7 @@ export class Collapse extends PureComponent<Props, State> {
       [`collapse__close`]: !!closeItem,
       [`collapse__close--${closePosition}`]: closeItem && closePosition
     });
-    console.log("###", isOpen);
+
     return (
       <div className={rootClasses} {...rest}>
         <button

@@ -1,4 +1,4 @@
-import React, { FC, HTMLAttributes, PureComponent, createRef } from "react";
+import React, { HTMLAttributes, PureComponent, createRef } from "react";
 import * as d3 from "d3";
 
 interface Props extends HTMLAttributes<SVGElement> {
