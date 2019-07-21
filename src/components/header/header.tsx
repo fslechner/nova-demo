@@ -3,6 +3,8 @@ import classNames from "classnames";
 import { NavLink } from "react-router-dom";
 
 export interface Props extends HTMLAttributes<HTMLDivElement> {
+  /** This component does not support custom children. */
+  children?: never;
   /** Array of navigation links shown in header */
   navLinks: Array<{ name: string; path: string }>;
   /** Align of the navLinks within the header */

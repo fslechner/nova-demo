@@ -6,6 +6,8 @@ import { Tag } from "..";
 const sanitizer = dompurify.sanitize;
 
 export interface Props extends HTMLAttributes<HTMLDivElement> {
+  /** This component does not support custom children. */
+  children?: never;
   /** HTML-tag used around topic text**/
   topicTag?: "h1" | "h2" | "h3" | "h4" | "h5" | "h6";
   /** Heading text between the your selected topicTag. Is no topic is set, a topicTag will also not set.**/

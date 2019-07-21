@@ -8,8 +8,14 @@
   align-items: center;
 }
 
-.collpase {
-  padding-top: 20px;
+.collapse__label__icon {
+}
+
+.collapse__label__icon--animated {
+  transition: transform 0.2s ease;
+}
+
+.collapse__content {
 }
 
 .collapse__content--closed {
@@ -21,4 +27,16 @@
 .collapse__content--open {
   max-height: 2000px; // bigger than the biggest possible content
   transition: max-height 0.25s ease-out;
+}
+
+.collapse__close {
+}
+
+.collapse__close--top-center {
+}
+
+.collapse__close--top-right {
+}
+
+.collapse__close--bottom-center {
 }

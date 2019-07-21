@@ -11,6 +11,8 @@ import { Button } from "..";
 const sanitizer = dompurify.sanitize;
 
 export interface Props extends HTMLAttributes<HTMLDivElement> {
+  /** This component does not support custom children. */
+  children?: never;
   /** Is loading data */
   isLoading?: boolean;
   /** ClickHandler for fetching data */
