@@ -17,19 +17,21 @@ export class FoodRecallEnforcement extends PureComponent {
             topicTag="h1"
             topic={text.reports.topic}
             text={text.reports.text}
-            textColumns="two-columns"
             textHidden={text.reports.textHidden}
           />
           <ReportsChart />
-          <div className="flex-two-column">
+          <div>
+            <InitiatorsChart className="item-chart" />
             <Text
-              className="item"
+              className="item-text"
               topicTag="h2"
               topic={text.initiators.topic}
-              text={text.initiators.text}
-              textHidden={text.initiators.textHidden}
+              text={
+                text.initiators.text +
+                text.initiators.textHidden +
+                text.initiators.text
+              }
             />
-            <InitiatorsChart className="item" />
           </div>
         </div>
       </>

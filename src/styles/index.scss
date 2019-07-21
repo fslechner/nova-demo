@@ -8,6 +8,9 @@
 @import "collapse";
 @import "text";
 
+// TODO: clean up css using flow-styles
+// TODO: create styleguide using flow-style
+//
 * {
   box-sizing: border-box;
 }
@@ -22,14 +25,15 @@ body {
   color: rgb(32, 32, 32);
 }
 
+h3 {
+  margin: 0 0 1rem 0;
+}
 button {
   padding: 0;
   border: none;
   font: inherit;
   color: inherit;
   background-color: transparent;
-  /* show a hand cursor on hover; some argue that we
-  should keep the default arrow cursor for buttons */
   cursor: pointer;
 }
 
@@ -69,17 +73,7 @@ button {
   padding-top: 1.5rem;
 }
 
-.flex-two-column {
-  display: flex;
-  flex-direction: row-reverse;
-  margin-top: 2rem;
-}
-
 @media (max-width: 930px) {
-  .flex-two-column {
-    flex-direction: column;
-  }
-
   .page-wrapper {
     padding: 1.5rem;
     margin: 0;
@@ -96,6 +90,24 @@ button {
 
 .item {
   flex: 1;
+}
+.item-text {
+}
+
+.item-chart {
+  width: 370px;
+  height: 455px;
+  float: right;
+}
+
+.item-text-r {
+}
+
+.item-text-i {
+  width: 200px;
+  height: 200px;
+  background: yellow;
+  float: right;
 }
 
 .highcharts-container {

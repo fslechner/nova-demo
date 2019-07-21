@@ -79,7 +79,7 @@ export class InitiatorsChart extends React.PureComponent<Props, State> {
     return (
       <div className={classNames(className)}>
         <h3 className="horizontal-center">Enforcement initiators</h3>
-        <div className="chart-wrapper horizontal-center">
+        <div className="horizontal-center">
           {!hasError ? (
             <HighchartsReact
               highcharts={Highcharts}

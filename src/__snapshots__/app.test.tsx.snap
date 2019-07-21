@@ -30,9 +30,7 @@ exports[`renders toMatchSnapshot 1`] = `
         path="/"
         render={[Function]}
       />
-      <withRouter(SwipeableRoutes)
-        enableMouseEvents={true}
-      >
+      <withRouter(SwipeableRoutes)>
         <Route
           component={[Function]}
           path="/highcharts"

@@ -78,13 +78,13 @@ export class ReportsChart extends PureComponent<Props, State> {
 
     return (
       <div className={classNames(className)}>
+        <h3 className="horizontal-center">Enforcement reports over time</h3>
         <Search
           fetchData={fetchReports}
           isLoading={isLoading}
           data-test="search"
         />
         <div>
-          <h3 className="horizontal-center">Enforcement reports over time</h3>
           <div className="chart-wrapper">
             {!hasError ? (
               <HighchartsReact

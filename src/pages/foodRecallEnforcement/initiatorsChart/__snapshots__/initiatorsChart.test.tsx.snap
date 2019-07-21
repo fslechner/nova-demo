@@ -10,7 +10,7 @@ exports[`Initiator snapshots default 1`] = `
     Enforcement initiators
   </h3>
   <div
-    className="chart-wrapper horizontal-center"
+    className="horizontal-center"
   >
     <t
       callback={[Function]}
@@ -1836,7 +1836,7 @@ exports[`Initiator snapshots has error 1`] = `
     Enforcement initiators
   </h3>
   <div
-    className="chart-wrapper horizontal-center"
+    className="horizontal-center"
   >
     <Error
       fetchData={
@@ -1868,7 +1868,7 @@ exports[`Initiator snapshots is loading 1`] = `
     Enforcement initiators
   </h3>
   <div
-    className="chart-wrapper horizontal-center"
+    className="horizontal-center"
   >
     <t
       callback={[Function]}

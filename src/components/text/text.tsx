@@ -53,7 +53,10 @@ export const Text: FC<Props> = ({
             </Button>
           }
         >
-          <p dangerouslySetInnerHTML={{ __html: textHidden }} />
+          <p
+            className={textClasses}
+            dangerouslySetInnerHTML={{ __html: textHidden }}
+          />
         </Collapse>
       )}
 

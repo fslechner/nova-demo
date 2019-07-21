@@ -17,7 +17,7 @@ export const App: FC = () => (
       <Header navLinks={navLinks} navLinksAlign="center" />
       <Switch>
         <Route exact path="/" render={() => <Redirect to="/highcharts" />} />
-        <SwipeableRoutes enableMouseEvents>
+        <SwipeableRoutes>
           <Route path="/highcharts" component={FoodRecallEnforcement} />
           <Route path="/d3-js" component={FoodRecallEnforcementD3} />
           <Route path="/linebarchart" component={LinebarChart} />

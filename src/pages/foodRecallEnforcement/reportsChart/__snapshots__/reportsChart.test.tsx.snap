@@ -4,6 +4,11 @@ exports[`Reports snapshots default 1`] = `
 <div
   className=""
 >
+  <h3
+    className="horizontal-center"
+  >
+    Enforcement reports over time
+  </h3>
   <Search
     data-test="search"
     fetchData={
@@ -24,11 +29,6 @@ exports[`Reports snapshots default 1`] = `
     isLoading={false}
   />
   <div>
-    <h3
-      className="horizontal-center"
-    >
-      Enforcement reports over time
-    </h3>
     <div
       className="chart-wrapper"
     >
@@ -2685,6 +2685,11 @@ exports[`Reports snapshots has error 1`] = `
 <div
   className=""
 >
+  <h3
+    className="horizontal-center"
+  >
+    Enforcement reports over time
+  </h3>
   <Search
     data-test="search"
     fetchData={
@@ -2705,11 +2710,6 @@ exports[`Reports snapshots has error 1`] = `
     isLoading={false}
   />
   <div>
-    <h3
-      className="horizontal-center"
-    >
-      Enforcement reports over time
-    </h3>
     <div
       className="chart-wrapper"
     >
@@ -2740,6 +2740,11 @@ exports[`Reports snapshots is loading 1`] = `
 <div
   className=""
 >
+  <h3
+    className="horizontal-center"
+  >
+    Enforcement reports over time
+  </h3>
   <Search
     data-test="search"
     fetchData={
@@ -2760,11 +2765,6 @@ exports[`Reports snapshots is loading 1`] = `
     isLoading={true}
   />
   <div>
-    <h3
-      className="horizontal-center"
-    >
-      Enforcement reports over time
-    </h3>
     <div
       className="chart-wrapper"
     >
