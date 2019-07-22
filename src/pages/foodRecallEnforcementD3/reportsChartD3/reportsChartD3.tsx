@@ -49,7 +49,6 @@ export class ReportsChartD3 extends PureComponent<Props> {
     if (!data) {
       return null;
     }
-    // https://stackoverflow.com/questions/43715179/group-array-of-object-by-dates
 
     const groupedByYear = _.groupBy(data, (item: any) =>
       moment(item.x, "YYYYMMDD").format("YYYY")
@@ -62,20 +61,20 @@ export class ReportsChartD3 extends PureComponent<Props> {
       };
     });
 
-    const countedByMonthOfYears = Object.entries(groupedByYear).map(year => {
+    let countedByMonthOfYears = {};
+    Object.entries(groupedByYear).map(year => {
       const groupByMonth = _.groupBy(year[1], (item: any) =>
         moment(item.x, "YYYYMMDD").format("M")
       );
-      return {
-        [year[0]]: [
-          Object.entries(groupByMonth).map((month: any) => {
-            return {
-              month: parseInt(month[0]),
-              value: _.sumBy(month[1], (item: any) => item.y)
-            };
-          })
-        ]
+      const item = {
+        [year[0]]: Object.entries(groupByMonth).map((month: any) => {
+          return {
+            month: parseInt(month[0]),
+            value: _.sumBy(month[1], (item: any) => item.y)
+          };
+        })
       };
+      countedByMonthOfYears = { ...countedByMonthOfYears, ...item };
     });
 
     console.log("countedByYears", countedByYears);

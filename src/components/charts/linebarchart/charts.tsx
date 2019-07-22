@@ -10,30 +10,36 @@ interface Props {
 interface State {
   linechartData: { year: number; value: number }[] | undefined;
   barchartData: { month: number; value: number }[] | undefined;
+  selectedYear: string;
 }
 
 // Charts Component
 export class Charts extends PureComponent<Props, State> {
   state: State = {
     linechartData: [],
-    barchartData: []
+    barchartData: [],
+    selectedYear: "2019"
   };
 
   componentWillMount() {
+    if (this.props.barchartData) {
+      this.handleChangeYear(this.state.selectedYear);
+    }
     this.setState(
       produce((draft: State) => {
-        draft.barchartData = this.props.barchartData;
         draft.linechartData = this.props.linechartData;
       })
     );
   }
 
-  handleChangeYear = (year: string) =>
+  handleChangeYear = (year: string) => {
     this.setState(
       produce((draft: State) => {
         draft.barchartData = this.props.barchartData[year];
+        draft.selectedYear = year;
       })
     );
+  };
 
   render() {
     const margins = { top: 50, right: 100, bottom: 50, left: 100 },
@@ -41,7 +47,8 @@ export class Charts extends PureComponent<Props, State> {
         height: window.screen.height / 2,
         width: window.screen.width / 2
       };
-    console.log("#############", this.state.barchartData);
+    console.log(this.state.selectedYear);
+    console.log(this.state.barchartData);
     return (
       <div className="chart">
         <div className="lineChart">

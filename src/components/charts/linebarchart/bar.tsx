@@ -26,7 +26,6 @@ export class Bar extends PureComponent<Props> {
     const { scales, margins, svgDimensions, data } = this.props;
     const { xScale, yScale } = scales;
     const { height } = svgDimensions;
-    console.log("hello", data);
     const bar = d3.select(this.node).append("g");
 
     bar
