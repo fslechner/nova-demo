@@ -29,7 +29,7 @@ export class Tooltip extends PureComponent<Props, State> {
 
     let bisectMouseValue = d3.bisector((d: any) => d.year).left;
     let mouseValue, d0, d1, i, d;
-    const translateX = xScale(data[1].year),
+    const translateX = xScale(data[1].year + 1),
       translateY = yScale(data[1].value);
     const tooltip = (
       <g

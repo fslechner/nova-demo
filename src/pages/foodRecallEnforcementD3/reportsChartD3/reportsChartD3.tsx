@@ -6,6 +6,7 @@ import _ from "lodash";
 import { AppState } from "../../../store/initalState";
 import { fetchReportsD3 as fetchReportsD3Action } from "../../../store/actions";
 import { LinebarChart, Error, Search } from "../../../components";
+import { number } from "prop-types";
 
 export interface StateProps {
   /** Is loading data */
@@ -61,20 +62,26 @@ export class ReportsChartD3 extends PureComponent<Props> {
       };
     });
 
-    let countedByMonthOfYears = {};
-    Object.entries(groupedByYear).map(year => {
+    let countedByMonthOfYears: any = {};
+    Object.entries(groupedByYear).forEach(year => {
       const groupByMonth = _.groupBy(year[1], (item: any) =>
         moment(item.x, "YYYYMMDD").format("M")
       );
-      const item = {
-        [year[0]]: Object.entries(groupByMonth).map((month: any) => {
-          return {
-            month: parseInt(month[0]),
-            value: _.sumBy(month[1], (item: any) => item.y)
-          };
-        })
+      let dataMonthofYear: any = [];
+      let i: number;
+      for (i = 1; i < 13; i++) {
+        dataMonthofYear.push({
+          month: i,
+          value: groupByMonth[i]
+            ? _.sumBy(groupByMonth[i], (item: any) => item.y)
+            : 0
+        });
+      }
+
+      countedByMonthOfYears = {
+        ...countedByMonthOfYears,
+        [year[0]]: dataMonthofYear
       };
-      countedByMonthOfYears = { ...countedByMonthOfYears, ...item };
     });
 
     return (
