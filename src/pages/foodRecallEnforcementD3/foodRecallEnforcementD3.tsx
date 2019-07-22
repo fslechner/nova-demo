@@ -17,9 +17,10 @@ export class FoodRecallEnforcementD3 extends React.PureComponent {
             topicTag="h1"
             topic={text.reports.topic}
             text={text.reports.text}
+            textHidden={text.reports.textHidden}
           />
           <ReportsChartD3 title={text.reports.chartTitle} />
-          <div className="flex-two-column">
+          <div className="">
             <Text
               className="item"
               topicTag="h2"

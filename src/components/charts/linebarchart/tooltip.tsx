@@ -45,7 +45,7 @@ export class Tooltip extends PureComponent<Props, State> {
           strokeDasharray="5"
         />
         <circle r="6px" stroke="#FFF056" strokeWidth="3px" fill="#333333" />
-        <text x="-10" y="-10" fontSize="12px">
+        <text x="-10" y="-10" fontSize="14px">
           {data[1].value}
         </text>
       </g>

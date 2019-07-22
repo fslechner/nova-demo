@@ -53,7 +53,7 @@ export class Search extends PureComponent<Props> {
           aria-label="Searchbutton for filtering food products"
           className="search__button"
           iconName="search"
-          iconSize="l"
+          iconSize="m"
           isLoading={isLoading}
           onClick={this.handleFetch}
           data-test="search-button"

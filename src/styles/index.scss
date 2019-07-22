@@ -64,8 +64,8 @@ button {
   max-width: 900px;
   margin: 1rem auto 1rem auto;
   padding: 2rem;
-  border: 2px solid #95ceff;
-  border-radius: 16px;
+  /*  border: 2px solid #95ceff;
+  border-radius: 16px; */
 }
 
 .page {
@@ -83,7 +83,7 @@ button {
 
 .chart-wrapper {
   width: 100%;
-  margin-bottom: 3rem;
+  margin-bottom: 2rem;
   /*  background: yellow; */
 }
 
@@ -117,4 +117,11 @@ button {
 
 .highcharts-loading-inner {
   font-size: 1.8rem !important;
+}
+
+.align-space-between {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
 }

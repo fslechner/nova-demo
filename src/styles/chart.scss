@@ -36,7 +36,7 @@
 .linechart .axis-labels text {
   fill: #000;
   fill-opacity: 0.9;
-  font-size: 12px;
+  font-size: 14px;
   text-anchor: middle;
 }
 
@@ -54,19 +54,22 @@ LINBARCHART
 
 .lineChart {
   width: 100%;
-
-  background: rgba(0, 0, 0, 0.7);
+  border-top-left-radius: 16px;
+  border-top-right-radius: 16px;
+  background: #95ceff;
 }
 .barChart {
+  border: 2px solid #95ceff;
   width: 100%;
-
-  background: rgba(255, 240, 86, 0.9);
+  border-bottom-left-radius: 16px;
+  border-bottom-right-radius: 16px;
+  /*   background: rgba(255, 240, 86, 0.9); */
 }
 .lineChart {
   .axisLeft {
     line {
       stroke-width: 0.5;
-      stroke: rgba(255, 255, 255, 0.2);
+      stroke: rgba(255, 255, 255, 0.5);
     }
     path {
       display: none;
@@ -106,6 +109,15 @@ LINBARCHART
 // Area Gradient
 .area {
   fill: url(#area-gradient);
+}
+
+.rect-group {
+  fill: #fff056;
+}
+
+.axisBottom,
+.axisLeft {
+  font-size: 14px;
 }
 
 .rectOverlayBarChart {

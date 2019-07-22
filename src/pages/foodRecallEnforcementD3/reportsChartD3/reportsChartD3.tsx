@@ -77,28 +77,26 @@ export class ReportsChartD3 extends PureComponent<Props> {
       countedByMonthOfYears = { ...countedByMonthOfYears, ...item };
     });
 
-    console.log("countedByYears", countedByYears);
-    console.log("countedByMonthOfYears", countedByMonthOfYears);
-
     return (
       <div className={classNames(className)}>
-        <Search
-          fetchData={fetchReportsD3}
-          isLoading={isLoading}
-          data-test="search"
-        />
-        <div>
-          <h3 className="horizontal-center">{title}</h3>
-          <div className="chart-wrapper">
-            {!hasError ? (
-              <LinebarChart
-                linechartData={countedByYears}
-                barchartData={countedByMonthOfYears}
-              />
-            ) : (
-              <Error fetchData={fetchReportsD3} isLoading={isLoading} />
-            )}
-          </div>
+        <div className="align-space-between">
+          <h3 className="">{title}</h3>
+          <Search
+            className=""
+            fetchData={fetchReportsD3}
+            isLoading={isLoading}
+            data-test="search"
+          />
+        </div>
+        <div className="chart-wrapper">
+          {!hasError ? (
+            <LinebarChart
+              linechartData={countedByYears}
+              barchartData={countedByMonthOfYears}
+            />
+          ) : (
+            <Error fetchData={fetchReportsD3} isLoading={isLoading} />
+          )}
         </div>
       </div>
     );

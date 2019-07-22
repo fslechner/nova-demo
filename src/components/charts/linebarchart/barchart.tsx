@@ -9,10 +9,21 @@ interface Props {
   svgDimensions: any;
 }
 
-export const Barchart: FC<Props> = ({ data, margins, svgDimensions }) => {
+export const Barchart: FC<Props> = ({ data /* margins, svgDimensions  */ }) => {
   if (!data) {
     return null;
   }
+  const svgDimensions = {
+    width: 830,
+    height: 300
+  };
+
+  const margins = {
+    left: 50,
+    right: 20,
+    top: 20,
+    bottom: 40
+  };
 
   const yMaxValue = Math.max(...data.map((d: any) => d.value));
   const months = [
@@ -48,11 +59,12 @@ export const Barchart: FC<Props> = ({ data, margins, svgDimensions }) => {
 
   const text = (
     <text transform="translate(60,150)rotate(-90)" fontSize="13">
-      Reports
+      {" "}
     </text>
   );
 
-  const rectOverlay = (
+  const rectOverlay = null;
+  /*   const rectOverlay = (
     <rect
       transform={`translate(${margins.left / 2},${margins.top / 2})`}
       className="rectOverlayBarChart"
@@ -61,7 +73,7 @@ export const Barchart: FC<Props> = ({ data, margins, svgDimensions }) => {
       rx="5"
       ry="5"
     />
-  );
+  ); */
 
   return (
     <svg width={svgDimensions.width} height={svgDimensions.height}>

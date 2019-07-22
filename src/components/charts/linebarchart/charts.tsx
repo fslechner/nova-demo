@@ -47,8 +47,7 @@ export class Charts extends PureComponent<Props, State> {
         height: window.screen.height / 2,
         width: window.screen.width / 2
       };
-    console.log(this.state.selectedYear);
-    console.log(this.state.barchartData);
+
     return (
       <div className="chart">
         <div className="lineChart">

@@ -17,8 +17,8 @@ export const XYAxisLineChart: FC<Props> = ({
     orient: "Bottom",
     translate: `translate(0,${svgDimensions.height - margins.bottom})`,
     scale: scales.xScale,
-    tickSize: svgDimensions.height - margins.top - margins.bottom,
-    ticks: 4,
+    tickSize: svgDimensions.height - margins.top - margins.bottom + 20,
+    ticks: 5,
     className: "axisBottom",
     padding: 10,
     format: d3.format("")
@@ -27,10 +27,10 @@ export const XYAxisLineChart: FC<Props> = ({
     orient: "Left",
     translate: `translate(${margins.left},0)`,
     scale: scales.yScale,
-    tickSize: svgDimensions.width - margins.left - margins.right,
-    ticks: 5,
+    tickSize: svgDimensions.width - margins.left - margins.right + 50,
+    ticks: 3,
     className: "axisLeft",
-    padding: 15,
+    padding: 10,
     format: null
   };
 

@@ -43,7 +43,7 @@ export const Text: FC<Props> = ({
       )}
       {textHidden && (
         <Collapse
-          className="text-center"
+          className=""
           text="read more"
           textOpen="read less"
           textInline={true}

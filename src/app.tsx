@@ -15,7 +15,6 @@ export const App: FC = () => (
       <SwipeableRoutes>
         <Route path="/highcharts" component={FoodRecallEnforcement} />
         <Route path="/d3-js" component={FoodRecallEnforcementD3} />
-        <Route path="/linebarchart" component={LinebarChart} />
       </SwipeableRoutes>
       <Route path="*" component={NotFound} />
       {/*     </Switch> */}

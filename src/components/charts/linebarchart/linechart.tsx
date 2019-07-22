@@ -15,9 +15,9 @@ interface Props {
 // LineChart Component
 export const Linechart: FC<Props> = ({
   data,
-  onChangeYear,
-  svgDimensions,
-  margins
+  onChangeYear
+  /*   svgDimensions, */
+  /*   margins */
 }) => {
   if (!data) {
     return null;
@@ -26,6 +26,18 @@ export const Linechart: FC<Props> = ({
   const xScaleMinValue = Math.min(...data.map((d: any) => d.year));
   const xScaleMaxValue = Math.max(...data.map((d: any) => d.year));
   const yScaleMaxValue = Math.max(...data.map((d: any) => d.value));
+
+  const svgDimensions = {
+    width: 815,
+    height: 100
+  };
+
+  const margins = {
+    left: 55,
+    right: 20,
+    top: 0,
+    bottom: 20
+  };
 
   const xScale = d3
     .scaleLinear()
@@ -36,15 +48,16 @@ export const Linechart: FC<Props> = ({
   const yScale = d3
     .scaleLinear()
     .domain([0, yScaleMaxValue])
-    .range([svgDimensions.height - margins.top, margins.bottom])
+    .range([svgDimensions.height - margins.top - 20, margins.bottom + 5])
     .clamp(true);
 
   const text = (
     <text transform="translate(60,140)rotate(-90)" fontSize="13">
-      Reports
+      {" "}
     </text>
   );
-
+  const rectOverlay = null;
+  /* 
   const rectOverlay = (
     <rect
       transform={`translate(${margins.left / 2},${margins.top / 2})`}
@@ -54,7 +67,7 @@ export const Linechart: FC<Props> = ({
       rx="5"
       ry="5"
     />
-  );
+  ); */
 
   return (
     <svg
@@ -70,12 +83,12 @@ export const Linechart: FC<Props> = ({
         svgDimensions={svgDimensions}
       />
       <Line scales={{ xScale, yScale }} data={data} />
-      <Area
+      {/*       <Area
         scales={{ xScale, yScale }}
         data={data}
         svgDimensions={svgDimensions}
         margins={margins}
-      />
+      /> */}
       <Tooltip
         svgDimensions={svgDimensions}
         margins={margins}
