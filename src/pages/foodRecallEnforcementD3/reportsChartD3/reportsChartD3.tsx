@@ -70,7 +70,7 @@ export class ReportsChartD3 extends PureComponent<Props> {
         [year[0]]: [
           Object.entries(groupByMonth).map((month: any) => {
             return {
-              month: month[0],
+              month: parseInt(month[0]),
               value: _.sumBy(month[1], (item: any) => item.y)
             };
           })

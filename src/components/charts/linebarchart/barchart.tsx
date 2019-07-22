@@ -48,7 +48,7 @@ export const Barchart: FC<Props> = ({ data, margins, svgDimensions }) => {
 
   const text = (
     <text transform="translate(60,150)rotate(-90)" fontSize="13">
-      Monthly Income ($)
+      Reports
     </text>
   );
 

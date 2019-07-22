@@ -23,12 +23,9 @@ export const Linechart: FC<Props> = ({
     return null;
   }
 
-  console.log("linechart data", data);
-
   const xScaleMinValue = Math.min(...data.map((d: any) => d.year));
   const xScaleMaxValue = Math.max(...data.map((d: any) => d.year));
   const yScaleMaxValue = Math.max(...data.map((d: any) => d.value));
-  console.log(yScaleMaxValue);
 
   const xScale = d3
     .scaleLinear()
@@ -44,7 +41,7 @@ export const Linechart: FC<Props> = ({
 
   const text = (
     <text transform="translate(60,140)rotate(-90)" fontSize="13">
-      Annual Income ($)
+      Reports
     </text>
   );
 

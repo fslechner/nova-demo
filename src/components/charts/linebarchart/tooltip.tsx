@@ -12,8 +12,7 @@ interface Props {
 interface State {
   year: string;
 }
-/***************** LineChart Start ****************/
-// Tooltip Component
+
 export class Tooltip extends PureComponent<Props, State> {
   state: State = {
     year: ""
@@ -27,6 +26,7 @@ export class Tooltip extends PureComponent<Props, State> {
   render() {
     const { svgDimensions, scales, margins, data } = this.props;
     const { xScale, yScale } = scales;
+
     let bisectMouseValue = d3.bisector((d: any) => d.year).left;
     let mouseValue, d0, d1, i, d;
     const translateX = xScale(data[1].year),

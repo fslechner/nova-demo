@@ -15,7 +15,7 @@ export const Area: FC<Props> = ({ scales, data, svgDimensions, margins }) => {
     .area()
     .x((d: any) => xScale(d.year))
     .y0(svgDimensions.height - margins.bottom)
-    .y1((d: any) => yScale(d.income))
+    .y1((d: any) => yScale(d.value))
     .curve(d3.curveMonotoneX);
 
   const areaGradient = (

@@ -8,8 +8,8 @@ interface Props {
   barchartData: any;
 }
 interface State {
-  linechartData: { year: number; income: number }[] | undefined;
-  barchartData: { month: number; income: number }[] | undefined;
+  linechartData: { year: number; value: number }[] | undefined;
+  barchartData: { month: number; value: number }[] | undefined;
 }
 
 // Charts Component
@@ -41,6 +41,7 @@ export class Charts extends PureComponent<Props, State> {
         height: window.screen.height / 2,
         width: window.screen.width / 2
       };
+    console.log("#############", this.state.barchartData);
     return (
       <div className="chart">
         <div className="lineChart">

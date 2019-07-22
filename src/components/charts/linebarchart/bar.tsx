@@ -26,6 +26,7 @@ export class Bar extends PureComponent<Props> {
     const { scales, margins, svgDimensions, data } = this.props;
     const { xScale, yScale } = scales;
     const { height } = svgDimensions;
+    console.log("hello", data);
     const bar = d3.select(this.node).append("g");
 
     bar
@@ -40,10 +41,10 @@ export class Bar extends PureComponent<Props> {
       .duration(1500)
       .ease(d3.easeElastic)
       .attr("x", (d: any) => xScale(d.month))
-      .attr("y", (d: any) => yScale(d.income))
+      .attr("y", (d: any) => yScale(d.value))
       .attr("width", xScale.bandwidth())
-      .attr("height", (d: any) => height - yScale(d.income) - margins.bottom)
-      .style("fill", (d: any) => this.colorScale(d.income));
+      .attr("height", (d: any) => height - yScale(d.value) - margins.bottom)
+      .style("fill", (d: any) => this.colorScale(d.value));
 
     bar
       .attr("class", "text-group")
@@ -56,9 +57,9 @@ export class Bar extends PureComponent<Props> {
       .transition()
       .duration(1500)
       .ease(d3.easeElastic)
-      .text((d: any) => d.income)
+      .text((d: any) => d.value)
       .attr("x", (d: any) => xScale(d.month) + xScale.bandwidth() / 4)
-      .attr("y", (d: any) => yScale(d.income) - 5)
+      .attr("y", (d: any) => yScale(d.value) - 5)
       .style("fill", "#333333")
       .style("font-size", "12px");
   };
@@ -82,10 +83,10 @@ export class Bar extends PureComponent<Props> {
       .duration(2500)
       .ease(d3.easeElastic)
       .attr("x", (d: any) => xScale(d.month))
-      .attr("y", (d: any) => yScale(d.income))
+      .attr("y", (d: any) => yScale(d.value))
       .attr("width", xScale.bandwidth())
-      .attr("height", (d: any) => height - yScale(d.income) - margins.bottom)
-      .style("fill", (d: any) => this.colorScale(d.income));
+      .attr("height", (d: any) => height - yScale(d.value) - margins.bottom)
+      .style("fill", (d: any) => this.colorScale(d.value));
 
     d3.select(".text-group").remove();
     bar
@@ -100,9 +101,9 @@ export class Bar extends PureComponent<Props> {
       .transition()
       .duration(2500)
       .ease(d3.easeElastic)
-      .text((d: any) => d.income)
+      .text((d: any) => d.value)
       .attr("x", (d: any) => xScale(d.month) + xScale.bandwidth() / 4)
-      .attr("y", (d: any) => yScale(d.income) - 5)
+      .attr("y", (d: any) => yScale(d.value) - 5)
       .style("fill", "#333333")
       .style("font-size", "12px");
   }
